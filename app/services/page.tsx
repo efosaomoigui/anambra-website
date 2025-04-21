@@ -1,5 +1,6 @@
-// app/services/page.tsx
+"use client";
 
+import { useState } from "react";
 import ServiceCard from "@/components/services/servicecard";
 import { Search } from "lucide-react";
 
@@ -19,40 +20,45 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const [query, setQuery] = useState("");
+
   return (
     <main className="max-w-7xl mx-auto px-4 pt-[50px] pb-20">
-      <h1 className="mt-[50px] text-3xl font-bold text-center mb-8">
-        Services
+      <h1 className="mt-[50px] text-3xl font-bold text-center mb-10">
+        All Services
       </h1>
-      {/* Tabs */}
-      {/* <div className="flex justify-center mb-6">
-        <div className="flex flex-wrap gap-2 justify-center">
-          {["All", "Services", "FAQs"].map((tab) => (
-            <button
-              key={tab}
-              className="px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      </div> */}
+
       {/* Search Bar */}
-      <div className="flex justify-center mb-10">
-        <div className="relative w-full max-w-lg">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+      <div className="flex flex-col items-center justify-center mb-10">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex items-center bg-[#E9E9E9] rounded-full h-12 px-4 w-full max-w-xl"
+        >
           <input
             type="text"
-            placeholder="Search for a service..."
-            className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
+            placeholder="Search services..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="flex-grow bg-transparent px-2 text-sm text-gray-800 focus:outline-none"
           />
-        </div>
+          <button
+            type="submit"
+            className="text-gray-600 hover:text-black transition text-xl"
+          >
+            <Search size={20} />
+          </button>
+        </form>
       </div>
+
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <ServiceCard key={service.slug} {...service} />
-        ))}
+        {services
+          .filter((service) =>
+            service.title.toLowerCase().includes(query.toLowerCase())
+          )
+          .map((service) => (
+            <ServiceCard key={service.slug} {...service} />
+          ))}
       </div>
     </main>
   );

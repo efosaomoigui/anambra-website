@@ -1,7 +1,7 @@
 // components/InterfaceWithGovernment.tsx
 export default function InterfaceWithGovernment() {
   return (
-    <section className="px-4 md:px-20 mt-20 py-16 ">
+    <section className="px-4 md:px-20  py-16 ">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-black">

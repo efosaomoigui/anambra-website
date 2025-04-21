@@ -1,13 +1,17 @@
+// components/faq/FAQComponent.tsx
+
+import Link from "next/link";
+
 export default function FAQComponent() {
   return (
-    <section className="px-4 md:px-20 py-16 ">
+    <section className="px-4 md:px-20 py-16">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-black">
           Frequently Asked Questions
         </h2>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mb-10">
         <div className="flex gap-6 w-max">
           {Array.from({ length: 5 }).map((_, idx) => (
             <div
@@ -19,11 +23,23 @@ export default function FAQComponent() {
                 common question users might have.
               </p>
 
-              <div className="absolute bottom-4 left-6 w-[40%] h-[2px] bg-gray-400"></div>
-              <div className="absolute bottom-4 right-6 w-[30%] h-[2px] bg-gray-400"></div>
+              <div className="flex justify-between mt-auto pt-4 text-xs text-gray-600">
+                <span>Read More</span>
+                <span>Share</span>
+              </div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Centered Button */}
+      <div className="text-center">
+        <Link
+          href="/faq"
+          className="inline-block px-6 py-2 rounded-full bg-[#FFFFFF] text-gray-700 text-sm font-medium hover:bg-gray-300 transition"
+        >
+          View All FAQs
+        </Link>
       </div>
     </section>
   );
