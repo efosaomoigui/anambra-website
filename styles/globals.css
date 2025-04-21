@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Integral CF Font - Used for headings/titles */
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/Fontspring-DEMO-integralcf-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DM Sans Font - Optional fallback or for specific use */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Regular.woff2") format("woff2"),
+    url("/fonts/DMSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+input[type="checkbox"].custom-golden.custom-golden:checked {
+  /* repeat the class name twice */
+  background-color: #da9617;
+  border-color: #da9617;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Optional: If you want to globally set DM Sans (not needed if you're using Instrument Sans via next/font) */
+body {
+  /* font-family: "DM Sans", sans-serif; */
+}
+
+/* Utility class for Integral CF if needed in Tailwind custom class */
+.text-integral {
+  font-family: "Integral CF", sans-serif;
+}
