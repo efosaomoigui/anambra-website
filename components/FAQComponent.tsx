@@ -6,9 +6,7 @@ export default function FAQComponent() {
   return (
     <section className="px-4 md:px-20 py-16">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-black">
-          Frequently Asked Questions
-        </h2>
+        <h2 className="text-3xl font-bold text-black">FAQs</h2>
       </div>
 
       <div className="overflow-x-auto mb-10">
