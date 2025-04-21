@@ -64,8 +64,6 @@ const documents = [
   { title: "Legal Drafts", size: "2MB", date: "Dec 25, 2023", type: "word" },
 ];
 
-// Inside DocumentLibrary.tsx...
-
 const iconMap = {
   pdf: (
     <div className="bg-[#FFDB8E] h-[140px] flex items-center justify-center">
@@ -106,8 +104,8 @@ export default function DocumentLibrary() {
         </h2>
       </div>
 
-      {/* Centered Search Section */}
-      <div className="flex flex-col items-center justify-center mb-10">
+      {/* Search */}
+      <div className="flex flex-col items-center justify-center mb-10 px-2">
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex items-center bg-[#E9E9E9] rounded-full h-12 px-4 w-full max-w-xl"
@@ -128,11 +126,11 @@ export default function DocumentLibrary() {
         </form>
       </div>
 
-      {/* Main Grid */}
-      <div className="grid grid-cols-12 gap-8">
-        {/* Sidebar Filters */}
+      {/* Main Content */}
+      <div className="grid grid-cols-12 gap-6">
+        {/* Sidebar */}
         <div className="col-span-12 md:col-span-3">
-          <div className="bg-[#F7F7F7] border border-[#D4D4D4] rounded-lg p-7 space-y-4">
+          <div className="bg-[#F7F7F7] border border-[#D4D4D4] rounded-lg p-6 space-y-4">
             {categories.map((cat) => (
               <label
                 key={cat}
@@ -153,23 +151,23 @@ export default function DocumentLibrary() {
           </div>
         </div>
 
-        {/* Document Display */}
+        {/* Documents + Filters */}
         <div className="col-span-12 md:col-span-9 space-y-6">
-          {/* Filters Row */}
-          <div className="flex justify-between items-center">
+          {/* Filter Row */}
+          <div className="flex flex-col sm:flex-row justify-between gap-4 items-center">
             <select
-              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800"
+              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto"
               value={mdaFilter}
               onChange={(e) => setMdaFilter(e.target.value)}
             >
-              <option value=""></option>
-              <option value="">Ministry of Education</option>
-              <option value="">Ministry of Agriculture</option>
-              <option value="">Other Secretary of State</option>
+              <option value="">Filter by MDA</option>
+              <option value="education">Ministry of Education</option>
+              <option value="agriculture">Ministry of Agriculture</option>
+              <option value="secretary">Other Secretary of State</option>
             </select>
 
             <select
-              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800"
+              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >
@@ -181,16 +179,14 @@ export default function DocumentLibrary() {
             </select>
           </div>
 
-          {/* Documents Grid */}
+          {/* Document Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredDocs.map((doc, idx) => (
               <div
                 key={idx}
-                className=" rounded  border hover:shadow-md transition"
+                className="rounded border hover:shadow-md transition"
               >
-                <div className="bg-[#FFDB8E] flex justify-center mb-3">
-                  {iconMap[doc.type]}
-                </div>
+                {iconMap[doc.type]}
                 <h4 className="text-sm font-bold text-gray-800 mb-1 px-4">
                   {doc.title}
                 </h4>
