@@ -1,42 +1,57 @@
 // app/news/[slug]/page.tsx
-import Image from "next/image";
 
-export default function NewsDetailPage() {
+import RelatedNews from "@/components/news/RelatedNews";
+
+export default function NewsDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+
+  // fake data for now
+  const news = {
+    title: "Inter-School Sports Festival",
+    summary: "Students across LGAs compete in a grand sports event.",
+    content: "Full content of the article goes here...",
+    imageUrl: "/news2.jpg",
+    tags: ["Sport", "LGA"],
+  };
+
   return (
-    <main className="max-w-3xl mx-auto px-4 py-10 space-y-6">
+    <main className="max-w-4xl mx-auto px-4 pt-[50px] pb-10">
       {/* Tags */}
-      <div className="flex gap-2">
-        <span className="bg-gray-100 text-gray-700 text-sm rounded px-3 py-1">
-          Health
-        </span>
-        <span className="bg-gray-100 text-gray-700 text-sm rounded px-3 py-1">
-          State
-        </span>
+      <div className="flex gap-2 mb-4">
+        {news.tags.map((tag) => (
+          <span
+            key={tag}
+            className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
+
+      {/* Title */}
+      <h1 className="text-3xl font-bold mb-2">{news.title}</h1>
 
       {/* Summary */}
-      <h2 className="text-2xl font-semibold">
-        A new state-of-the-art hospital has been opened in Awka.
-      </h2>
+      <p className="text-lg font-semibold text-gray-600 mb-6">{news.summary}</p>
 
       {/* Image */}
-      <div className="relative w-full h-80 rounded-lg overflow-hidden">
-        <Image src="/news1.jpg" alt="Hospital" fill className="object-cover" />
-      </div>
+      <img
+        src={news.imageUrl}
+        alt={news.title}
+        className="w-full rounded-lg mb-8"
+      />
 
-      {/* Full Content */}
-      <div className="prose max-w-none">
-        <p>
-          The Anambra State Government has completed the construction of a new
-          hospital located in Awka. This initiative aims to improve access to
-          quality healthcare in the region.
-        </p>
-        <p>
-          The Governor emphasized the importance of community health during the
-          opening ceremony, citing ongoing improvements in medical
-          infrastructure across the state.
-        </p>
-      </div>
+      {/* Content */}
+      <article className="prose prose-lg">
+        <p>{news.content}</p>
+      </article>
+
+      {/* Related News */}
+      <RelatedNews />
     </main>
   );
 }
