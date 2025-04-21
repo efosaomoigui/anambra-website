@@ -14,7 +14,7 @@ export default function FAQComponent() {
           {Array.from({ length: 5 }).map((_, idx) => (
             <div
               key={idx}
-              className="min-w-[300px] max-w-[300px] bg-[#F1F5F9] p-6 rounded-lg shadow-md relative flex flex-col justify-between"
+              className="min-w-[300px] max-w-[300px] bg-[#ffffff] p-6 rounded-lg shadow-md relative flex flex-col justify-between"
             >
               <p className="text-sm text-black mb-8">
                 This is a short answer to FAQ {idx + 1}. It briefly addresses a
