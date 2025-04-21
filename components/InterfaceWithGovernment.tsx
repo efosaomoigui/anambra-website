@@ -1,13 +1,10 @@
 // components/InterfaceWithGovernment.tsx
 export default function InterfaceWithGovernment() {
   return (
-    <section className="px-4 md:px-10 py-16">
+    <section className="px-4 md:px-20 mt-20 py-16 ">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2
-          className="text-3xl sm:text-4xl font-bold text-black"
-          style={{ fontFamily: "Instrument Sans" }}
-        >
+        <h2 className="text-3xl sm:text-4xl font-bold text-black">
           <p>Interface with your</p>
           <p>Government</p>
         </h2>

@@ -4,6 +4,7 @@ import LightSection from "../components/LightSection";
 import NoticeBoard from "../components/NoticeBoard";
 import LatestNews from "../components/LatestNews";
 import FAQComponent from "../components/FAQComponent";
+import InterfaceWithGovernment from "../components/InterfaceWithGovernment";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <LightSection />
       <NoticeBoard />
+      <InterfaceWithGovernment />
       <LatestNews />
       <FAQComponent />
     </>
