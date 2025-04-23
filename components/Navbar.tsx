@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 
@@ -11,13 +12,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [governmentMenuOpen, setGovernmentMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const toggleGovernmentMenu = () => setGovernmentMenuOpen(!governmentMenuOpen);
 
   return (
     <nav className="sticky top-0 z-50 font-[Instrument Sans] bg-[#FFF9F2]">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -37,41 +38,40 @@ export default function Navbar() {
           ☰
         </button>
 
-        {/* Desktop Nav Centered */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex flex-1 justify-center space-x-6">
           {navLinks.map((link) =>
             link.label === "GOVERNMENT" ? (
-              <div key={link.href} className="relative">
-                <button
-                  className="text-[#111111] hover:text-black transition flex items-center gap-1"
-                  onClick={toggleGovernmentMenu}
-                >
+              <div key={link.href} className="relative group">
+                <button className="text-[#111111] hover:text-[#DA9617] transition flex items-center gap-1">
                   {link.label}
                   <FaChevronDown className="text-xs mt-1" />
                 </button>
 
-                {governmentMenuOpen && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50">
-                    <ul>
-                      {link.subLinks.map((subLink) => (
-                        <li key={subLink.href}>
-                          <Link
-                            href={subLink.href}
-                            className="block text-[#111111] hover:text-black px-4 py-2"
-                          >
-                            {subLink.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                {/* Dropdown */}
+                <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md opacity-0 scale-95 p-3 group-hover:opacity-100 group-hover:scale-100 transition duration-200 ease-out origin-top z-50">
+                  <ul className="py-2">
+                    {link.subLinks.map((subLink) => (
+                      <li key={subLink.href} className="whitespace-nowrap">
+                        <Link
+                          href={subLink.href}
+                          className="block px-4 py-2 text-[#111111] hover:bg-[#E9E9E9] transition"
+                        >
+                          {subLink.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ) : (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[#111111] hover:text-black transition"
+                className={clsx(
+                  "text-[#111111] hover:text-[#DA9617] transition",
+                  { "text-[#DA9617] font-semibold": pathname === link.href }
+                )}
               >
                 {link.label}
               </Link>
@@ -79,7 +79,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Search Input at Right with Icon Inside */}
+        {/* Search */}
         <div className="hidden md:flex items-center ml-6 relative w-64">
           <input
             type="text"
@@ -97,10 +97,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Slide-in Menu */}
+      {/* Mobile Menu */}
       <div
         className={clsx(
-          "fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out",
+          "fixed top-0 right-0 h-full w-80 bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out",
           {
             "translate-x-full": !menuOpen,
             "translate-x-0": menuOpen,
@@ -113,19 +113,19 @@ export default function Navbar() {
               {link.label === "GOVERNMENT" ? (
                 <div>
                   <button
-                    className="block text-[#111111] hover:text-black transition text-lg font-medium flex items-center gap-1"
-                    onClick={toggleGovernmentMenu}
+                    className="block text-[#111111] hover:text-[#DA9617] transition text-lg font-medium flex items-center gap-1"
+                    onClick={() => setGovernmentMenuOpen((prev) => !prev)}
                   >
                     {link.label}
                     <FaChevronDown className="text-xs mt-1" />
                   </button>
                   {governmentMenuOpen && (
-                    <div className="pl-4 mt-2">
+                    <div className="pl-4 mt-2 bg-[#E9E9E9] rounded-md py-2">
                       {link.subLinks.map((subLink) => (
                         <Link
                           key={subLink.href}
                           href={subLink.href}
-                          className="block text-[#111111] hover:text-black transition text-lg font-medium"
+                          className="block text-[#111111] hover:text-[#DA9617] transition text-base font-medium px-2 py-1"
                           onClick={() => setMenuOpen(false)}
                         >
                           {subLink.label}
@@ -138,7 +138,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block text-[#111111] hover:text-black transition text-lg font-medium"
+                  className={clsx(
+                    "block text-[#111111] hover:text-[#DA9617] transition text-lg font-medium",
+                    { "text-[#DA9617] font-semibold": pathname === link.href }
+                  )}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
@@ -165,9 +168,17 @@ const navLinks = [
     href: "/government",
     label: "GOVERNMENT",
     subLinks: [
-      { href: "/government/about-us", label: "About Us" },
-      { href: "/government/our-vision", label: "Our Vision" },
-      { href: "/government/leadership", label: "Leadership" },
+      { href: "/government/mdas", label: "Ministries, Departments, Agencies" },
+      { href: "/government/executive-officials", label: "Executive Officials" },
+      {
+        href: "/government/legislative-officials",
+        label: "Legislative Officials",
+      },
+      { href: "/government/judiciary-officials", label: "Judiciary Officials" },
+      {
+        href: "/government/local-government-area",
+        label: "Local Government Area",
+      },
     ],
   },
   { href: "/services", label: "SERVICES" },
