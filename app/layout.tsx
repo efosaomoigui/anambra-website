@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 // import { setupWorker } from "msw/browser";
 import { handlers } from "@/mocks/handlers";
+import BackArrow from "@/components/BackArrow";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html lang="en" className={instrumentSans.variable}>
       <body className="font-instrument text-body bg-background min-h-screen flex flex-col">
         <Navbar />
+        <BackArrow />
         <main className="flex-grow px-4 sm:px-6 md:px-8 py-4">{children}</main>
         <Footer />
       </body>
