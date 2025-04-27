@@ -45,7 +45,11 @@ export default function ServicesPage() {
             type="submit"
             className="text-gray-600 hover:text-black transition text-xl"
           >
-            <Search size={20} />
+            <img
+              src="/images/searchicon.png"
+              alt="Search"
+              className="w-[47px] h-[54px] object-contain"
+            />
           </button>
         </form>
       </div>

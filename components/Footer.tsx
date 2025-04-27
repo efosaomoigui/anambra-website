@@ -1,45 +1,45 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#1F2937] text-white pt-12">
+    <footer className="bg-[#1F2937] text-white pt-12 mt-16">
       {/* Top Section: 4 Columns */}
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Column 1 */}
         <div>
-          <h4 className="text-lg font-bold mb-4">Government</h4>
+          <h4 className="text-lg font-bold mb-4">MAIN LINKS</h4>
           <ul className="space-y-2">
-            <li className="text-sm">About Us</li>
-            <li className="text-sm">Our Vision</li>
-            <li className="text-sm">Leadership</li>
+            <li className="text-sm">Ease of doing business</li>
+            <li className="text-sm">All services</li>
+            <li className="text-sm">MDAs</li>
           </ul>
         </div>
 
         {/* Column 2 */}
         <div>
-          <h4 className="text-lg font-bold mb-4">Services</h4>
+          <h4 className="text-lg font-bold mb-4">EMERGENCY SERVICES</h4>
           <ul className="space-y-2">
-            <li className="text-sm">Healthcare</li>
-            <li className="text-sm">Education</li>
-            <li className="text-sm">Security</li>
+            <li className="text-sm">Make complaints</li>
+            <li className="text-sm">Report a robbery</li>
+            <li className="text-sm">Report rape</li>
           </ul>
         </div>
 
         {/* Column 3 */}
         <div>
-          <h4 className="text-lg font-bold mb-4">Departments</h4>
+          <h4 className="text-lg font-bold mb-4">E-SERVICES</h4>
           <ul className="space-y-2">
-            <li className="text-sm">Ministry of Finance</li>
-            <li className="text-sm">Ministry of Youth</li>
-            <li className="text-sm">Ministry of Agriculture</li>
+            <li className="text-sm">Solution Lens</li>
+            <li className="text-sm">Solution Lens</li>
+            {/* <li className="text-sm">Ministry of Agriculture</li> */}
           </ul>
         </div>
 
         {/* Column 4 */}
         <div>
-          <h4 className="text-lg font-bold mb-4">Contact</h4>
+          <h4 className="text-lg font-bold mb-4">HELP & SUPPORT</h4>
           <ul className="space-y-2">
-            <li className="text-sm">Email Us</li>
-            <li className="text-sm">Call Center</li>
-            <li className="text-sm">Visit Us</li>
+            <li className="text-sm">Give feedback</li>
+            <li className="text-sm">Contact the Govt</li>
+            {/* <li className="text-sm">Visit Us</li> */}
           </ul>
         </div>
       </div>

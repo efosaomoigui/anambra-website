@@ -4,6 +4,8 @@ import { Instrument_Sans } from "next/font/google";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+// import { setupWorker } from "msw/browser";
+import { handlers } from "@/mocks/handlers";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -11,6 +13,12 @@ const instrumentSans = Instrument_Sans({
   variable: "--font-instrument",
   display: "swap",
 });
+
+// This ensures MSW starts in development mode
+// if (process.env.NODE_ENV === "development") {
+//   const worker = setupWorker(...handlers);
+//   worker.start();
+// }
 
 export const metadata = {
   title: {

@@ -16,7 +16,11 @@ export default function SearchComponent() {
           className="flex-grow bg-transparent px-2 text-sm text-gray-800 focus:outline-none"
         />
         <button className="text-gray-600 hover:text-black transition text-xl">
-          🔍
+          <img
+            src="/images/searchicon.png"
+            alt="Search"
+            className="w-[47px] h-[54px] object-contain"
+          />
         </button>
       </div>
 

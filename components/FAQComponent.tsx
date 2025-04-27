@@ -31,12 +31,17 @@ export default function FAQComponent() {
       </div>
 
       {/* Centered Button */}
-      <div className="text-center">
+      <div className="text-center mt-8 py-16">
         <Link
-          href="/faq"
-          className="inline-block px-6 py-2 rounded-full bg-[#FFFFFF] text-gray-700 text-sm font-medium hover:bg-gray-300 transition"
+          href="/news"
+          className="inline-flex items-center px-6 py-2 rounded-md bg-white border border-gray-700 text-gray-700 text-sm font-medium hover:bg-gray-300 transition"
         >
           View All FAQs
+          <img
+            src="/images/arrowup.png"
+            alt="FAQs"
+            className="ml-2 w-5 h-5 object-contain"
+          />
         </Link>
       </div>
     </section>
