@@ -18,21 +18,21 @@ export default function SearchComponent() {
   return (
     <div className="w-full px-4 flex flex-col items-center">
       {/* Text Above Search */}
-      <div className="text-center mb-1">
+      <div className="text-center mb-4">
         <p className="text-base text-[12px] text-[#1E1E1E] italic font-playfair leading-snug">
           Find anything you need with the search bar
         </p>
       </div>
 
       {/* Search Input with Icon */}
-      <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-3 w-full max-w-[611px] p-[6px]">
+      <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[611px] pl-[7px]">
         <input
           type="text"
           placeholder="How to resolve business issues..."
-          className="flex-grow bg-transparent px-2 text-[13px] text-gray-800 focus:outline-none h-full"
+          className="flex-grow bg-transparent px-2  text-[13px] text-gray-800 focus:outline-none "
           style={{ borderRadius: "12px" }}
         />
-        <button className="text-gray-600 hover:text-black transition text-xl">
+        <button className="text-gray-600 hover:text-black transition text-xl pr-[7px]">
           <img
             src="/images/searchicon.png"
             alt="Search"
@@ -66,7 +66,7 @@ export default function SearchComponent() {
           ].map((label, index) => (
             <button
               key={index}
-              className="rounded-[8px] min-w-[160px] flex-shrink-0 py-2 px-6 border-2 border-black text-black bg-white font-medium hover:bg-gray-100 transition leading-[36px] text-[13px]"
+              className="rounded-[8px] min-w-[160px] flex-shrink-0 py-1 px-6 border-2 border-black text-black bg-white font-medium hover:bg-gray-100 transition leading-[36px] text-[13px]"
             >
               {label}
             </button>

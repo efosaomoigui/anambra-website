@@ -1,12 +1,16 @@
-// components/BackArrow.tsx
-"use client"; // This line ensures that the component is treated as a client-side component
+"use client";
 
-import { useRouter } from "next/navigation"; // Updated import
+import { usePathname, useRouter } from "next/navigation";
 
 export default function BackArrow() {
   const router = useRouter();
+  const pathname = usePathname();
 
-  // Handle back navigation
+  // Hide on homepage ("/")
+  if (pathname === "/") {
+    return null;
+  }
+
   const handleBackClick = () => {
     if (typeof window !== "undefined") {
       window.history.back();
