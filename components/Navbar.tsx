@@ -49,7 +49,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Dropdown */}
-                <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md opacity-0 scale-95 p-3 group-hover:opacity-100 group-hover:scale-100 transition duration-200 ease-out origin-top z-50">
+                <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-sm opacity-0 scale-95 p-3 group-hover:opacity-100 group-hover:scale-100 transition duration-200 ease-out origin-top z-50">
                   <ul className="py-2">
                     {link.subLinks.map((subLink) => (
                       <li key={subLink.href} className="whitespace-nowrap">
@@ -83,10 +83,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center ml-6 relative w-64">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-transparent border border-gray-300 rounded-full px-4 py-2 pr-10 text-sm text-[#111111] focus:outline-none focus:ring-1 focus:ring-black"
+            className="w-full bg-transparent  rounded-full px-4 py-2 pr-10 text-sm text-[#111111] focus:outline-none focus:ring-1 focus:ring-black"
           />
           <button
             type="submit"
