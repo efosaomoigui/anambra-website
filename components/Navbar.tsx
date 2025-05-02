@@ -39,7 +39,7 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex flex-1 justify-center space-x-6">
+        <div className="hidden md:flex flex-1 justify-center space-x-6 ml-20">
           {navLinks.map((link) =>
             link.label === "GOVERNMENT" ? (
               <div key={link.href} className="relative group">

@@ -19,24 +19,24 @@ export default function LightSection() {
           </h2>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 font-instrument">
+          <div className="grid grid-cols-1 sm:grid-cols-3 mt-8 font-instrument text-center">
             {/* Col 1 */}
-            <div>
-              <h2 className="text-2xl font-bold text-black">6M</h2>
+            <div className="border-b sm:border-b-0 sm:border-r border-black px-4 py-4 flex flex-col items-center">
+              <h2 className="text-[38px] font-bold text-black">6M</h2>
               <p className="text-sm text-gray-600 mt-1">Beautiful People</p>
             </div>
 
             {/* Col 2 */}
-            <div>
-              <h2 className="text-2xl font-bold text-black">No 1</h2>
+            <div className="border-b sm:border-b-0 sm:border-r border-black px-4 py-4 flex flex-col items-center">
+              <h2 className="text-[38px] font-bold text-black">No 1</h2>
               <p className="text-sm text-gray-600 mt-1">
                 Economy in South East
               </p>
             </div>
 
             {/* Col 3 */}
-            <div>
-              <h2 className="text-2xl font-bold text-black">₦200B+</h2>
+            <div className="px-4 py-4 flex flex-col items-center">
+              <h2 className="text-[38px] font-bold text-black">₦200B+</h2>
               <p className="text-sm text-gray-600 mt-1">Annual Revenue</p>
             </div>
           </div>

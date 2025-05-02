@@ -45,6 +45,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={instrumentSans.variable}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-instrument text-body bg-background min-h-screen flex flex-col">
         <Navbar />
         <BackArrow />

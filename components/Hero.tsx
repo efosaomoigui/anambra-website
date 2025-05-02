@@ -8,7 +8,7 @@ export default function Hero() {
       <GovTitle />
 
       {/* Search Section */}
-      <div className="mt-[80px] sm:mt-[100px] md:mt-[130px]">
+      <div className="mt-[66px] sm:mt-[72px] md:mt-[115px]">
         <SearchComponent />
       </div>
     </section>

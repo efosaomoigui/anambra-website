@@ -18,14 +18,14 @@ export default function SearchComponent() {
   return (
     <div className="w-full px-4 flex flex-col items-center">
       {/* Text Above Search */}
-      <div className="text-center mb-4">
-        <p className="text-base text-[#1E1E1E]">
+      <div className="text-center mb-1">
+        <p className="text-base text-[12px] text-[#1E1E1E] italic font-playfair leading-snug">
           Find anything you need with the search bar
         </p>
       </div>
 
       {/* Search Input with Icon */}
-      <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-6 w-full max-w-[611px] p-[6px]">
+      <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-3 w-full max-w-[611px] p-[6px]">
         <input
           type="text"
           placeholder="How to resolve business issues..."
@@ -42,13 +42,10 @@ export default function SearchComponent() {
       </div>
 
       {/* Scroll Arrows + Button Pills */}
-      <div className="relative w-full max-w-[700px] flex items-center justify-center">
+      <div className="relative w-full max-w-[690px] flex items-center justify-center">
         {/* Left Arrow - OUTSIDE */}
         <div className="absolute -left-12 z-10">
-          <button
-            onClick={() => scroll("left")}
-            className="bg-white p-2 shadow-md rounded-full"
-          >
+          <button onClick={() => scroll("left")} className=" p-2 rounded-full">
             <ChevronLeft size={20} />
           </button>
         </div>
@@ -78,10 +75,7 @@ export default function SearchComponent() {
 
         {/* Right Arrow - OUTSIDE */}
         <div className="absolute -right-12 z-10">
-          <button
-            onClick={() => scroll("right")}
-            className="bg-white p-2 shadow-md rounded-full"
-          >
+          <button onClick={() => scroll("right")} className=" p-2 rounded-full">
             <ChevronRight size={20} />
           </button>
         </div>
