@@ -12,8 +12,8 @@ export default function GovTitle() {
             <span
               className="absolute inset-0 -z-10"
               style={{
-                backgroundColor: "#FFD700",
-                borderRadius: "10px",
+                backgroundColor: "#FFB732",
+                borderRadius: "7px",
                 transformOrigin: "center",
                 marginTop: "3px",
                 marginBottom: "2px",
