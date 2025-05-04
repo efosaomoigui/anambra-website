@@ -25,7 +25,7 @@ export default function GlobalSearchDrawer({
       {/* Overlay */}
       <div
         className={clsx(
-          "fixed inset-0 bg-black bg-opacity-30 z-40 transition-opacity duration-300",
+          "fixed inset-0 bg-black bg-opacity-30 z-[100] transition-opacity duration-300",
           { hidden: !open }
         )}
         onClick={onClose}
@@ -34,7 +34,7 @@ export default function GlobalSearchDrawer({
       {/* Fullscreen Drawer */}
       <div
         className={clsx(
-          "fixed inset-0 h-full w-full bg-white z-50 transition-transform duration-300 ease-in-out",
+          "fixed inset-0 h-full w-full bg-white z-[110] transition-transform duration-300 ease-in-out",
           {
             "translate-x-full": !open,
             "translate-x-0": open,
