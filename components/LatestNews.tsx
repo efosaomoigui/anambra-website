@@ -45,15 +45,15 @@ export default function LatestNews() {
       </div>
 
       {/* Centered Button with Image */}
-      <div className="text-center mt-16 py-16 px-4">
+      <div className="text-center mt-8 py-8 md:py-7 px-4">
         <Link
           href="/news"
-          className="inline-flex items-center px-6 py-2 rounded-md bg-white border border-gray-700 text-gray-700 text-sm font-medium hover:bg-gray-300 transition"
+          className="inline-flex items-center px-6 py-2 rounded-md bg-white border border-gray-700 text-gray-700 text-sm font-semibold leading-6 hover:bg-gray-300 transition"
         >
           View All News
           <img
             src="/images/arrowup.png"
-            alt="Arrow pointing upward"
+            alt="FAQs"
             className="ml-2 w-5 h-5 object-contain"
           />
         </Link>

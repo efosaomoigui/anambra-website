@@ -14,7 +14,10 @@ export default function NoticeBoard() {
           </div>
 
           {Array.from({ length: 6 }).map((_, idx) => (
-            <div key={idx} className="text-black border-b border-gray-400 pb-4">
+            <div
+              key={idx}
+              className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-4"
+            >
               <h3 className="text-lg font-bold">
                 Soludo’s new executive order specifies number of police
                 checkpoints per sq km. {idx + 1}
@@ -36,7 +39,7 @@ export default function NoticeBoard() {
           </div>
 
           {/* Main Event */}
-          <div className="text-black border-b border-gray-400 pb-4">
+          <div className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)]-4">
             <h3 className="text-lg font-bold">Anambra Developer Summit 2024</h3>
             <p className="text-sm text-gray-700">
               Feb 4, 2025  — Feb 6, 2025 - 1.00 PM
@@ -46,7 +49,10 @@ export default function NoticeBoard() {
 
           {/* Additional Events */}
           {Array.from({ length: 3 }).map((_, idx) => (
-            <div key={idx} className="text-black border-b border-gray-400 pb-6">
+            <div
+              key={idx}
+              className="text-black  border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-6"
+            >
               <h3 className="text-lg font-bold">
                 1st International Agrivoltaics Conference in Nigeria {idx + 2}
               </h3>
