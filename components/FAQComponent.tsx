@@ -26,7 +26,7 @@ export default function FAQComponent() {
         {/* Left Arrow */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10  rounded-full shadow-md hidden md:block"
+          className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full "
         >
           <ChevronLeft className="w-5 h-5 text-black" />
         </button>
@@ -56,7 +56,7 @@ export default function FAQComponent() {
         {/* Right Arrow */}
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10  p-2 rounded-full shadow-md hidden md:block"
+          className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full "
         >
           <ChevronRight className="w-5 h-5 text-black" />
         </button>
