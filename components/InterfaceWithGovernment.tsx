@@ -4,7 +4,7 @@ export default function InterfaceWithGovernment() {
     <section className="px-4 md:px-20  py-16 ">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-black">
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-black">
           <p>Interface with your</p>
           <p>Government</p>
         </h2>

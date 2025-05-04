@@ -19,7 +19,9 @@ export default function FAQComponent() {
   return (
     <section className="px-4 md:px-20 py-16 relative">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-black">FAQs</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-black">
+          FAQs
+        </h2>
       </div>
 
       <div className="relative">
