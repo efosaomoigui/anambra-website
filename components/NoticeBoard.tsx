@@ -15,7 +15,7 @@ export default function NoticeBoard() {
               <h3 className="text-xl font-black text-black">Notice Board</h3>
             </div>
 
-            {Array.from({ length: 6 }).map((_, idx) => (
+            {Array.from({ length: 5 }).map((_, idx) => (
               <div
                 key={idx}
                 className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-4"

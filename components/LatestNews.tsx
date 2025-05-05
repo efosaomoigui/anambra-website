@@ -23,18 +23,18 @@ export default function LatestNews() {
 
               {/* Tags */}
               <div className="flex gap-2 px-1">
-                <span className="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-[4px]">
+                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-3 py-1 rounded-[4px]">
                   State
                 </span>
-                <span className="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-[4px]">
+                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-3 py-1 rounded-[4px]">
                   Security
                 </span>
               </div>
 
               {/* Headline */}
               <h3 className="text-lg font-bold text-black">
-                This is a summary of the news article. It gives a quick overview
-                of the topic and what to expect in the full post. {idx + 1}
+                Soludo’s new executive order specifies number of police
+                checkpoints per sq km. {idx + 1}
               </h3>
 
               {/* Date */}
