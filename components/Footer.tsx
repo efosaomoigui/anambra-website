@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1F2937] text-white pt-12 mt-16">
       {/* Top Section: 4 Columns */}
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-[1201px] mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Column 1 */}
         <div>
           <h4 className="text-lg font-bold mb-4">MAIN LINKS</h4>
@@ -44,10 +44,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="text-center py-4 mt-10 border-t border-gray-700 text-sm">
-        &copy; Copyright {new Date().getFullYear()}, All Rights Reserved |
-        Anambra State Government
+      {/* Bottom Bar with Horizontal Line and Copyright Text */}
+      <div className="text-center py-10 mt-10 relative">
+        <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 border-t border-gray-700" />
+        <span className="relative z-10 text-sm text-gray-300 mb-8 pl-[22px] pr-[22px]">
+          &copy; Copyright {new Date().getFullYear()}, All Rights Reserved |
+          Anambra State Government
+        </span>
       </div>
     </footer>
   );
