@@ -1,10 +1,7 @@
-// components/GlobalSearch.tsx
 "use client";
 
 import { useState } from "react";
 import clsx from "clsx";
-import { Search } from "lucide-react";
-
 const categories = ["All", "Ministry", "Agency", "Services", "Documents"];
 
 export default function GlobalSearch() {
@@ -17,7 +14,7 @@ export default function GlobalSearch() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10">
+    <section className="max-w-7xl mx-auto px-4 py-4">
       {/* Heading */}
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-black">Global Search</h2>
@@ -28,18 +25,19 @@ export default function GlobalSearch() {
         {/* Search Form */}
         <form
           onSubmit={handleSearch}
-          className="flex items-center bg-[#E9E9E9] rounded-full h-12 px-4 w-full max-w-xl mb-6"
+          className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[748px] pl-[7px]"
         >
           <input
             type="text"
             placeholder="How to resolve business issues..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent px-2 text-sm text-gray-800 focus:outline-none"
+            className="flex-grow bg-transparent px-2 text-[13px] text-gray-800 focus:outline-none"
+            style={{ borderRadius: "12px" }}
           />
           <button
             type="submit"
-            className="text-gray-600 hover:text-black transition text-xl"
+            className="text-gray-600 hover:text-black transition text-xl pr-[7px]"
           >
             <img
               src="/images/searchicon.png"
@@ -50,15 +48,15 @@ export default function GlobalSearch() {
         </form>
 
         {/* Category Tabs */}
-        <div className="flex gap-6 border-b border-gray-300">
+        <div className="flex gap-6 justify-between w-full max-w-[748px] mb-6">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={clsx(
-                "pb-2 text-sm font-semibold transition",
+                "h-[48px] w-[136.8px] text-sm font-semibold transition flex items-center justify-center",
                 selectedCategory === category
-                  ? "border-b-2 border-blue-600 text-blue-600"
+                  ? "border-b-2 border-black text-black"
                   : "text-black hover:text-blue-600"
               )}
             >
@@ -73,7 +71,7 @@ export default function GlobalSearch() {
         {[...Array(6)].map((_, index) => (
           <div
             key={index}
-            className="bg-white shadow rounded-lg p-4 flex flex-col justify-between"
+            className="bg-white border border-light-gray p-4 flex flex-col justify-between"
           >
             <div>
               <h4 className="text-lg font-bold mb-2">
@@ -84,12 +82,22 @@ export default function GlobalSearch() {
                 modi.
               </p>
             </div>
-            <div className="flex justify-between items-center mt-4 text-sm font-medium text-blue-600">
-              <a href="#">Read More</a>
-              <a href="#">Share</a>
+            <div className="flex justify-between items-center mt-4 text-[11px] font-medium text-blue-600">
+              <a href="#">Security</a>
+              <a href="#">FAQ</a>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Bottom Link with 748px width */}
+      <div className="flex justify-center w-full max-w-[748px] mx-auto mt-6">
+        <a
+          href="#"
+          className="text-blue-600 hover:underline text-sm font-semibold"
+        >
+          See More Results
+        </a>
       </div>
     </section>
   );

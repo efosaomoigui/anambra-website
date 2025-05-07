@@ -49,13 +49,18 @@ export default function Navbar() {
                     {link.label}
                     <FaChevronDown className="text-xs mt-1" />
                   </button>
-                  <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-sm opacity-0 scale-95 p-3 group-hover:opacity-100 group-hover:scale-100 transition duration-200 ease-out origin-top z-50">
-                    <ul className="py-2">
+
+                  <div
+                    className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md z-50 
+    opacity-0 invisible group-hover:visible group-hover:opacity-100 
+    transition-all duration-200 ease-out"
+                  >
+                    <ul className="py-2 px-2">
                       {link.subLinks.map((subLink) => (
                         <li key={subLink.href} className="whitespace-nowrap">
                           <Link
                             href={subLink.href}
-                            className="block px-4 py-2 text-[#111111] hover:bg-[#E9E9E9] transition"
+                            className="block px-4 py-2 text-[#111111] hover:bg-[#E9E9E9] transition rounded"
                           >
                             {subLink.label}
                           </Link>

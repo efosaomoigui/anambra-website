@@ -34,7 +34,7 @@ export default function GlobalSearchDrawer({
       {/* Fullscreen Drawer */}
       <div
         className={clsx(
-          "fixed inset-0 h-full w-full bg-white z-[110] transition-transform duration-300 ease-in-out",
+          "fixed inset-0 h-full w-full bg-background z-[110] transition-transform duration-300 ease-in-out",
           {
             "translate-x-full": !open,
             "translate-x-0": open,
@@ -46,6 +46,17 @@ export default function GlobalSearchDrawer({
           <button onClick={onClose} aria-label="Close search drawer">
             <FiX size={24} />
           </button>
+        </div>
+
+        <div className="p-6 flex ">
+          <h2 className="text-xl font-semibold">
+            <img
+              onClick={onClose}
+              src="/images/backarrow.png"
+              alt="Back Arrow"
+              className="w-8 h-8"
+            />
+          </h2>
         </div>
 
         {/* Content */}
