@@ -19,8 +19,9 @@ export default function BackArrow() {
 
   return (
     <div
-      className="fixed top-16 left-4 z-50 cursor-pointer py-16 ml-[23px]"
+      className="fixed top-16 left-0 z-50 cursor-pointer py-16 ml-4"
       onClick={handleBackClick}
+      style={{ left: "calc(50% - 50vw + 2rem)" }} // Aligns the back arrow with logo position
     >
       <img src="/images/backarrow.png" alt="Back Arrow" className="w-8 h-8" />
     </div>

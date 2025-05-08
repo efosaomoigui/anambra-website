@@ -5,36 +5,70 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const TABS = ["All", "Services", "FAQ"];
+
 const SERVICES = [
-  { id: 1, name: "Emergency Response", slug: "emergency-response" },
-  { id: 2, name: "Neighborhood Watch", slug: "neighborhood-watch" },
-  { id: 3, name: "Online Crime Reporting", slug: "online-crime-reporting" },
-  { id: 4, name: "Cyber Security", slug: "cyber-security" },
-  { id: 5, name: "Neighborhood Patrol", slug: "neighborhood-patrol" },
-  { id: 6, name: "Traffic Monitoring", slug: "traffic-monitoring" },
-  { id: 7, name: "Agencies", slug: "agencies" }, // Add "Agencies" to the SERVICES array
-];
+  { title: "Advertisement", slug: "advertisement" },
+  { title: "Agencies", slug: "agencies" },
+  { title: "Archive", slug: "archive" },
+  { title: "Business", slug: "business" },
+  { title: "Citizens", slug: "citizens" },
+  { title: "Construction", slug: "construction" },
+  { title: "Education", slug: "education" },
+  { title: "Emergency Vehicle", slug: "emergency-vehicle" },
+  { title: "Environment", slug: "environment" },
+  { title: "Event", slug: "event" },
+  { title: "Events Calendar", slug: "events-calendar" },
+  { title: "Government Benefits", slug: "government-benefits" },
+  { title: "Health Services", slug: "health-services" },
+  { title: "Housing And Lands", slug: "housing-and-lands" },
+  { title: "Identity Management", slug: "identity-management" },
+  { title: "Job Opportunities", slug: "job-opportunities" },
+  { title: "Law & Safety", slug: "law-safety" },
+  {
+    title: "License, Permits & Applications",
+    slug: "license-permits-applications",
+  },
+  { title: "Loans & Trustfund", slug: "loans-trustfund" },
+  { title: "Media & Entertainment", slug: "media-entertainment" },
+  { title: "Ministries", slug: "ministries" },
+  { title: "Notice", slug: "notice" },
+  { title: "Payments & Levies", slug: "payments-levies" },
+  { title: "Pilgrimage & Religion", slug: "pilgrimage-religion" },
+  { title: "Projects & Construction", slug: "projects-construction" },
+  { title: "Science & Technology", slug: "science-technology" },
+  { title: "Security Services", slug: "security-services" },
+  { title: "Sports", slug: "sports" },
+  { title: "Tax", slug: "tax" },
+  { title: "Tourism & Culture", slug: "tourism-culture" },
+  { title: "Training", slug: "training" },
+  { title: "Vehicle & Transportation", slug: "vehicle-transportation" },
+  { title: "Water", slug: "water" },
+].map((s, index) => ({ ...s, id: index + 1, name: s.title }));
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
   const [activeTab, setActiveTab] = useState("Services");
   const [query, setQuery] = useState("");
-  const [filteredServices, setFilteredServices] = useState(SERVICES);
+  const [filteredServices, setFilteredServices] = useState([]);
 
-  // Find the service based on the slug
-  const service = SERVICES.find((s) => s.slug === slug);
-  const heading = service ? service.name : "Service Not Found";
+  // Get services under the same category slug
+  const categoryServices = SERVICES.filter((s) => s.slug === slug);
 
-  // Update the filtered services based on the query and tab
+  const slugString = Array.isArray(slug) ? slug[0] : slug;
+
+  const heading = categoryServices.length
+    ? slugString.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+    : "Service Not Found";
+
   useEffect(() => {
-    const filterBySlug = SERVICES.filter(
-      (s) => activeTab === "All" || s.slug === slug
+    const servicesToShow =
+      activeTab === "All" ? SERVICES : SERVICES.filter((s) => s.slug === slug);
+
+    const result = servicesToShow.filter((service) =>
+      service.name.toLowerCase().includes(query.toLowerCase())
     );
-    setFilteredServices(
-      filterBySlug.filter((service) =>
-        service.name.toLowerCase().includes(query.toLowerCase())
-      )
-    );
+
+    setFilteredServices(result);
   }, [slug, activeTab, query]);
 
   const renderTabContent = () => {
