@@ -1,24 +1,44 @@
-// components/services/ServiceCard.tsx
-import Link from "next/link";
-import { BriefcaseIcon } from "lucide-react";
+"use client";
 
-export default function ServiceCard({
-  title,
-  slug,
-}: {
+import Link from "next/link";
+
+type Props = {
   title: string;
   slug: string;
-}) {
+};
+
+export default function ServiceCard({ title, slug }: Props) {
+  const iconName =
+    title
+      .toLowerCase()
+      .replace(/’/g, "")
+      .replace(/[&,:]/g, "")
+      .replace(/\s+/g, " ")
+      .trim() + ".png";
+
+  const iconPath = `/images/icons/${iconName}`;
+
   return (
-    <Link
-      href={`/services/${slug}`}
-      className="border rounded-lg p-6 text-center hover:shadow-lg transition"
-    >
-      <div className="flex justify-center mb-4">
-        <BriefcaseIcon className="h-10 w-10 text-gray-500" />
+    <Link href={`/services/${slug}`}>
+      <div className="border border-gray-200 bg-white rounded-xl flex flex-col p-4 items-center text-center transition">
+        <div className="w-[74px] h-[74px] mb-4">
+          <img
+            src={iconPath}
+            alt={title}
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+        </div>
+        <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
+          {title}
+        </h2>
+        <p className="text-xs text-gray-500 px-1 leading-relaxed">
+          This service helps you manage your {title.toLowerCase()} needs quickly
+          and efficiently through our digital platform.
+        </p>
       </div>
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p>The content for this icon</p>
     </Link>
   );
 }

@@ -1,22 +1,45 @@
 "use client";
 
-import { useState } from "react";
 import ServiceCard from "@/components/services/servicecard";
-import { Search } from "lucide-react";
+import { useState } from "react";
 
 const services = [
-  { title: "Vehicle Registration", slug: "vehicle-registration" },
-  { title: "Business Permit", slug: "business-permit" },
-  { title: "Marriage Certificate", slug: "marriage-certificate" },
-  { title: "Tax Payment", slug: "tax-payment" },
-  { title: "Driver’s License", slug: "drivers-license" },
-  { title: "Building Approval", slug: "building-approval" },
-  { title: "Birth Certificate", slug: "birth-certificate" },
-  { title: "Land Title Search", slug: "land-title-search" },
-  { title: "Public Health Service", slug: "public-health-service" },
-  { title: "Environmental Report", slug: "environmental-report" },
-  { title: "School Enrolment", slug: "school-enrolment" },
-  { title: "Utility Billing", slug: "utility-billing" },
+  { title: "Advertisement", slug: "advertisement" },
+  { title: "Agencies", slug: "agencies" },
+  { title: "Archive", slug: "archive" },
+  { title: "Business", slug: "business" },
+  { title: "Citizens", slug: "citizens" },
+  { title: "Construction", slug: "construction" },
+  { title: "Education", slug: "education" },
+  { title: "Emergency Vehicle", slug: "emergency-vehicle" },
+  { title: "Environment", slug: "environment" },
+  { title: "Event", slug: "event" },
+  { title: "Events Calendar", slug: "events-calendar" },
+  { title: "Government Benefits", slug: "government-benefits" },
+  { title: "Health Services", slug: "health-services" },
+  { title: "Housing And Lands", slug: "housing-and-lands" },
+  { title: "Identity Management", slug: "identity-management" },
+  { title: "Job Opportunities", slug: "job-opportunities" },
+  { title: "Law & Safety", slug: "law-safety" },
+  {
+    title: "License, Permits & Applications",
+    slug: "license-permits-applications",
+  },
+  { title: "Loans & Trustfund", slug: "loans-trustfund" },
+  { title: "Media & Entertainment", slug: "media-entertainment" },
+  { title: "Ministries", slug: "ministries" },
+  { title: "Notice", slug: "notice" },
+  { title: "Payments & Levies", slug: "payments-levies" },
+  { title: "Pilgrimage & Religion", slug: "pilgrimage-religion" },
+  { title: "Projects & Construction", slug: "projects-construction" },
+  { title: "Science & Technology", slug: "science-technology" },
+  { title: "Security Services", slug: "security-services" },
+  { title: "Sports", slug: "sports" },
+  { title: "Tax", slug: "tax" },
+  { title: "Tourism & Culture", slug: "tourism-culture" },
+  { title: "Training", slug: "training" },
+  { title: "Vehicle & Transportation", slug: "vehicle-transportation" },
+  { title: "Water", slug: "water" },
 ];
 
 export default function ServicesPage() {
@@ -24,7 +47,7 @@ export default function ServicesPage() {
 
   return (
     <main className="max-w-7xl mx-auto px-4 pt-[50px] pb-20">
-      <h1 className="mt-[50px] text-3xl font-bold text-center mb-10">
+      <h1 className="mt-[50px] text-[40px] font-bold text-center mb-10">
         All Services
       </h1>
 
@@ -32,15 +55,17 @@ export default function ServicesPage() {
       <div className="flex flex-col items-center justify-center mb-10">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="flex items-center bg-[#E9E9E9] rounded-full h-12 px-4 w-full max-w-xl"
+          className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[611px] px-[7px]"
         >
           <input
             type="text"
-            placeholder="Search services..."
+            placeholder="Search Services..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent px-2 text-sm text-gray-800 focus:outline-none"
+            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none"
+            style={{ borderRadius: "12px" }}
           />
+
           <button
             type="submit"
             className="text-gray-600 hover:text-black transition text-xl"
@@ -54,8 +79,8 @@ export default function ServicesPage() {
         </form>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Grid of Service Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
         {services
           .filter((service) =>
             service.title.toLowerCase().includes(query.toLowerCase())
