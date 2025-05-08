@@ -11,10 +11,12 @@ export default function NewsDetailPage({
 
   // fake data for now
   const news = {
-    title: "Inter-School Sports Festival",
-    summary: "Students across LGAs compete in a grand sports event.",
-    content: "Full content of the article goes here...",
-    imageUrl: "/news2.jpg",
+    title:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km.",
+    summary: "Daniel James . 13 Feb 2024 . 3 min read",
+    content:
+      "Bitcoin, the world’s first and most prominent cryptocurrency, has always had a knack for grabbing headlines. Whether due to its meteoric price rises or sharp corrections, it’s a financial phenomenon that everyone from Wall Street to Main Street has an opinion on. The idea of Bitcoin reaching $100,000 per coin has long been a speculative milestone—one that is now coming into clearer focus as market trends, institutional interest, and macroeconomic conditions align.",
+    imageUrl: "/images/checkpoints.png",
     tags: ["Sport", "LGA"],
   };
 

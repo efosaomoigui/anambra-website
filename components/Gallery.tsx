@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
+import Image from "next/image";
 
-// Topbar categories
 const categories = [
   "Festivals",
   "Investments in Anambra",
@@ -11,45 +11,56 @@ const categories = [
   "Other Events",
 ];
 
-// Sample image data (20 total)
 const galleryImages = [
-  { url: "/gallery/festival-1.jpg", category: "Festivals" },
-  { url: "/gallery/festival-2.jpg", category: "Festivals" },
-  { url: "/gallery/festival-3.jpg", category: "Festivals" },
-  { url: "/gallery/festival-4.jpg", category: "Festivals" },
-  { url: "/gallery/festival-5.jpg", category: "Festivals" },
-  { url: "/gallery/investment-1.jpg", category: "Investments in Anambra" },
-  { url: "/gallery/investment-2.jpg", category: "Investments in Anambra" },
-  { url: "/gallery/investment-3.jpg", category: "Investments in Anambra" },
-  { url: "/gallery/investment-4.jpg", category: "Investments in Anambra" },
-  { url: "/gallery/investment-5.jpg", category: "Investments in Anambra" },
-  { url: "/gallery/signs-1.jpg", category: "Signs & Places" },
-  { url: "/gallery/signs-2.jpg", category: "Signs & Places" },
-  { url: "/gallery/signs-3.jpg", category: "Signs & Places" },
-  { url: "/gallery/signs-4.jpg", category: "Signs & Places" },
-  { url: "/gallery/signs-5.jpg", category: "Signs & Places" },
-  { url: "/gallery/event-1.jpg", category: "Other Events" },
-  { url: "/gallery/event-2.jpg", category: "Other Events" },
-  { url: "/gallery/event-3.jpg", category: "Other Events" },
-  { url: "/gallery/event-4.jpg", category: "Other Events" },
-  { url: "/gallery/event-5.jpg", category: "Other Events" },
+  { url: "/images/gallery/gallery.png", category: "Festivals" },
+  { url: "/images/gallery/gallery1.png", category: "Festivals" },
+  { url: "/images/gallery/gallery.png", category: "Festivals" },
+  { url: "/images/gallery/gallery1.png", category: "Festivals" },
+  { url: "/images/gallery/gallery.png", category: "Festivals" },
+  { url: "/images/gallery/gallery1.png", category: "Investments in Anambra" },
+  { url: "/images/gallery/gallery.png", category: "Investments in Anambra" },
+  { url: "/images/gallery/gallery1.png", category: "Investments in Anambra" },
+  { url: "/images/gallery/gallery.png", category: "Investments in Anambra" },
+  { url: "/images/gallery/gallery1.png", category: "Investments in Anambra" },
+  { url: "/images/gallery/gallery1.png", category: "Signs & Places" },
+  { url: "/images/gallery/gallery.png", category: "Signs & Places" },
+  { url: "/images/gallery/gallery.png", category: "Signs & Places" },
+  { url: "/images/gallery/gallery.png", category: "Signs & Places" },
+  { url: "/images/gallery/gallery.png", category: "Signs & Places" },
+  { url: "/images/gallery/gallery.png", category: "Other Events" },
+  { url: "/images/gallery/gallery.png", category: "Other Events" },
+  { url: "/images/gallery/gallery.png", category: "Other Events" },
+  { url: "/images/gallery/gallery.png", category: "Other Events" },
+  { url: "/images/gallery/gallery.png", category: "Other Events" },
 ];
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("Festivals");
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const filteredImages = galleryImages.filter(
     (img) => selectedCategory === "All" || img.category === selectedCategory
   );
 
+  const closeOverlay = () => setActiveIndex(null);
+  const showPrev = () =>
+    setActiveIndex((prev) => (prev! > 0 ? prev! - 1 : prev));
+  const showNext = () =>
+    setActiveIndex((prev) =>
+      prev! < filteredImages.length - 1 ? prev! + 1 : prev
+    );
+
+  // Prevent body scroll when overlay is open
+  useEffect(() => {
+    document.body.style.overflow = activeIndex !== null ? "hidden" : "auto";
+  }, [activeIndex]);
+
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
-      {/* Heading */}
-      <div className="text-center mb-8">
-        <h2 className="mt-[50px] text-3xl font-bold text-black">Gallery</h2>
-      </div>
+      <h2 className="mt-[50px] text-[28px] md:text-[32px] lg:text-[40px] font-bold text-center mb-12">
+        Gallery
+      </h2>
 
-      {/* Topbar Links - margin top and bottom 50px */}
       <div className="flex flex-wrap justify-center gap-6 my-[70px]">
         {categories.map((cat) => (
           <button
@@ -67,15 +78,12 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* Image Grid: 4 rows x 5 columns */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {filteredImages.slice(0, 20).map((img, idx) => (
+        {filteredImages.map((img, idx) => (
           <div
             key={idx}
             className="cursor-pointer overflow-hidden rounded-md border hover:shadow-md transition"
-            onClick={() => {
-              console.log("Clicked:", img.url);
-            }}
+            onClick={() => setActiveIndex(idx)}
           >
             <img
               src={img.url}
@@ -85,6 +93,57 @@ export default function Gallery() {
           </div>
         ))}
       </div>
+
+      {activeIndex !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+          {/* Overlay content container */}
+          <div className="relative w-full max-w-[1201px] px-4 flex justify-center items-center">
+            {/* Close Button */}
+            <button
+              onClick={closeOverlay}
+              className="absolute top-4 right-4 z-10"
+            >
+              <Image
+                src="/images/close.png"
+                alt="Close"
+                width={32}
+                height={32}
+              />
+            </button>
+
+            {/* Left Arrow */}
+            {activeIndex > 0 && (
+              <button onClick={showPrev} className="absolute left-4 z-10">
+                <Image
+                  src="/images/leftarrow.png"
+                  alt="Previous"
+                  width={32}
+                  height={32}
+                />
+              </button>
+            )}
+
+            {/* Image */}
+            <img
+              src={filteredImages[activeIndex].url}
+              alt="Enlarged view"
+              className="w-full max-w-[836px] max-h-[510px] object-contain rounded shadow-lg"
+            />
+
+            {/* Right Arrow */}
+            {activeIndex < filteredImages.length - 1 && (
+              <button onClick={showNext} className="absolute right-4 z-10">
+                <Image
+                  src="/images/rightarrow.png"
+                  alt="Next"
+                  width={32}
+                  height={32}
+                />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

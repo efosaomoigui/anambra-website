@@ -4,86 +4,98 @@ import NewsCard from "./NewsCard";
 const mockNews = [
   {
     title: "Governor Commissions New Hospital",
-    summary: "A new state-of-the-art hospital has been opened in Awka.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Health", "State"],
-    imageUrl: "/news1.jpg",
+    imageUrl: "/images/soludo2.png",
     slug: "governor-commissions-new-hospital",
   },
   {
     title: "Inter-School Sports Festival",
-    summary: "Students across LGAs compete in a grand sports event.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Sport", "LGA"],
-    imageUrl: "/news2.jpg",
+    imageUrl: "/images/soludo1.png",
     slug: "inter-school-sports-festival",
   },
   {
     title: "Education Week Launched",
-    summary: "Anambra launches a week-long education improvement program.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Education", "State"],
-    imageUrl: "/news3.jpg",
+    imageUrl: "/images/soludo2.png",
     slug: "education-week-launched",
   },
   {
     title: "MDA Collaboration Summit",
-    summary: "MDAs to collaborate on digital service improvements.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["MDA", "Events"],
-    imageUrl: "/news4.jpg",
+    imageUrl: "/images/soludo1.png",
     slug: "mda-collaboration-summit",
   },
   {
     title: "Rural Health Outreach",
-    summary: "Medical team reaches out to rural communities.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Health", "LGA"],
-    imageUrl: "/news5.jpg",
+    imageUrl: "/images/soludo2.png",
     slug: "rural-health-outreach",
   },
   {
     title: "Youth Football Championship",
-    summary: "U-17 teams compete in community football challenge.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Sport", "Events"],
-    imageUrl: "/news6.jpg",
+    imageUrl: "/images/soludo1.png",
     slug: "youth-football-championship",
   },
   {
     title: "State Budget Town Hall",
-    summary: "Public participation in upcoming budget planning.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["State"],
-    imageUrl: "/news7.jpg",
+    imageUrl: "/images/soludo2.png",
     slug: "state-budget-town-hall",
   },
   {
     title: "LGA Waste Management Launch",
-    summary: "New waste system introduced across all LGAs.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["LGA", "Events"],
-    imageUrl: "/news8.jpg",
+    imageUrl: "/images/soludo1.png",
     slug: "lga-waste-management-launch",
   },
   {
     title: "School Renovations Underway",
-    summary: "10 government schools undergoing upgrades.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Education", "State"],
-    imageUrl: "/news9.jpg",
+    imageUrl: "/images/soludo2.png",
     slug: "school-renovations-underway",
   },
   {
     title: "State Marathon Announced",
-    summary: "Anambra to host annual state-wide marathon.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Sport", "State"],
-    imageUrl: "/news10.jpg",
+    imageUrl: "/images/soludo1.png",
     slug: "state-marathon-announced",
   },
   {
     title: "Digital Transformation Drive",
-    summary: "New apps and portals launched by MDA teams.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["MDA", "Education"],
-    imageUrl: "/news11.jpg",
+    imageUrl: "/images/soludo2.png",
     slug: "digital-transformation-drive",
   },
   {
     title: "Free Eye Test Campaign",
-    summary: "Citizens benefit from MDA health outreach.",
+    summary:
+      "Soludo’s new executive order specifies number of police checkpoints per sq km. 2",
     tags: ["Health", "Events"],
-    imageUrl: "/news12.jpg",
+    imageUrl: "/images/soludo1.png",
     slug: "free-eye-test-campaign",
   },
 ];

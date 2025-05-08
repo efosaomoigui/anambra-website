@@ -15,7 +15,7 @@ export default function LatestNews() {
             <article key={idx} className="space-y-3">
               <div className="w-full h-[217px] overflow-hidden rounded-lg">
                 <img
-                  src={`/images/news-${idx + 1}.jpg`}
+                  src={`/images/soludo${idx + 1}.png`}
                   alt={`Thumbnail for news article ${idx + 1}`}
                   className="w-full h-full object-cover mx-auto"
                 />

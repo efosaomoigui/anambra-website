@@ -33,15 +33,15 @@ const events = [
 export default function EventsPage() {
   return (
     <main className="max-w-6xl mx-auto px-4 pt-[50px] pb-20">
-      <h1 className="mt-[50px] text-3xl font-bold text-center mb-12">
-        Upcoming Events
+      <h1 className="mt-[50px] text-[28px] md:text-[32px] lg:text-[40px] font-bold text-center mb-12">
+        Events
       </h1>
 
       <div className="space-y-12">
         {events.map((event) => (
           <div
             key={event.slug}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center" // Aligning content center
+            className="grid grid-cols-1 md:grid-cols-[325px_auto] gap-6 items-start"
           >
             {/* Left: Image */}
             <div className="w-full h-[229px] md:h-[260px] relative rounded-lg overflow-hidden">
@@ -53,8 +53,7 @@ export default function EventsPage() {
             </div>
 
             {/* Right: Text */}
-            <div className="flex flex-col justify-start h-full pt-0 space-y-4">
-              {/* Added spacing for consistent alignment */}
+            <div className="flex flex-col justify-start h-full pt-0 space-y-4 max-w-[500px]">
               {/* Heading + Summary */}
               <div>
                 <h1 className="text-2xl md:text-[20px] font-bold">
@@ -69,10 +68,7 @@ export default function EventsPage() {
                   <p className="font-semibold">{event.date}</p>
                   <p className="font-semibold">{event.location}</p>
                 </div>
-                <button
-                  className="bg-[#FFB732] text-[17px] text-black font-semibold flex items-center justify-center gap-2 px-4 py-2 rounded-[8px]"
-                  style={{ height: 40, width: 163 }}
-                >
+                <button className="bg-[#FFB732] text-[17px] text-black font-semibold flex items-center justify-center gap-2 px-4 py-2 rounded-[8px] whitespace-nowrap w-[163px] h-[40px] sm:w-auto">
                   View Details
                   <Image
                     src="/images/arrowup.png"
