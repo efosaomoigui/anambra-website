@@ -49,8 +49,8 @@ export default function FAQComponent() {
                   a common question users might have.
                 </p>
                 <div className="flex justify-between mt-auto pt-4 text-xs text-gray-600">
-                  <span>Read More</span>
-                  <span>Share</span>
+                  {/* <span>Read More</span>
+                  <span>Share</span> */}
                 </div>
               </div>
             ))}
