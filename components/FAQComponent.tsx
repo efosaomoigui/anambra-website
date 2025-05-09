@@ -48,7 +48,7 @@ export default function FAQComponent() {
                   This is a short answer to FAQ {idx + 1}. It briefly addresses
                   a common question users might have.
                 </p>
-                <div className="flex justify-between mt-auto pt-4 text-xs text-gray-600">
+                <div className="flex justify-between mt-auto pt-4 text-xs text-blue-600">
                   <span>IDENTITY MANAGEMENT</span>
                   <span>FAQ</span>
                 </div>
