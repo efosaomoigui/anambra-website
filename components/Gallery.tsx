@@ -78,8 +78,8 @@ export default function Gallery() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {filteredImages.map((img, idx) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+        {filteredImages.slice(0, 16).map((img, idx) => (
           <div
             key={idx}
             className="cursor-pointer overflow-hidden rounded-md border hover:shadow-md transition"
