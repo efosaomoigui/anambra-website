@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { FaFilePdf, FaFileExcel, FaFileWord } from "react-icons/fa";
-import { Search } from "lucide-react";
 import clsx from "clsx";
 
 const categories = [
-  "All",
   "Laws",
   "Budget",
   "AG Report",
@@ -66,17 +64,17 @@ const documents = [
 
 const iconMap = {
   pdf: (
-    <div className="bg-[#FFDB8E] h-[140px] flex items-center justify-center">
+    <div className="bg-[#F9F3DA] h-[140px] flex items-center justify-center">
       <FaFilePdf className="text-[#E5A825] w-16 h-16" />
     </div>
   ),
   excel: (
-    <div className="bg-[#FFDB8E] h-[140px] flex items-center justify-center">
+    <div className="bg-[#F9F3DA] h-[140px] flex items-center justify-center">
       <FaFileExcel className="text-[#E5A825] w-16 h-16" />
     </div>
   ),
   word: (
-    <div className="bg-[#FFDB8E] h-[140px] flex items-center justify-center">
+    <div className="bg-[#F9F3DA] h-[140px] flex items-center justify-center">
       <FaFileWord className="text-[#E5A825] w-16 h-16" />
     </div>
   ),
@@ -84,38 +82,56 @@ const iconMap = {
 
 export default function DocumentLibrary() {
   const [query, setQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [mdaFilter, setMdaFilter] = useState("");
   const [sortOption, setSortOption] = useState("");
 
-  const filteredDocs = documents.filter((doc) => {
-    const matchesCategory =
-      selectedCategory === "All" || doc.title.includes(selectedCategory);
-    const matchesQuery = doc.title.toLowerCase().includes(query.toLowerCase());
-    return matchesCategory && matchesQuery;
-  });
+  const toggleCategory = (cat: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
+    );
+  };
+
+  const filteredDocs = documents
+    .filter((doc) => {
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.some((cat) => doc.title.includes(cat));
+      const matchesQuery = doc.title
+        .toLowerCase()
+        .includes(query.toLowerCase());
+      return matchesCategory && matchesQuery;
+    })
+    .sort((a, b) => {
+      if (sortOption === "az") return a.title.localeCompare(b.title);
+      if (sortOption === "za") return b.title.localeCompare(a.title);
+      if (sortOption === "newest")
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      if (sortOption === "oldest")
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      return 0;
+    });
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
-      {/* Heading */}
       <div className="text-center mb-8">
-        <h2 className="mt-[50px] text-3xl font-bold text-black">
+        <h2 className="mt-[50px] text-[28px] md:text-[32px] lg:text-[40px] font-bold text-center mb-12">
           Document Library
         </h2>
       </div>
 
-      {/* Search */}
       <div className="flex flex-col items-center justify-center mb-10 px-2">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="flex items-center bg-[#E9E9E9] rounded-full h-12 px-4 w-full max-w-xl"
+          className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[611px] px-[7px]"
         >
           <input
             type="text"
             placeholder="Search documents..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent px-2 text-sm text-gray-800 focus:outline-none"
+            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none"
+            style={{ borderRadius: "12px" }}
           />
           <button
             type="submit"
@@ -130,7 +146,6 @@ export default function DocumentLibrary() {
         </form>
       </div>
 
-      {/* Main Content */}
       <div className="grid grid-cols-12 gap-6">
         {/* Sidebar */}
         <div className="col-span-12 md:col-span-3">
@@ -140,14 +155,16 @@ export default function DocumentLibrary() {
                 key={cat}
                 className={clsx(
                   "flex items-center gap-2 font-semibold cursor-pointer transition",
-                  selectedCategory === cat ? "text-[#DA9617]" : "text-black"
+                  selectedCategories.includes(cat)
+                    ? "text-[#DA9617]"
+                    : "text-black"
                 )}
               >
                 <input
                   type="checkbox"
-                  checked={selectedCategory === cat}
-                  onChange={() => setSelectedCategory(cat)}
-                  className="custom-golden w-4 h-4 rounded"
+                  checked={selectedCategories.includes(cat)}
+                  onChange={() => toggleCategory(cat)}
+                  className="w-4 h-4 rounded"
                 />
                 <span className="text-sm">{cat}</span>
               </label>
@@ -157,7 +174,6 @@ export default function DocumentLibrary() {
 
         {/* Documents + Filters */}
         <div className="col-span-12 md:col-span-9 space-y-6">
-          {/* Filter Row */}
           <div className="flex flex-col sm:flex-row justify-between gap-4 items-center">
             <select
               className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto"
@@ -175,7 +191,7 @@ export default function DocumentLibrary() {
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >
-              <option value="newest">Sort By</option>
+              <option value="">Sort By</option>
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
               <option value="az">A - Z</option>
@@ -183,7 +199,6 @@ export default function DocumentLibrary() {
             </select>
           </div>
 
-          {/* Document Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredDocs.map((doc, idx) => (
               <div
