@@ -1,12 +1,11 @@
 // app/layout.tsx
 import "../styles/globals.css";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Playfair_Display } from "next/font/google";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-// import { setupWorker } from "msw/browser";
-import { handlers } from "@/mocks/handlers";
 import BackArrow from "@/components/BackArrow";
+import { handlers } from "@/mocks/handlers";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -15,11 +14,12 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
-// This ensures MSW starts in development mode
-// if (process.env.NODE_ENV === "development") {
-//   const worker = setupWorker(...handlers);
-//   worker.start();
-// }
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata = {
   title: {
@@ -44,13 +44,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={instrumentSans.variable}>
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${instrumentSans.variable} ${playfair.variable}`}
+    >
       <body className="font-instrument text-body bg-background min-h-screen flex flex-col">
         <Navbar />
         <BackArrow />

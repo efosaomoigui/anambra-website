@@ -79,17 +79,20 @@ export default function ServiceDetailPage() {
             key={service.id}
             className="border border-gray-200 bg-white rounded-lg p-4 flex flex-col justify-between h-full"
           >
-            <h3 className="text-lg font-semibold text-gray-700">
+            {/* <h3 className="text-lg font-semibold text-gray-700">
               {service.name}
-            </h3>
-            <p className="text-gray-600 text-sm mb-4">
+            </h3> */}
+            <p className="text-gray-600 text-sm sm:text-base md:text-[16px] mb-12">
               {activeTab === "Services"
-                ? `This card represents ${service.name}. Learn more about this service below.`
+                ? `This card represents ${service.name}. What should I do if police tags me an internet fraudster because I have a car.`
                 : `Learn about the ${service.name} service offered.`}
             </p>
-            <div className="flex justify-between text-xs text-blue-600">
-              <Link href={`/services/${service.slug}`}>Learn More</Link>
-              <Link href={`/services/${service.slug}`}>Details</Link>
+
+            <div className="flex justify-between text-[11px] text-blue-600 font-semibold">
+              <Link href={`/services/${service.slug}`} className="uppercase">
+                {service.name}
+              </Link>
+              <Link href={`/services/${service.slug}`}>FAQ</Link>
             </div>
           </div>
         ))}
@@ -115,7 +118,7 @@ export default function ServiceDetailPage() {
             placeholder="Search Services..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none"
+            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none pl-[7px]"
             style={{ borderRadius: "12px" }}
           />
           <button
@@ -132,13 +135,13 @@ export default function ServiceDetailPage() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="mt-[36px] w-[529px] h-[48px] mx-auto mb-12">
+      <div className="mt-9 w-full max-w-[529px] h-12 mx-auto mb-12">
         <div className="flex h-full">
           {TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`w-[165.67px] h-[48px] text-base font-semibold transition duration-200 border-b-4 ${
+              className={`flex-1 h-full text-sm sm:text-base font-semibold transition duration-200 border-b-2 ${
                 activeTab === tab
                   ? "text-black border-black"
                   : "text-black border-transparent hover:text-black hover:border-black"

@@ -42,13 +42,15 @@ export default function FAQComponent() {
             {Array.from({ length: 5 }).map((_, idx) => (
               <div
                 key={idx}
-                className="min-w-[280px] md:min-w-[300px] max-w-[300px] bg-white border border-gray-300 p-6 rounded-[8px] flex flex-col justify-between"
+                className="min-w-[382px] bg-white border border-gray-300 p-6 rounded-[8px] flex flex-col justify-between"
+                style={{ minHeight: "152px" }} // Set min height
               >
-                <p className="text-sm text-black mb-8">
+                <p className="text-sm sm:text-base md:text-lg text-black mb-8">
                   This is a short answer to FAQ {idx + 1}. It briefly addresses
                   a common question users might have.
                 </p>
-                <div className="flex justify-between mt-auto pt-4 text-xs text-blue-600">
+
+                <div className="flex justify-between mt-auto pt-4 text-[11px] text-blue-600 font-semibold">
                   <span>IDENTITY MANAGEMENT</span>
                   <span>FAQ</span>
                 </div>

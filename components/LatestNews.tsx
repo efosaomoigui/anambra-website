@@ -23,10 +23,10 @@ export default function LatestNews() {
 
               {/* Tags */}
               <div className="flex gap-2 px-1">
-                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-3 py-1 rounded-[4px]">
+                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-1 py-1 rounded-[4px]">
                   State
                 </span>
-                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-3 py-1 rounded-[4px]">
+                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-1 py-1 rounded-[4px]">
                   Security
                 </span>
               </div>

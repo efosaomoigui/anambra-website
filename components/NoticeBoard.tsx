@@ -20,10 +20,11 @@ export default function NoticeBoard() {
                 key={idx}
                 className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-4"
               >
-                <h3 className="text-lg font-bold">
+                <h3 className="text-lg font-semibold">
                   Soludo’s new executive order specifies number of police
                   checkpoints per sq km. {idx + 1}
                 </h3>
+
                 <p className="text-sm text-gray-600">Dec 04, 2024</p>
               </div>
             ))}
@@ -42,7 +43,7 @@ export default function NoticeBoard() {
 
             {/* Main Event */}
             <div className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-6">
-              <h3 className="text-lg font-bold">
+              <h3 className="text-lg font-semibold">
                 Anambra Developer Summit 2024
               </h3>
               <p className="text-sm text-gray-700">
@@ -57,7 +58,7 @@ export default function NoticeBoard() {
                 key={idx}
                 className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-6"
               >
-                <h3 className="text-lg font-bold">
+                <h3 className="text-lg font-semibold">
                   1st International Agrivoltaics Conference in Nigeria {idx + 2}
                 </h3>
                 <p className="text-sm text-gray-700">

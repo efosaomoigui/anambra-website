@@ -41,7 +41,7 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex flex-1 justify-center space-x-6 ml-20">
+          <div className="hidden md:flex flex-1 justify-center space-x-6 ml-20 text-sm">
             {navLinks.map((link) =>
               link.label === "GOVERNMENT" ? (
                 <div key={link.href} className="relative group">
@@ -52,8 +52,8 @@ export default function Navbar() {
 
                   <div
                     className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md z-50 
-    opacity-0 invisible group-hover:visible group-hover:opacity-100 
-    transition-all duration-200 ease-out"
+                    opacity-0 invisible group-hover:visible group-hover:opacity-100 
+                    transition-all duration-200 ease-out"
                   >
                     <ul className="py-2 px-2">
                       {link.subLinks.map((subLink) => (

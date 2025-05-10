@@ -31,10 +31,10 @@ export default function ServiceCard({ title, slug }: Props) {
             }}
           />
         </div>
-        <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
+        <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">
           {title}
         </h2>
-        <p className="text-xs text-gray-500 px-1 leading-relaxed">
+        <p className="text-[14px] text-gray-500 px-1 leading-relaxed mt-0 mb-4">
           This service helps you manage your {title.toLowerCase()} needs quickly
           and efficiently through our digital platform.
         </p>

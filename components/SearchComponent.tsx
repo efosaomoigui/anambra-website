@@ -19,7 +19,7 @@ export default function SearchComponent() {
     <div className="w-full px-4 flex flex-col items-center">
       {/* Text Above Search */}
       <div className="text-center mb-4">
-        <p className="text-base text-[12px] text-[#1E1E1E] italic font-playfair leading-snug">
+        <p className="text-[12px] text-[#1E1E1E] italic font-playfair font-medium leading-snug">
           Find anything you need with the search bar
         </p>
       </div>
@@ -66,7 +66,7 @@ export default function SearchComponent() {
           ].map((label, index) => (
             <button
               key={index}
-              className="rounded-[8px] min-w-[160px] flex-shrink-0 py-1 px-6 border-2 border-black text-black bg-white font-medium hover:bg-gray-100 transition leading-[36px] text-[13px]"
+              className="rounded-[8px] flex-shrink-0 h-[36px] px-2.5 border-2 border-black text-black bg-white font-medium hover:bg-gray-100 transition text-[13px]"
             >
               {label}
             </button>
