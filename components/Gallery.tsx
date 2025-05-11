@@ -61,21 +61,23 @@ export default function Gallery() {
         Gallery
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-6 my-[70px]">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={clsx(
-              "text-sm font-semibold text-black transition border-b-2",
-              selectedCategory === cat
-                ? "border-black"
-                : "border-transparent hover:border-black"
-            )}
-          >
-            {cat}
-          </button>
-        ))}
+      <div className="mt-9 w-full h-12 mb-12 overflow-x-auto scrollbar-none">
+        <div className="flex justify-center h-full gap-12 min-w-max mx-auto px-6 whitespace-nowrap">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={clsx(
+                "text-sm sm:text-base font-semibold border-b-2 transition duration-200",
+                selectedCategory === cat
+                  ? "text-black border-black"
+                  : "text-black border-transparent hover:text-black hover:border-black"
+              )}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">

@@ -25,7 +25,7 @@ export default function SearchComponent() {
       </div>
 
       {/* Search Input with Icon */}
-      <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[611px] pl-[7px]">
+      <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[611px] pl-[4px]">
         <input
           type="text"
           placeholder="How to resolve business issues..."

@@ -8,9 +8,9 @@ export default function NoticeBoard() {
           <div className="md:col-span-6 space-y-4 bg-gradient-to-r from-[#FFC7C3] to-[#FFDEC2] p-8 rounded-[12px]">
             <div className="flex items-center gap-2 mb-8">
               <img
-                src="/images/icons/notice.png"
+                src="/images/icons/notice.svg"
                 alt="Notice Icon"
-                className="w-5 h-5"
+                className="w-10 h-10"
               />
               <h3 className="text-xl font-black text-black">Notice Board</h3>
             </div>
@@ -34,9 +34,9 @@ export default function NoticeBoard() {
           <div className="md:col-span-5 space-y-4 bg-[#FFDEC2] p-8 rounded-[12px]">
             <div className="flex items-center gap-2 mb-8">
               <img
-                src="/images/icons/event.png"
+                src="/images/icons/event.svg"
                 alt="Event Icon"
-                className="w-5 h-5"
+                className="w-10 h-10"
               />
               <h3 className="text-xl font-black text-black">Upcoming Events</h3>
             </div>

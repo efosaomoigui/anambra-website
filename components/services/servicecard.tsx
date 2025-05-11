@@ -14,7 +14,7 @@ export default function ServiceCard({ title, slug }: Props) {
       .replace(/’/g, "")
       .replace(/[&,:]/g, "")
       .replace(/\s+/g, " ")
-      .trim() + ".png";
+      .trim() + ".svg";
 
   const iconPath = `/images/icons/${iconName}`;
 

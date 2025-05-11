@@ -130,7 +130,7 @@ export default function DocumentLibrary() {
             placeholder="Search documents..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none"
+            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none pl-[4px]"
             style={{ borderRadius: "12px" }}
           />
           <button
@@ -176,9 +176,15 @@ export default function DocumentLibrary() {
         <div className="col-span-12 md:col-span-9 space-y-6">
           <div className="flex flex-col sm:flex-row justify-between gap-4 items-center">
             <select
-              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto"
+              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto appearance-none pr-10"
               value={mdaFilter}
               onChange={(e) => setMdaFilter(e.target.value)}
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg fill='none' stroke='%23333' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right 0.75rem center",
+                backgroundSize: "1rem",
+              }}
             >
               <option value="">Filter by MDA</option>
               <option value="education">Ministry of Education</option>
@@ -187,9 +193,15 @@ export default function DocumentLibrary() {
             </select>
 
             <select
-              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto"
+              className="bg-[#E9E9E9] border border-[#D4D4D4] px-4 py-2 rounded text-sm text-gray-800 w-full sm:w-auto appearance-none pr-10"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg fill='none' stroke='%23333' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right 0.75rem center",
+                backgroundSize: "1rem",
+              }}
             >
               <option value="">Sort By</option>
               <option value="newest">Newest</option>
@@ -201,16 +213,15 @@ export default function DocumentLibrary() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredDocs.map((doc, idx) => (
-              <div
-                key={idx}
-                className="rounded border hover:shadow-md transition"
-              >
+              <div key={idx} className="rounded transition">
                 {iconMap[doc.type]}
-                <h4 className="text-sm font-bold text-gray-800 mb-1 px-4">
+                <h4 className="text-sm font-bold text-gray-800 mb-1 mt-[4px]">
                   {doc.title}
                 </h4>
-                <p className="text-xs text-gray-500 px-4">Size: {doc.size}</p>
-                <p className="text-xs text-gray-500 px-4 pb-4">
+                <p className="text-xs text-gray-500  mt-2">
+                  Size: {doc.size}
+                </p>
+                <p className="text-xs text-gray-500  mt-2">
                   Date: {doc.date}
                 </p>
               </div>

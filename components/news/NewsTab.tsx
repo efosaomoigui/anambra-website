@@ -24,12 +24,12 @@ export default function NewsTabs() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-full text-sm font-medium border border-gray-300 
-              ${
-                activeTab === tab
-                  ? "bg-black text-white border-black"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
+            className={`px-4 py-2 rounded-[8px] text-sm font-medium border border-gray-300 
+          ${
+            activeTab === tab
+              ? "bg-black text-white border-black"
+              : "bg-white text-gray-700 hover:bg-gray-100"
+          }`}
           >
             {tab}
           </button>

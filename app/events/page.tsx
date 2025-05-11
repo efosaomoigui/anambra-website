@@ -37,50 +37,52 @@ export default function EventsPage() {
         Events
       </h1>
 
-      <div className="space-y-12">
-        {events.map((event) => (
-          <div
-            key={event.slug}
-            className="grid grid-cols-1 md:grid-cols-[325px_auto] gap-6 items-start"
-          >
-            {/* Left: Image */}
-            <div className="w-full h-[229px] md:h-[260px] relative rounded-lg overflow-hidden">
-              <img
-                src={event.image}
-                alt={event.title}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-
-            {/* Right: Text */}
-            <div className="flex flex-col justify-start h-full pt-0 space-y-4 max-w-[500px]">
-              {/* Heading + Summary */}
-              <div>
-                <h1 className="text-2xl md:text-[20px] font-bold">
-                  {event.title}
-                </h1>
-                <p className="text-[17px] text-gray-700">{event.summary}</p>
+      <div className="space-y-12 flex justify-center">
+        <div className="w-full max-w-screen-lg mx-auto">
+          {events.map((event) => (
+            <div
+              key={event.slug}
+              className="grid grid-cols-1 md:grid-cols-[325px_auto] gap-6 items-start justify-center mb-8"
+            >
+              {/* Left: Image */}
+              <div className="w-full h-[229px] md:h-[260px] relative rounded-lg overflow-hidden">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
 
-              {/* Date + Location + Button */}
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div className="text-[17px] text-gray-600 space-y-1">
-                  <p className="font-semibold">{event.date}</p>
-                  <p className="font-semibold">{event.location}</p>
+              {/* Right: Text */}
+              <div className="flex flex-col justify-start h-full pt-0 space-y-4 max-w-[500px]">
+                {/* Heading + Summary */}
+                <div>
+                  <h1 className="text-2xl md:text-[20px] font-bold">
+                    {event.title}
+                  </h1>
+                  <p className="text-[17px] text-gray-700">{event.summary}</p>
                 </div>
-                <button className="bg-[#FFB732] text-[17px] text-black font-semibold flex items-center justify-center gap-2 px-4 py-2 rounded-[8px] whitespace-nowrap w-[163px] h-[40px] sm:w-auto">
-                  View Details
-                  <Image
-                    src="/images/arrowup.png"
-                    alt="Arrow"
-                    width={18}
-                    height={18}
-                  />
-                </button>
+
+                {/* Date + Location + Button */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="text-[17px] text-gray-600 space-y-1">
+                    <p className="font-semibold">{event.date}</p>
+                    <p className="font-semibold">{event.location}</p>
+                  </div>
+                  <button className="bg-[#FFB732] text-[17px] text-black font-semibold flex items-center justify-center gap-2 px-4 py-2 rounded-[8px] whitespace-nowrap w-[163px] h-[40px] sm:w-auto">
+                    View Details
+                    <Image
+                      src="/images/arrowup.png"
+                      alt="Arrow"
+                      width={18}
+                      height={18}
+                    />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </main>
   );

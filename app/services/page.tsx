@@ -62,7 +62,7 @@ export default function ServicesPage() {
             placeholder="Search Services..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none pl-[7px]"
+            className="flex-grow bg-transparent text-[13px] text-gray-800 focus:outline-none pl-[4px]"
             style={{ borderRadius: "12px" }}
           />
 

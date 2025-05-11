@@ -19,9 +19,9 @@ export default function NewsCard({
 }: NewsCardProps) {
   return (
     <Link href={`/news/${slug}`} className="block">
-      <article className="space-y-3 rounded-lg overflow-hidden transition p-3">
+      <article className="space-y-4 rounded-lg overflow-hidden transition p-4">
         {/* Image */}
-        <div className="w-full h-[217px] overflow-hidden rounded-lg">
+        <div className="w-full h-[217px] overflow-hidden rounded-lg mb-4">
           <img
             src={imageUrl}
             alt={title}
@@ -30,11 +30,11 @@ export default function NewsCard({
         </div>
 
         {/* Tags */}
-        <div className="flex gap-2 px-1">
+        <div className="flex gap-2 px-1 mb-3">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="bg-[#DADADA] text-gray-800 text-xs font-medium px-3 py-1 rounded-[4px]"
+              className="bg-[#DADADA] text-gray-800 text-xs font-semibold px-3 py-1 rounded-[4px]"
             >
               {tag}
             </span>
@@ -42,7 +42,7 @@ export default function NewsCard({
         </div>
 
         {/* Headline */}
-        <h3 className="text-lg font-bold text-black">{summary}</h3>
+        <h3 className="text-lg font-semibold text-black mb-2">{summary}</h3>
 
         {/* Date */}
         <time

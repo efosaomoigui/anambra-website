@@ -32,7 +32,7 @@ export default function LatestNews() {
               </div>
 
               {/* Headline */}
-              <h3 className="text-lg font-bold text-black">
+              <h3 className="text-lg font-semibold text-black">
                 Soludo’s new executive order specifies number of police
                 checkpoints per sq km. {idx + 1}
               </h3>
