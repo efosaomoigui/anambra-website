@@ -63,18 +63,18 @@ export default function MDA() {
 
         <form
           onSubmit={handleSearch}
-          className="flex items-center bg-[#E9E9E9] rounded-full h-12 px-4 w-full max-w-xl"
+          className="flex items-center bg-[#E9E9E9] rounded-[12px] h-12 w-full max-w-xl"
         >
           <input
             type="text"
             placeholder="How to resolve business issues..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow bg-transparent px-2 text-sm text-gray-800 focus:outline-none"
+            className="flex-grow bg-transparent pl-[10px] text-sm text-gray-800 focus:outline-none"
           />
           <button
             type="submit"
-            className="text-gray-600 hover:text-black transition text-xl"
+            className="text-gray-600 hover:text-black transition text-xl pr-[6px]"
           >
             <img
               src="/images/searchicon.png"
@@ -95,7 +95,11 @@ export default function MDA() {
           >
             <div className="flex items-center mb-4">
               <div className="bg-gray-200 p-2 rounded-full mr-3">
-                <Building size={20} className="text-gray-700" />
+                <img
+                  src="/images/icons/ministries.svg"
+                  alt="Event Icon"
+                  className="w-10 h-10"
+                />
               </div>
               <h4 className="text-lg font-bold">Building {index + 1}</h4>
             </div>
