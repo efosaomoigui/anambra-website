@@ -16,7 +16,22 @@ export default function ServiceCard({ title, slug }: Props) {
       .replace(/\s+/g, " ")
       .trim() + ".svg";
 
-  const iconPath = `/images/icons/${iconName}`;
+  const getIconNameFromSlug = (slug: string): string => {
+    const cleaned = slug
+      .toLowerCase()
+      .replace(/-services?$/, "") // remove '-service' or '-services' at end
+      .replace(/’/g, "") // remove curly apostrophes
+      .replace(/[&,:]/g, "") // remove special chars
+      .replace(/-/g, " ") // replace hyphens with space
+      .replace(/\s+/g, " ") // normalize multiple spaces
+      .trim();
+
+    return `${cleaned}.svg`;
+  };
+
+  // const iconPath = `/images/icons/${iconName}`;
+  const iconn = getIconNameFromSlug(slug);
+  const iconPath = `/images/icons/${iconn}`;
 
   return (
     <Link href={`/services/${slug}`}>
