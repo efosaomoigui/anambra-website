@@ -95,8 +95,8 @@
 
 "use client";
 
-import ServiceCard from "@/components/services/servicecard";
 import { useEffect, useState } from "react";
+import ServiceCard from "@/components/services/servicecard";
 import { fetchServiceCategories } from "@/lib/clients/service.client";
 
 type ServiceCategory = {
