@@ -1,27 +1,18 @@
-import { userFeedbackEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/userFeedback.client.ts
+import { UserFeedbackQueries } from "@/lib/graphql/queries/user-feedback";
+import client from "@/lib/http";
 
-export const fetchUserFeedbacks = async () => {
-  const response = await http.get(userFeedbackEndpoints.all);
-  return response.data;
+export const fetchAllUserFeedbacks = async () => {
+  const { data } = await client.query({
+    query: UserFeedbackQueries.root,
+  });
+  return data.userFeedbacks;
 };
 
-export const fetchUserFeedbackById = async (id: string) => {
-  const response = await http.get(userFeedbackEndpoints.byId(id));
-  return response.data;
-};
-
-export const createUserFeedback = async (data: any) => {
-  const response = await http.post(userFeedbackEndpoints.all, data);
-  return response.data;
-};
-
-export const updateUserFeedback = async (id: string, data: any) => {
-  const response = await http.put(userFeedbackEndpoints.byId(id), data);
-  return response.data;
-};
-
-export const deleteUserFeedback = async (id: string) => {
-  const response = await http.delete(userFeedbackEndpoints.byId(id));
-  return response.data;
+export const fetchUserFeedbackById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: UserFeedbackQueries.byId,
+    variables: { documentId },
+  });
+  return data.userFeedback;
 };

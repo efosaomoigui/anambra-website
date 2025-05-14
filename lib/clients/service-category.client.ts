@@ -1,27 +1,18 @@
-import { serviceCategoryEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/category.client.ts
+import { CategoryQueries } from "@/lib/graphql/queries/service-category";
+import client from "@/lib/http";
 
-export const fetchServiceCategories = async () => {
-  const response = await http.get(serviceCategoryEndpoints.all);
-  return response.data;
+export const fetchAllCategories = async () => {
+  const { data } = await client.query({
+    query: CategoryQueries.root,
+  });
+  return data.categories;
 };
 
-export const fetchServiceCategoryById = async (id: string) => {
-  const response = await http.get(serviceCategoryEndpoints.byId(id));
-  return response.data;
-};
-
-export const createServiceCategory = async (data: any) => {
-  const response = await http.post(serviceCategoryEndpoints.all, data);
-  return response.data;
-};
-
-export const updateServiceCategory = async (id: string, data: any) => {
-  const response = await http.put(serviceCategoryEndpoints.byId(id), data);
-  return response.data;
-};
-
-export const deleteServiceCategory = async (id: string) => {
-  const response = await http.delete(serviceCategoryEndpoints.byId(id));
-  return response.data;
+export const fetchCategoryById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: CategoryQueries.byId,
+    variables: { documentId },
+  });
+  return data.category;
 };

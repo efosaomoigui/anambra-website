@@ -1,27 +1,18 @@
-import { authorEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/author.client.ts
+import { AuthorQueries } from "@/lib/graphql/queries/author";
+import client from "@/lib/http";
 
-export const fetchAuthors = async () => {
-  const response = await http.get(authorEndpoints.all);
-  return response.data;
+export const fetchAllAuthors = async () => {
+  const { data } = await client.query({
+    query: AuthorQueries.root,
+  });
+  return data.authors;
 };
 
-export const fetchAuthorById = async (id: string) => {
-  const response = await http.get(authorEndpoints.byId(id));
-  return response.data;
-};
-
-export const createAuthor = async (data: any) => {
-  const response = await http.post(authorEndpoints.all, data);
-  return response.data;
-};
-
-export const updateAuthor = async (id: string, data: any) => {
-  const response = await http.put(authorEndpoints.byId(id), data);
-  return response.data;
-};
-
-export const deleteAuthor = async (id: string) => {
-  const response = await http.delete(authorEndpoints.byId(id));
-  return response.data;
+export const fetchAuthorById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: AuthorQueries.byId,
+    variables: { documentId },
+  });
+  return data.author;
 };

@@ -1,27 +1,18 @@
-import { pageEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/page.client.ts
+import { PageQueries } from "@/lib/graphql/queries/page";
+import client from "@/lib/http";
 
-export const fetchPages = async () => {
-  const response = await http.get(pageEndpoints.all);
-  return response.data;
+export const fetchAllPages = async () => {
+  const { data } = await client.query({
+    query: PageQueries.root,
+  });
+  return data.pages;
 };
 
-export const fetchPageById = async (id: string) => {
-  const response = await http.get(pageEndpoints.byId(id));
-  return response.data;
-};
-
-export const createPage = async (data: any) => {
-  const response = await http.post(pageEndpoints.all, data);
-  return response.data;
-};
-
-export const updatePage = async (id: string, data: any) => {
-  const response = await http.put(pageEndpoints.byId(id), data);
-  return response.data;
-};
-
-export const deletePage = async (id: string) => {
-  const response = await http.delete(pageEndpoints.byId(id));
-  return response.data;
+export const fetchPageById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: PageQueries.byId,
+    variables: { documentId },
+  });
+  return data.page;
 };

@@ -1,27 +1,18 @@
-import { noticeEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/notice.client.ts
+import { NoticeQueries } from "@/lib/graphql/queries/notice";
+import client from "@/lib/http";
 
-export const fetchNotices = async () => {
-  const response = await http.get(noticeEndpoints.all);
-  return response.data;
+export const fetchAllNotices = async () => {
+  const { data } = await client.query({
+    query: NoticeQueries.root,
+  });
+  return data.notices;
 };
 
-export const fetchNoticeById = async (id: string) => {
-  const response = await http.get(noticeEndpoints.byId(id));
-  return response.data;
-};
-
-export const createNotice = async (data: any) => {
-  const response = await http.post(noticeEndpoints.all, data);
-  return response.data;
-};
-
-export const updateNotice = async (id: string, data: any) => {
-  const response = await http.put(noticeEndpoints.byId(id), data);
-  return response.data;
-};
-
-export const deleteNotice = async (id: string) => {
-  const response = await http.delete(noticeEndpoints.byId(id));
-  return response.data;
+export const fetchNoticeById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: NoticeQueries.byId,
+    variables: { documentId },
+  });
+  return data.notice;
 };

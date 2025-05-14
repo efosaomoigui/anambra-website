@@ -1,22 +1,18 @@
-import { uploadEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/uploadFile.client.ts
+import { UploadFileQueries } from "@/lib/graphql/queries/upload";
+import client from "@/lib/http";
 
-export const uploadFile = async (data: any) => {
-  const response = await http.post(uploadEndpoints.all, data);
-  return response.data;
+export const fetchAllUploadFiles = async () => {
+  const { data } = await client.query({
+    query: UploadFileQueries.root,
+  });
+  return data.uploadFiles;
 };
 
-export const getUploadedFiles = async () => {
-  const response = await http.get(uploadEndpoints.root);
-  return response.data;
-};
-
-export const getFileById = async (id: string) => {
-  const response = await http.get(uploadEndpoints.byId(id));
-  return response.data;
-};
-
-export const deleteUploadedFile = async (id: string) => {
-  const response = await http.delete(uploadEndpoints.byId(id));
-  return response.data;
+export const fetchUploadFileById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: UploadFileQueries.byId,
+    variables: { documentId },
+  });
+  return data.uploadFile;
 };

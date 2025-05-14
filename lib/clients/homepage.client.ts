@@ -1,17 +1,10 @@
-import { homepageEndpoints } from "../api/endpoints/graphql/Endpoints";
-import http from "../http";
+// lib/clients/homepage.client.ts
+import { HomepageQueries } from "@/lib/graphql/queries/homepage";
+import client from "@/lib/http";
 
-export const fetchHomepage = async () => {
-  const response = await http.get(homepageEndpoints.root);
-  return response.data;
-};
-
-export const updateHomepage = async (data: any) => {
-  const response = await http.put(homepageEndpoints.root, data);
-  return response.data;
-};
-
-export const deleteHomepage = async () => {
-  const response = await http.delete(homepageEndpoints.root);
-  return response.data;
+export const fetchHomepageData = async () => {
+  const { data } = await client.query({
+    query: HomepageQueries.root,
+  });
+  return data.homepage;
 };

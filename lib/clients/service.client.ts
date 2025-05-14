@@ -1,6 +1,7 @@
 // lib/clients/service.client.ts
 import client from "@/lib/http";
-import { serviceQueries } from "@/lib/api/endpoints/graphql/service";
+import { serviceQueries } from "@/lib/graphql/queries/service";
+import { CategoryQueries } from "../graphql/queries/category";
 
 export const fetchAllServices = async () => {
   const { data } = await client.query({ query: serviceQueries.all });
@@ -19,3 +20,13 @@ export const fetchServiceCategories = async () => {
   const { data } = await client.query({ query: serviceQueries.categories });
   return data.serviceCategories;
 };
+
+
+export const fetchCategoryById = async (documentId: string) => {
+  const { data } = await client.query({
+    query: CategoryQueries.byId,
+    variables: { documentId },
+  });
+  return data.category;
+};
+

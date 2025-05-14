@@ -1,6 +1,6 @@
 // lib/api/client.ts
 
-import { governmentEndpoints } from "../api/endpoints/graphql/Endpoints";
+import { governmentEndpoints } from "../graphql/queries/Endpoints";
 import http from "../http";
 
 export const fetchMinistries = async () => {
