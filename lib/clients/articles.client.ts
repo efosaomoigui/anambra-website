@@ -1,4 +1,4 @@
-// lib/clients/article.client.ts
+//lib/clients/article.client.ts
 import { articleQueries } from "@/lib/graphql/queries/articles";
 import client from "@/lib/http";
 

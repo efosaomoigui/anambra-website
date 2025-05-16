@@ -16,3 +16,13 @@ export const fetchFaqById = async (documentId: string) => {
   });
   return data.faq;
 };
+
+export const fetchFaqBySlug = async (slug: string) => {
+  const { data } = await client.query({
+    query: FaqQueries.root, // fetch all
+  });
+
+  // filter locally
+  const match = data.faqs.find((faq: any) => faq.faq_category.Slug === slug);
+  return match || null;
+};

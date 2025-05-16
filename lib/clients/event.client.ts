@@ -9,10 +9,21 @@ export const fetchAllEvents = async () => {
   return data.events;
 };
 
+export const fetchEventBySlug = async (slug: string) => {
+  const { data } = await client.query({
+    query: EventQueries.bySlug,
+    variables: { slug },
+  });
+  return data.events[0];
+};
+
 export const fetchEventById = async (documentId: string) => {
   const { data } = await client.query({
     query: EventQueries.byId,
-    variables: { documentId },
+    variables: {
+      documentId, // <- make sure this is a string
+    },
   });
+
   return data.event;
 };

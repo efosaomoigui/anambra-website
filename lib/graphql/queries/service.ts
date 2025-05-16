@@ -59,4 +59,13 @@ export const serviceQueries = {
       }
     }
   `,
+  byCategorySlug: gql`
+    query ServicesByCategorySlug($slug: String!) {
+      serviceCategories(where: { Slug: $slug }) {
+        documentId
+        Name
+        Slug
+      }
+    }
+  `,
 };

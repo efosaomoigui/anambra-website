@@ -33,4 +33,22 @@ export const EventQueries = {
       }
     }
   `,
+  bySlug: gql`
+    query FetchEventBySlug($slug: String!) {
+      events(filters: { slug: { eq: $slug } }) {
+        documentId
+        title
+        date
+        time
+        location
+        description
+        link
+        slug
+        cover {
+          url
+          alternativeText
+        }
+      }
+    }
+  `,
 };

@@ -103,6 +103,7 @@ type ServiceCategory = {
   Name: string;
   Slug: string;
   documentId: string;
+  Description: string;
 };
 
 export default function ServicesPage() {
@@ -175,6 +176,7 @@ export default function ServicesPage() {
               key={category.documentId}
               title={category.Name}
               slug={category.Slug}
+              description={category.Description}
             />
           ))}
       </div>

@@ -5,9 +5,10 @@ import Link from "next/link";
 type Props = {
   title: string;
   slug: string;
+  description:string
 };
 
-export default function ServiceCard({ title, slug }: Props) {
+export default function ServiceCard({ title, slug, description }: Props) {
   const iconName =
     title
       .toLowerCase()
@@ -50,8 +51,7 @@ export default function ServiceCard({ title, slug }: Props) {
           {title}
         </h2>
         <p className="text-[14px] text-gray-500 px-1 leading-relaxed mt-0 mb-4">
-          This service helps you manage your {title.toLowerCase()} needs quickly
-          and efficiently through our digital platform.
+          {description}
         </p>
       </div>
     </Link>

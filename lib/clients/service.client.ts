@@ -21,7 +21,6 @@ export const fetchServiceCategories = async () => {
   return data.serviceCategories;
 };
 
-
 export const fetchCategoryById = async (documentId: string) => {
   const { data } = await client.query({
     query: CategoryQueries.byId,
@@ -29,4 +28,3 @@ export const fetchCategoryById = async (documentId: string) => {
   });
   return data.category;
 };
-

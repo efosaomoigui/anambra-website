@@ -11,6 +11,10 @@ export const FaqQueries = {
         createdAt
         updatedAt
         publishedAt
+        faq_category {
+          Name
+          Slug
+        }
       }
     }
   `,
