@@ -111,6 +111,24 @@ export default function EventsPage() {
     getEvents();
   }, []);
 
+  const formatDate = (rawDate: string) => {
+    const dateObj = new Date(rawDate);
+    const weekday = dateObj.toLocaleDateString("en-US", { weekday: "short" });
+    const day = dateObj.getDate();
+    const month = dateObj.toLocaleDateString("en-US", { month: "short" });
+    const year = dateObj.getFullYear();
+    return `${weekday}, ${day} ${month}, ${year}`;
+  };
+
+  const formatTime = (rawDate: string) => {
+    const dateObj = new Date(rawDate);
+    return dateObj.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
+
   return (
     <main className="max-w-6xl mx-auto px-4 pt-[50px] pb-20">
       <h1 className="mt-[50px] text-[28px] md:text-[32px] lg:text-[40px] font-bold text-center mb-12">
@@ -127,6 +145,8 @@ export default function EventsPage() {
               : "/images/placeholder.png";
 
             const detailSlug = event.slug || event.documentId;
+            const formattedDate = formatDate(event.date);
+            const formattedTime = formatTime(event.date);
 
             return (
               <div
@@ -148,16 +168,21 @@ export default function EventsPage() {
                     <h1 className="text-2xl md:text-[20px] font-bold">
                       {event.title}
                     </h1>
-                    <p className="text-[17px] text-gray-700">
+                    <p className="text-[14px] text-gray-700">
                       {event.description}
                     </p>
                   </div>
 
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div className="text-[17px] text-gray-600 space-y-1">
-                      <p className="font-semibold">
-                        {event.date} {event.time}
-                      </p>
+                    <div className="text-[14px] text-gray-600 space-y-1">
+                      <div className="border-2 border-gray-300 w-fit rounded-md">
+                        <div className="flex items-center justify-center gap-2 font-semibold px-2 py-1">
+                          <span>{formattedDate}</span>
+                          <span className="text-lg leading-none">•</span>
+                          <span>{formattedTime}</span>
+                        </div>
+                      </div>
+
                       <p className="font-semibold">{event.location}</p>
                     </div>
 

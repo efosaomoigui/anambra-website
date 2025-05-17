@@ -420,7 +420,7 @@ export default function DocumentLibrary() {
               return (
                 <div key={idx} className="rounded transition">
                   {iconMap[ext] || iconMap.pdf}
-                  <h4 className="text-sm font-bold text-gray-800 mb-1 mt-[4px]">
+                  <h4 className="text-sm font-semibold text-gray-800 mb-1 mt-[4px]">
                     {doc.name}
                   </h4>
                   <p className="text-xs text-gray-500 mt-2">

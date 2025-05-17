@@ -9,12 +9,12 @@ export const fetchAllMdaCategories = async () => {
   return data.mdas;
 };
 
-export const fetchAllMdaCategoriesDeep = async () => {
-  const { data } = await client.query({
-    query: MdaQueries.rootDeep,
-  });
-  return data.mdas;
-};
+// export const fetchAllMdaCategoriesDeep = async () => {
+//   const { data } = await client.query({
+//     query: MdaQueries.rootDeep,
+//   });
+//   return data.mdas;
+// };
 
 export const fetchMdaById = async (documentId: string) => {
   const { data } = await client.query({

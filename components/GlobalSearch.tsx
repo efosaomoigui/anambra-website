@@ -25,7 +25,7 @@ export default function GlobalSearch() {
         {/* Search Form */}
         <form
           onSubmit={handleSearch}
-          className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[748px] pl-[7px]"
+          className="flex items-center bg-[#E9E9E9] rounded-full mb-4 w-full max-w-[748px] pl-[7px]"
         >
           <input
             type="text"
@@ -40,7 +40,7 @@ export default function GlobalSearch() {
             className="text-gray-600 hover:text-black transition text-xl pr-[7px]"
           >
             <img
-              src="/images/searchicon.png"
+              src="/images/arrowglobal.svg"
               alt="Search"
               className="w-[47px] h-[54px] object-contain"
             />
