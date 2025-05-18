@@ -14,8 +14,8 @@ const config: Config = {
         body: "#1E1E1E",
       },
       screens: {
-        "between-360-400": { min: "360px", max: "400px" },
-        "between-360-700": { min: "360px", max: "700px" },
+        "between-360-400": { min: "375px", max: "400px" },
+        "between-400-700": { min: "400px", max: "700px" },
       },
       fontFamily: {
         instrument: ["var(--font-instrument)", "sans-serif"],
