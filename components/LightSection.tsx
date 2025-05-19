@@ -4,7 +4,7 @@ export default function LightSection() {
   return (
     <section
       className={styles.section}
-      style={{ backgroundImage: "url('/images/light-bg.png')" }}
+      style={{ backgroundImage: "url('/images/light-bg.svg')" }}
     >
       <div className={styles.sectionInner}>
         <div className={styles.glassCard}>

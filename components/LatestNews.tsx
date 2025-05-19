@@ -4,12 +4,14 @@ export default function LatestNews() {
   return (
     <section className="px-4 md:px-20 py-16">
       <div className="max-w-[1201px] mx-auto">
+        {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-black">
+          <h2 className="text-[28px] sm:text-3xl md:text-[40px] font-bold text-black">
             Latest News
           </h2>
         </div>
 
+        {/* News Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {Array.from({ length: 6 }).map((_, idx) => (
             <article key={idx} className="space-y-3">
@@ -23,16 +25,16 @@ export default function LatestNews() {
 
               {/* Tags */}
               <div className="flex gap-2 px-1">
-                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-1 py-1 rounded-[4px]">
+                <span className="bg-[#DADADA] text-gray-800 text-[11px] font-medium px-1 py-1 rounded-[4px]">
                   State
                 </span>
-                <span className="bg-[#DADADA] text-gray-800 text-xs font-medium px-1 py-1 rounded-[4px]">
+                <span className="bg-[#DADADA] text-gray-800 text-[11px] font-medium px-1 py-1 rounded-[4px]">
                   Security
                 </span>
               </div>
 
               {/* Headline */}
-              <h3 className="text-lg font-semibold text-black">
+              <h3 className="text-[15px] sm:text-lg font-semibold text-black">
                 Soludo’s new executive order specifies number of police
                 checkpoints per sq km. {idx + 1}
               </h3>
@@ -45,7 +47,7 @@ export default function LatestNews() {
           ))}
         </div>
 
-        {/* Centered Button with Image */}
+        {/* Button */}
         <div className="text-center mt-8 py-8 md:py-7 px-4">
           <Link
             href="/news"
@@ -54,7 +56,7 @@ export default function LatestNews() {
             View All News
             <img
               src="/images/arrowup.png"
-              alt="FAQs"
+              alt="Arrow Icon"
               className="ml-2 w-5 h-5 object-contain"
             />
           </Link>

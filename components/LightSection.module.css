@@ -100,19 +100,7 @@
   }
 
   .statBox {
-    padding: 4px;
-    border-right: 1px solid black;
-    border-bottom: none !important;
-  }
-
-  .statBoxRight {
-    padding: 5px;
-    border-right: 1px solid black;
-    border-bottom: none !important;
-  }
-
-  .statBoxRight {
-    padding: 5px;
+    padding: 8px;
     border-right: 1px solid black;
     border-bottom: none !important;
   }
@@ -132,6 +120,6 @@
 
 @media (max-width: 500px) {
   .section {
-    background-image: url("/images/light-bg-sm.png") !important;
+    background-image: url("/images/light-bg-sm.svg") !important;
   }
 }

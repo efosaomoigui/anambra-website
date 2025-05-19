@@ -19,8 +19,9 @@ export default function FAQComponent() {
   return (
     <section className="px-4 md:px-20 py-16">
       <div className="max-w-[1201px] mx-auto">
+        {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-black">
+          <h2 className="text-[28px] sm:text-3xl md:text-[40px] font-bold text-black">
             FAQs
           </h2>
         </div>
@@ -29,12 +30,12 @@ export default function FAQComponent() {
           {/* Left Arrow */}
           <button
             onClick={() => scroll("left")}
-            className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full "
+            className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full"
           >
             <ChevronLeft className="w-5 h-5 text-black" />
           </button>
 
-          {/* Scrollable FAQs */}
+          {/* Scrollable FAQ Cards */}
           <div
             ref={scrollRef}
             className="flex overflow-x-auto scrollbar-none gap-6 px-4 md:px-8 py-2"
@@ -43,9 +44,9 @@ export default function FAQComponent() {
               <div
                 key={idx}
                 className="min-w-[382px] bg-white border border-gray-300 p-6 rounded-[8px] flex flex-col justify-between"
-                style={{ minHeight: "152px" }} // Set min height
+                style={{ minHeight: "152px" }}
               >
-                <p className="text-sm sm:text-base md:text-lg text-black mb-8">
+                <p className="text-[14px] sm:text-base md:text-lg text-black mb-8">
                   This is a short answer to FAQ {idx + 1}. It briefly addresses
                   a common question users might have.
                 </p>
@@ -61,13 +62,13 @@ export default function FAQComponent() {
           {/* Right Arrow */}
           <button
             onClick={() => scroll("right")}
-            className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full "
+            className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full"
           >
             <ChevronRight className="w-5 h-5 text-black" />
           </button>
         </div>
 
-        {/* Centered Button */}
+        {/* Button */}
         <div className="text-center mt-8 py-8 md:py-7 px-4">
           <Link
             href="/news"

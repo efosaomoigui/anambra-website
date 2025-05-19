@@ -4,7 +4,7 @@ export default function InterfaceWithGovernment() {
       <div className="max-w-[1201px] mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-[32px] font-bold text-black leading-tight">
+          <h2 className="text-[28px] sm:text-[32px] font-bold text-black leading-tight">
             <p>Interface with your</p>
             <p>Government</p>
           </h2>
@@ -19,16 +19,16 @@ export default function InterfaceWithGovernment() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
             <div className="absolute top-[160px] left-6 text-white">
-              <h2 className="text-[32px] font-bold leading-[36px] mb-4">
+              <h2 className="text-[24px] sm:text-[32px] font-bold leading-[28px] sm:leading-[36px] mb-4">
                 <span>Use the SolutionLens</span> <br />
                 <span>Platform</span>
               </h2>
 
-              <p className="text-[16px] max-w-xs mb-6">
+              <p className="text-[12px] sm:text-[16px] max-w-xs mb-6">
                 Everything you need to know to begin running an enterprise in
                 Anambra state
               </p>
-              <button className="mt-4 flex items-center justify-center gap-2 w-[247px] h-[48px] bg-[#FFB732] text-black font-semibold rounded-md">
+              <button className="text-[12px] sm:text-[16px] mt-4 flex items-center justify-center gap-2 w-[247px] h-[48px] bg-[#FFB732] text-black font-semibold rounded-md">
                 Get Started
                 <img
                   src="/images/arrowup.png"
@@ -46,16 +46,16 @@ export default function InterfaceWithGovernment() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
             <div className="absolute top-[160px] left-6 text-white">
-              <h2 className="text-[32px] font-bold leading-[36px] mb-4">
+              <h2 className="text-[24px] sm:text-[32px] font-bold leading-[28px] sm:leading-[36px] mb-4">
                 <span>Ease of Doing </span> <br />
                 <span>Business in Anambra</span>
               </h2>
 
-              <p className="text-[16px] max-w-xs mb-6">
+              <p className="text-[12px] sm:text-[16px] max-w-xs mb-6">
                 Everything you need to know to begin running an enterprise in
                 Anambra state
               </p>
-              <button className="mt-6 flex items-center justify-center gap-2 w-[247px] h-[48px] bg-[#FFB732] text-black font-semibold rounded-md">
+              <button className="text-[12px] sm:text-[16px] mt-6 flex items-center justify-center gap-2 w-[247px] h-[48px] bg-[#FFB732] text-black font-semibold rounded-md">
                 Explore Now
                 <img
                   src="/images/arrowup.png"
