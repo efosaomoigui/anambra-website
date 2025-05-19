@@ -1,43 +1,29 @@
-// components/LightSection.tsx
+import styles from "./LightSection.module.css";
+
 export default function LightSection() {
   return (
     <section
-      className="relative bg-cover bg-center text-black"
-      style={{
-        backgroundImage: `url('/images/light-bg.png')`,
-        height: "1003px",
-      }}
+      className={styles.section}
+      style={{ backgroundImage: "url('/images/light-bg.png')" }}
     >
-      <div className="w-full h-[600px] flex items-center justify-center">
-        <div className="w-full max-w-3xl px-4 py-8 rounded-xl text-center backdrop-blur-sm">
+      <div className={styles.sectionInner}>
+        <div className={styles.glassCard}>
           {/* Title */}
-          <h2
-            className="italic text-3xl sm:text-4xl md:text-5xl text-gray-900 leading-tight"
-            style={{ fontFamily: "Playfair Display" }}
-          >
-            Light of the Nation
-          </h2>
+          <h2 className={styles.title}>Light of the Nation</h2>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 mt-8 font-instrument text-center">
-            {/* Col 1 */}
-            <div className="border-b sm:border-b-0 sm:border-r border-black px-4 py-4 flex flex-col items-center">
-              <h2 className="text-[38px] font-bold text-black">6M</h2>
-              <p className="text-sm text-gray-600 mt-1">Beautiful People</p>
+          <div className={styles.statWrapper}>
+            <div className={styles.statBox}>
+              <h2 className={styles.statValue}>6M</h2>
+              <p className={styles.statLabel}>Beautiful People</p>
             </div>
-
-            {/* Col 2 */}
-            <div className="border-b sm:border-b-0 sm:border-r border-black px-4 py-4 flex flex-col items-center">
-              <h2 className="text-[38px] font-bold text-black">No 1</h2>
-              <p className="text-sm text-gray-600 mt-1">
-                Economy in South East
-              </p>
+            <div className={styles.statBox}>
+              <h2 className={styles.statValue}>No 1</h2>
+              <p className={styles.statLabel}>Economy in South East</p>
             </div>
-
-            {/* Col 3 */}
-            <div className="px-4 py-4 flex flex-col items-center">
-              <h2 className="text-[38px] font-bold text-black">₦200B+</h2>
-              <p className="text-sm text-gray-600 mt-1">Annual Revenue</p>
+            <div className={styles.statBox}>
+              <h2 className={styles.statValue}>₦200B+</h2>
+              <p className={styles.statLabel}>Annual Revenue</p>
             </div>
           </div>
         </div>

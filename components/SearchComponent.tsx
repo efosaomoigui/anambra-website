@@ -44,7 +44,7 @@ export default function SearchComponent() {
       {/* Scroll Arrows + Button Pills */}
       <div className="relative w-full max-w-[690px] flex items-center justify-center">
         {/* Left Arrow - OUTSIDE */}
-        <div className="absolute -left-12 z-10">
+        <div className="absolute -left-6 z-10">
           <button onClick={() => scroll("left")} className=" p-2 rounded-full">
             <ChevronLeft size={20} />
           </button>
@@ -74,7 +74,7 @@ export default function SearchComponent() {
         </div>
 
         {/* Right Arrow - OUTSIDE */}
-        <div className="absolute -right-12 z-10">
+        <div className="absolute -right-6 z-10">
           <button onClick={() => scroll("right")} className=" p-2 rounded-full">
             <ChevronRight size={20} />
           </button>
