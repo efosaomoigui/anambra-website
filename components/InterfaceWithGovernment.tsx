@@ -11,15 +11,15 @@ export default function InterfaceWithGovernment() {
         </div>
 
         {/* Image Row with overlays */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
           {/* First Image Block */}
           <div
-            className="relative w-full h-[433px] rounded-[8px] overflow-hidden shadow-md bg-cover bg-center"
+            className="relative w-[324px] h-[324px] md:w-full md:h-[433px] rounded-[8px] overflow-hidden shadow-md bg-cover bg-center mx-auto"
             style={{ backgroundImage: "url('/images/gov1.png')" }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
-            <div className="absolute top-[160px] left-6 text-white">
-              <h2 className="text-[24px] sm:text-[32px] font-bold leading-[28px] sm:leading-[36px] mb-4">
+            <div className="absolute top-[100px] md:top-[160px] left-6 text-white">
+              <h2 className="text-[20px] sm:text-[32px] font-bold leading-[24px] sm:leading-[36px] mb-4">
                 <span>Use the SolutionLens</span> <br />
                 <span>Platform</span>
               </h2>
@@ -41,12 +41,12 @@ export default function InterfaceWithGovernment() {
 
           {/* Second Image Block */}
           <div
-            className="relative w-full h-[433px] rounded-[8px] overflow-hidden shadow-md bg-cover bg-center"
+            className="relative w-[324px] h-[324px] md:w-full md:h-[433px] rounded-[8px] overflow-hidden shadow-md bg-cover bg-center mx-auto"
             style={{ backgroundImage: "url('/images/gov2.png')" }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
-            <div className="absolute top-[160px] left-6 text-white">
-              <h2 className="text-[24px] sm:text-[32px] font-bold leading-[28px] sm:leading-[36px] mb-4">
+            <div className="absolute top-[100px] md:top-[160px] left-6 text-white">
+              <h2 className="text-[20px] sm:text-[32px] font-bold leading-[24px] sm:leading-[36px] mb-4">
                 <span>Ease of Doing </span> <br />
                 <span>Business in Anambra</span>
               </h2>
