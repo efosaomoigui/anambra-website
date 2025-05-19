@@ -5,7 +5,7 @@ export default function Footer() {
       <div className="max-w-[1201px] mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
         {/* Column 1 */}
         <div className="min-w-[159px]">
-          <h4 className="text-[14px] font-bold mb-4">MAIN LINKS</h4>
+          <h4 className="text-[14px] font-semiBold mb-4">MAIN LINKS</h4>
           <ul className="space-y-2">
             <li className="text-[14px]">Ease of doing business</li>
             <li className="text-[14px]">All services</li>
@@ -15,7 +15,7 @@ export default function Footer() {
 
         {/* Column 2 */}
         <div className="min-w-[160px]">
-          <h4 className="text-[14px] font-bold mb-4">EMERGENCY SERVICES</h4>
+          <h4 className="text-[14px] font-semiBold mb-4">EMERGENCY SERVICES</h4>
           <ul className="space-y-2">
             <li className="text-[14px]">Make complaints</li>
             <li className="text-[14px]">Report a robbery</li>
@@ -25,7 +25,7 @@ export default function Footer() {
 
         {/* Column 3 */}
         <div className="min-w-[159px]">
-          <h4 className="text-[14px] font-bold mb-4">E-SERVICES</h4>
+          <h4 className="text-[14px] font-semiBold mb-4">E-SERVICES</h4>
           <ul className="space-y-2">
             <li className="text-[14px]">Solution Lens</li>
             <li className="text-[14px]">Solution Lens</li>
@@ -34,7 +34,7 @@ export default function Footer() {
 
         {/* Column 4 */}
         <div className="min-w-[160px]">
-          <h4 className="text-[14px] font-bold mb-4">HELP & SUPPORT</h4>
+          <h4 className="text-[14px] font-semiBold mb-4">HELP & SUPPORT</h4>
           <ul className="space-y-2">
             <li className="text-[14px]">Give feedback</li>
             <li className="text-[14px]">Contact the Govt</li>
