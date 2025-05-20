@@ -250,7 +250,7 @@ export default function ServiceDetailPage() {
               key={service.documentId}
               className="border border-gray-200 bg-white rounded-lg p-4 flex flex-col justify-between h-full"
             >
-              <p className="text-gray-600 text-sm sm:text-base md:text-[16px] mb-12">
+              <p className="text-gray-600 text-[13px] mb-12">
                 {service.Description ||
                   `Learn about the ${service.Name} service.`}
               </p>
@@ -277,9 +277,7 @@ export default function ServiceDetailPage() {
               key={faq.documentId}
               className="border border-gray-200 bg-white rounded-lg p-4 flex flex-col justify-between h-full"
             >
-              <p className="text-gray-600 text-sm sm:text-base md:text-[16px] mb-12">
-                {faq.question}
-              </p>
+              <p className="text-gray-600 text-[13px] mb-12">{faq.question}</p>
 
               <div className="flex justify-between text-[11px] text-blue-600 font-semibold">
                 <Link
@@ -296,7 +294,7 @@ export default function ServiceDetailPage() {
           ))}
 
         {showFaqs && filteredFaqs.length === 0 && (
-          <p className="col-span-full text-center text-gray-500">
+          <p className="col-span-full text-center text-[13px] text-gray-500">
             No FAQs found for this category.
           </p>
         )}
@@ -306,7 +304,7 @@ export default function ServiceDetailPage() {
 
   return (
     <main className="max-w-7xl mx-auto px-6 pt-[50px] pb-20">
-      <h1 className="text-[40px] font-bold text-center leading-tight mb-9">
+      <h1 className="text-[30px] sm:text-[40px] font-bold text-center leading-tight mb-9">
         {heading}
       </h1>
 

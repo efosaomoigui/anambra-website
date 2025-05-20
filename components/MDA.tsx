@@ -244,7 +244,9 @@ export default function MDA() {
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <div className="text-center mb-8">
-        <h2 className="mt-[50px] text-3xl font-bold text-black">MDAs</h2>
+        <h2 className="mt-[50px] text-[30px] md:text-[40px] font-bold text-black">
+          MDAs
+        </h2>
       </div>
 
       {/* Categories + Search */}
@@ -287,18 +289,6 @@ export default function MDA() {
               className="w-[47px] h-[54px] object-contain"
             />
           </button>
-          {/* {query && (
-            <button
-              type="button"
-              onClick={() => {
-                setQuery("");
-                setSearchTriggered(false);
-              }}
-              className="text-gray-600 hover:text-black text-sm pr-4"
-            >
-              Clear
-            </button>
-          )} */}
         </form>
       </div>
 
@@ -324,7 +314,7 @@ export default function MDA() {
               mda.Mandate.map((block: any, i: number) => (
                 <p
                   key={i}
-                  className="text-sm text-gray-700 leading-relaxed mb-2"
+                  className="text-[13px] text-gray-700 leading-relaxed mb-2"
                 >
                   {block.children?.map((child: any) => child.text).join("")}
                 </p>
@@ -367,7 +357,7 @@ export default function MDA() {
               <h3 className="text-xl font-bold mb-2">{activeCard.name}</h3>
 
               {activeTab === "Core Mandate" && (
-                <div className="space-y-2 text-sm text-gray-700">
+                <div className="space-y-2 text-[13px] text-gray-700">
                   {Array.isArray(activeCard.Mandate) &&
                   activeCard.Mandate.length > 0 ? (
                     activeCard.Mandate.map((block, i) => (
@@ -384,7 +374,7 @@ export default function MDA() {
               )}
 
               {activeTab === "Functions" && (
-                <div className="text-sm text-gray-700">
+                <div className="text-[13px] text-gray-700">
                   {Array.isArray(activeCard.Functions) &&
                   activeCard.Functions.length > 0 ? (
                     activeCard.Functions.map((block, i) => {
@@ -412,7 +402,7 @@ export default function MDA() {
               )}
 
               {activeTab === "Departments" && (
-                <ul className="list-disc ml-5 text-sm text-gray-700 space-y-1">
+                <ul className="list-disc ml-5 text-[13px] text-gray-700 space-y-1">
                   {Array.isArray(activeCard.departments) &&
                   activeCard.departments.length > 0 ? (
                     activeCard.departments.map((dept) => (
@@ -427,14 +417,14 @@ export default function MDA() {
               )}
 
               {activeTab === "Contact" && (
-                <p className="text-sm text-gray-700">
+                <p className="text-[13px] text-gray-700">
                   {activeCard.Officials?.[0]?.Contact?.image?.file
                     ?.alternativeText || "No contact info"}
                 </p>
               )}
 
               {activeTab === "Officials" && (
-                <p className="text-sm text-gray-700">
+                <p className="text-[13px] text-gray-700">
                   {activeCard.Officials?.[0]?.Contact?.image?.file
                     ?.alternativeText || "No OFficials info"}
                 </p>

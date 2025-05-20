@@ -92,7 +92,6 @@
 //     </main>
 //   );
 // }
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -128,12 +127,13 @@ export default function ServicesPage() {
     loadCategories();
   }, []);
 
-  if (loading) return <p className="text-center mt-20">Loading...</p>;
-  if (error) return <p className="text-center mt-20">{error}</p>;
+  if (loading)
+    return <p className="text-center mt-20 text-[13px]">Loading...</p>;
+  if (error) return <p className="text-center mt-20 text-[13px]">{error}</p>;
 
   return (
     <main className="max-w-7xl mx-auto px-4 pt-[50px] pb-20">
-      <h1 className="mt-[50px] text-[40px] font-bold text-center mb-10">
+      <h1 className="mt-[50px] text-[30px] sm:text-[40px] font-bold text-center mb-10">
         All Services
       </h1>
 

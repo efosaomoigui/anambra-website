@@ -1,4 +1,3 @@
-// components/news/NewsCard.tsx
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,24 +28,27 @@ export default function NewsCard({
           />
         </div>
 
-        {/* Tags */}
-        <div className="flex gap-2 px-1 mb-3">
+        {/* Tags - scrollable on small screens */}
+        <div className="flex gap-2 px-1 mb-3 overflow-x-auto scrollbar-none whitespace-nowrap">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="bg-[#DADADA] text-gray-800 text-xs font-semibold px-3 py-1 rounded-[4px]"
+              className="bg-[#DADADA] text-gray-800 font-semibold px-3 py-1 rounded-[4px]
+                         text-[11px] md:text-[12px] inline-block"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        {/* Headline */}
-        <h3 className="text-lg font-semibold text-black mb-2">{summary}</h3>
+        {/* Summary */}
+        <h3 className="text-[15px] md:text-[20px] font-semibold text-black mb-2">
+          {summary}
+        </h3>
 
         {/* Date */}
         <time
-          className="text-xs text-gray-500"
+          className="text-[15px] md:text-[20px] text-gray-500 block"
           dateTime={new Date().toISOString()}
         >
           {new Date().toLocaleDateString("en-US", {

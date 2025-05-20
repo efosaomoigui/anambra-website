@@ -318,7 +318,7 @@ export default function DocumentLibrary() {
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <div className="text-center mb-8">
-        <h2 className="mt-[50px] text-[28px] md:text-[32px] lg:text-[40px] font-bold text-center mb-12">
+        <h2 className="mt-[50px] text-[30px] sm:text-[40px] font-bold text-center mb-12">
           Document Library
         </h2>
       </div>
@@ -420,16 +420,16 @@ export default function DocumentLibrary() {
               return (
                 <div key={idx} className="rounded transition">
                   {iconMap[ext] || iconMap.pdf}
-                  <h4 className="text-sm font-semibold text-gray-800 mb-1 mt-[4px]">
+                  <h4 className="text-[14px] font-semibold text-gray-800 mb-1 mt-[4px]">
                     {doc.name}
                   </h4>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-[12px] text-gray-500 mt-2">
                     Size:{" "}
                     {doc.size < 1024 * 1024
                       ? `${(doc.size / 1024).toFixed(2)}KB`
                       : `${(doc.size / 1024 / 1024).toFixed(2)}MB`}
                   </p>
-                  <p className="text-xs text-gray-500  mt-2">
+                  <p className="text-[12px] text-gray-500 mt-2">
                     Date: {new Date(doc.createdAt).toLocaleDateString()}
                   </p>
                 </div>
