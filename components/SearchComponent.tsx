@@ -1,11 +1,25 @@
+// SearchComponent.tsx
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTypingPlaceholder } from "./useTypingPlaceholder"; // Ensure the path is correct
+import { useMultiTypingPlaceholder } from "./useMultiTypingPlaceholder";
 
 export default function SearchComponent() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
 
+
+  const animatedPlaceholder = useMultiTypingPlaceholder({
+    texts: [
+      "How to resolve business issues...",
+      "Budget approval steps",
+      "File a complaint easily",
+    ],
+    isActive: !isFocused,
+  });
+  
   const scroll = (dir: "left" | "right") => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
@@ -28,10 +42,13 @@ export default function SearchComponent() {
       <div className="flex items-center bg-[#E9E9E9] rounded-[12px] mb-4 w-full max-w-[611px] pl-[4px]">
         <input
           type="text"
-          placeholder="How to resolve business issues..."
-          className="flex-grow bg-transparent px-2  text-[13px] text-gray-800 focus:outline-none "
+          placeholder={animatedPlaceholder}
+          className="flex-grow bg-transparent px-2 text-[13px] text-gray-800 focus:outline-none placeholder-black"
           style={{ borderRadius: "12px" }}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
+
         <button className="text-gray-600 hover:text-black transition text-xl pr-[7px]">
           <img
             src="/images/searchicon.png"
@@ -45,7 +62,7 @@ export default function SearchComponent() {
       <div className="relative w-full max-w-[690px] flex items-center justify-center">
         {/* Left Arrow - OUTSIDE */}
         <div className="absolute -left-6 z-10">
-          <button onClick={() => scroll("left")} className=" p-2 rounded-full">
+          <button onClick={() => scroll("left")} className="p-2 rounded-full">
             <ChevronLeft size={20} />
           </button>
         </div>
@@ -75,7 +92,7 @@ export default function SearchComponent() {
 
         {/* Right Arrow - OUTSIDE */}
         <div className="absolute -right-6 z-10">
-          <button onClick={() => scroll("right")} className=" p-2 rounded-full">
+          <button onClick={() => scroll("right")} className="p-2 rounded-full">
             <ChevronRight size={20} />
           </button>
         </div>

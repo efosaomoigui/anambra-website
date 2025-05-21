@@ -60,7 +60,7 @@ export default function Navbar() {
                         <li key={subLink.href} className="whitespace-nowrap">
                           <Link
                             href={subLink.href}
-                            className="block px-4 py-2 text-[#111111] hover:bg-[#E9E9E9] transition rounded"
+                            className="block px-4 py-2 text-[#111111] hover:bg-[#E9E9E9] transition rounded text-[10px] md:text-[14px]"
                           >
                             {subLink.label}
                           </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
                           <Link
                             key={subLink.href}
                             href={subLink.href}
-                            className="block text-[#111111] hover:text-[#DA9617] transition text-base font-medium px-2 py-1"
+                            className="block text-[#111111] hover:text-[#DA9617] transition font-medium px-2 py-1 text-[12px] md:text-[14px]"
                             onClick={() => setMenuOpen(false)}
                           >
                             {subLink.label}
@@ -175,12 +175,7 @@ const navLinks = [
     label: "GOVERNMENT",
     subLinks: [
       { href: "/government/mdas", label: "Ministries, Departments, Agencies" },
-      { href: "/government/executive-officials", label: "Executive Officials" },
-      {
-        href: "/government/legislative-officials",
-        label: "Legislative Officials",
-      },
-      { href: "/government/judiciary-officials", label: "Judiciary Officials" },
+      { href: "/government/executive-council", label: "Executive Council" },
       {
         href: "/government/local-government-area",
         label: "Local Government Area",

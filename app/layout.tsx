@@ -52,7 +52,6 @@ export default function RootLayout({
         <Navbar />
         <BackArrow />
         <main className="flex-grow px-0 sm:px-4 md:px-8 py-4">{children}</main>
-
         <Footer />
       </body>
     </html>
