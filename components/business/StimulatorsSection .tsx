@@ -36,22 +36,26 @@ export default function StimulatorsSection() {
   };
 
   return (
-    <section id="BusinessStimulators" className="space-y-6">
-      <h2 className="text-[24px] italic font-playfair mb-[80px] mt-[80px] text-center">
-        Business Stimulators
-      </h2>
+    <section id="BusinessStimulators" className="w-full mt-[28px]">
+      {/* Full-width heading */}
+      <div className="w-full py-[72px]">
+        <h2 className="text-[24px] italic font-playfair text-center">
+          Business Stimulators
+        </h2>
+      </div>
 
-      <div className="space-y-4">
+      {/* Centered accordion content */}
+      <div className="max-w-[800px] mx-auto px-2 sm:px-6 lg:px-8 space-y-4">
         {items.map((item, index) => (
           <div key={index} className="border border-gray-300 rounded">
             <button
               onClick={() => toggleIndex(index)}
-              className="w-full text-left p-4 bg-[#BBBBBB] text-black font-medium rounded-t"
+              className="w-full text-left p-4 bg-[#BBBBBB]/20 text-black font-medium rounded-t"
             >
               {item.title}
             </button>
             {activeIndex === index && (
-              <div className="p-4 bg-white text-sm text-gray-800">
+              <div className="p-4 bg-[#FAFAFA] text-sm text-gray-800">
                 {item.content}
               </div>
             )}

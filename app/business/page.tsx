@@ -10,21 +10,17 @@ import MdaProcessesSection from "@/components/business/MdaProcessesSection";
 
 export default function BusinessPage() {
   return (
-    <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
-      {/* 1. Heading and Links */}
+    <>
+      {/* HeadingSection without container wrapper */}
       <HeadingSection />
 
-      {/* 2. Overview */}
-      <OverviewSection />
-
-      {/* 3. Business Stimulators */}
-      <StimulatorsSection />
-
-      {/* 4. Requirements */}
-      <RequirementsSection />
-
-      {/* 5. MDA Processes */}
-      <MdaProcessesSection />
-    </div>
+      {/* Container for rest of content */}
+      <div className="w-full">
+        <OverviewSection />
+        <StimulatorsSection />
+        <RequirementsSection />
+        <MdaProcessesSection />
+      </div>
+    </>
   );
 }

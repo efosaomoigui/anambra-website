@@ -171,6 +171,14 @@ export default function Navbar() {
 
 const navLinks = [
   {
+    href: "/anambra",
+    label: "ABOUT",
+    subLinks: [
+      { href: "/anambra", label: "About" },
+      { href: "/business", label: "Business in Anambra" },
+    ],
+  },
+  {
     href: "/government",
     label: "GOVERNMENT",
     subLinks: [

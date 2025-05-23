@@ -7,6 +7,7 @@ const sections = [
   "Requirements",
   "MDA Processes",
   "Contact",
+  "Submit Survey",
 ];
 
 export default function HeadingSection() {
@@ -21,28 +22,41 @@ export default function HeadingSection() {
   };
 
   return (
-    <div className="w-full  py-12">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div className="w-full py-12">
+      {/* Heading */}
+      <div className="max-w-[1200px] mx-auto px-4 mb-[24px]  sm:px-6 lg:px-8 text-center">
         <h1 className="text-[40px] font-bold text-black">
           Guide to Starting Business in Anambra state
         </h1>
-        <div className="mt-9 w-full h-12 bg-[#F0F0F0] mb-4 overflow-x-auto scrollbar-none">
-          <div className="flex justify-center h-full gap-12 min-w-max mx-auto px-6 whitespace-nowrap">
-            {sections.map((section) => (
+      </div>
+
+      {/* Stretch background nav */}
+      <div className="w-full bg-[#F0F0F0] py-[4px] overflow-x-auto scrollbar-none">
+        <div className="max-w-[1200px] mx-auto flex justify-center gap-4 px-4 sm:px-6 lg:px-8 min-w-max whitespace-nowrap">
+          {sections.map((section) =>
+            section === "Submit Survey" ? (
+              <button
+                key={section}
+                onClick={() => handleScrollTo(section.replace(/\s+/g, ""))}
+                className="text-[14px] font-semibold bg-black text-white rounded-[8px] px-4 h-[40px] flex items-center"
+              >
+                {section}
+              </button>
+            ) : (
               <button
                 key={section}
                 onClick={() => handleScrollTo(section.replace(/\s+/g, ""))}
                 className={clsx(
-                  "text-sm sm:text-base font-semibold border-b-2 transition duration-200",
+                  "text-[14px] font-semibold px-4 h-[40px] flex items-center rounded-[8px] transition",
                   selectedSection === section
-                    ? "text-black border-black"
-                    : "text-black border-transparent hover:text-black hover:border-black"
+                    ? "bg-gray-300 text-black"
+                    : "text-black hover:bg-gray-200"
                 )}
               >
                 {section}
               </button>
-            ))}
-          </div>
+            )
+          )}
         </div>
       </div>
     </div>

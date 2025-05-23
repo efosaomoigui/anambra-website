@@ -1,84 +1,113 @@
-"use client";
-
-import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const mdaSteps = ["Step 1", "Step 2", "Step 3"];
+import AccordionTableSection from "./MDA/AccordionTableSection";
+import ParagraphBlock from "./MDA/ParagraphBlock";
+import TabbedStepsSection from "./MDA/TabbedStepsSection";
 
 export default function MdaProcessesSection() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [selectedStep, setSelectedStep] = useState("Step 1");
-
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const amount = 120;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -amount : amount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const stepContent: Record<string, string> = {
-    "Step 1": "This is the content for Step 1 under MDA Processes.",
-    "Step 2": "This is the content for Step 2 under MDA Processes.",
-    "Step 3": "This is the content for Step 3 under MDA Processes.",
-  };
-
   return (
-    <section id="MdaProcesses" className="space-y-10 mt-[80px]">
-      <h2 className="text-[24px] italic font-playfair text-center">
-        MDA Processes
-      </h2>
-
-      {/* Scrollable Tabs */}
-      <div className="relative w-full max-w-[690px] flex items-center justify-center mb-6 mx-auto">
-        {/* Left Arrow */}
-        <div className="absolute -left-6 z-10">
-          <button
-            onClick={() => scroll("left")}
-            className="p-2 rounded-full bg-white shadow"
-          >
-            <ChevronLeft size={20} />
-          </button>
-        </div>
-
-        {/* Scrollable Button List */}
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto gap-2 px-2 scrollbar-none w-full justify-center"
-        >
-          <div className="flex gap-2 min-w-max mx-auto">
-            {mdaSteps.map((step) => (
-              <button
-                key={step}
-                onClick={() => setSelectedStep(step)}
-                className={`rounded-[8px] flex-shrink-0 h-[36px] px-3 border-2 font-medium text-[13px] transition ${
-                  selectedStep === step
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-black border-black hover:bg-gray-100"
-                }`}
-              >
-                {step}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Arrow */}
-        <div className="absolute -right-6 z-10">
-          <button
-            onClick={() => scroll("right")}
-            className="p-2 rounded-full bg-white shadow"
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
+    <section id="MdaProcesses" className="w-full mt-[20px]">
+      {/* Full-width Heading */}
+      <div className="w-full py-[70px]">
+        <h2 className="text-[24px] italic font-playfair text-center">
+          MDA Processes
+        </h2>
       </div>
 
-      {/* Step Content */}
-      <div className="bg-[#F9F9F9] border border-gray-300 rounded p-6 text-sm text-gray-700 max-w-[800px] mx-auto">
-        <p>{stepContent[selectedStep]}</p>
+      <h2 className="text-[20px]  text-center mb-4">
+        Ministry of Lands: Land Property Registration Guidelines (Individual)
+      </h2>
+
+      {/* Centered Content Container */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        {/* Section 1 */}
+        <TabbedStepsSection
+          heading=""
+          steps={["Step 1", "Step 2", "Step 3"]}
+          contents={{
+            "Step 1": "This is the content for Step 1 under MDA Processes.",
+            "Step 2": "This is the content for Step 2 under MDA Processes.",
+            "Step 3": "This is the content for Step 3 under MDA Processes.",
+          }}
+        />
+
+        {/* Section 2 */}
+        <TabbedStepsSection
+          heading="Application Process and Guidelines for Obtaining Building Permit in Anambra State"
+          subheading="In pursuant of Anambra State Urban and Regional Planning Law 2018, all individuals and organizations seeking to develop their land in Anambra State can apply for a development (building) permit through the following process:"
+          steps={["Step 1", "Step 2", "Step 3"]}
+          contents={{
+            "Step 1": "Step 1 details for Building Permit.",
+            "Step 2": "Step 2 details for Building Permit.",
+            "Step 3": "Step 3 details for Building Permit.",
+          }}
+        />
+
+        {/* Section 3 */}
+        <ParagraphBlock
+          heading="Anambra State Physical Planning Board: Current Schedule of Planning Fees"
+          content={`The Anambra State Physical Planning Board (ANSPPB) is committed to facilitating orderly and sustainable urban development. Access to all necessary information on the current government-approved minimum rates for various types of construction permits within Anambra State are provided as required.
+
+These rates are contingent upon factors such as the location of the building development, the size of the land, and the number of buildings involved. For precise assessments, please contact ANSPPB at the provided phone numbers: +2348062533672, +2348033561344, or +2347032428625.
+
+Associated Payments: Please be aware of additional associated payments for services rendered by your consultants, such as Site Analysis Report, Technical Report from a registered Town Planner, Engineering Undertaking from a COREN registered/certified Engineer, Material testing (depending on the complexity of the Project), etc. The fees for nt out your e-receipt for you as issued by Anambra State Internal Revenue Service.`}
+        />
+
+        {/* Section 4 */}
+        <ParagraphBlock
+          heading="Application Guidelines for Obtaining Right of Way in Anambra State"
+          content={`In Accordance with the provisions of ‘Anambra State Physical Planning Board No. 9 of 2013 (as amended), the Anambra State Physical Planning Board (ANSPPB) is charged with responsibility to grant approval for deployment of Telecommunication Infrastructure including but not limited to Telecommunication Towers and other infrastructure that promotes telecommunication business and connectivity in the State.
+
+Please click on the link provided to view/download the Right of Way Application Guideline: https://anambrastate.gov.ng/documents/right-of-way-application-guideline/`}
+        />
+
+        {/* Section 5 */}
+        <TabbedStepsSection
+          heading="ANSAA: Billboards Installation Approval Processes and Guidelines"
+          steps={["Step 1", "Step 2", "Step 3", "Step 4"]}
+          contents={{
+            "Step 1": "Billboard Step 1 content.",
+            "Step 2": "Billboard Step 2 content.",
+            "Step 3": "Billboard Step 3 content.",
+            "Step 4": "Billboard Step 4 content.",
+          }}
+        />
+
+        {/* Section 6 */}
+        <TabbedStepsSection
+          heading="ANSIPPA: Anambra State Investment Promotion & Protection Agency"
+          steps={["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6"]}
+          contents={{
+            "Step 1": "ANSIPPA Step 1.",
+            "Step 2": "ANSIPPA Step 2.",
+            "Step 3": "ANSIPPA Step 3.",
+            "Step 4": "ANSIPPA Step 4.",
+            "Step 5": "ANSIPPA Step 5.",
+            "Step 6": "ANSIPPA Step 6.",
+          }}
+        />
+
+        {/* Section 7 */}
+        <TabbedStepsSection
+          heading="Ministry of Power & Water Resources: Water Connection Processes and Guidelines"
+          subheading="(For Domestic, Commercial, Government, Industrial & Institutional Use)"
+          steps={["Step 1", "Step 2", "Step 3"]}
+          contents={{
+            "Step 1": "Water Connection Step 1.",
+            "Step 2": "Water Connection Step 2.",
+            "Step 3": "Water Connection Step 3.",
+          }}
+        />
+
+        {/* Section 8 */}
+        <AccordionTableSection
+          title="State Action on Business Enabling Reforms (SABER)"
+          tableCount={2}
+        />
+
+        {/* Section 9 */}
+        <AccordionTableSection
+          title="Fees for Certificate of Occupancy (C of O) for State Land"
+          tableCount={3}
+        />
       </div>
     </section>
   );

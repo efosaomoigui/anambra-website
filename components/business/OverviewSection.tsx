@@ -1,130 +1,202 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+// Import the ranking component
+import RankingStatsSection from "./RankingStatsSection";
 
 const councilMembers = [
   {
     name: "Mr. C. Fred Agbata",
-    role: "MD/CEO Anambra State ICT Agency Council Member",
-    image: "/images/fred.jpg",
+    role: "MD/CEO Anambra State ICT Agency",
+    image: "/images/avatar.png",
   },
-  // Add 5 more as needed
+  {
+    name: "Mrs. Adaeze Umeh",
+    role: "Commissioner of Commerce",
+    image: "/images/lady.jpg",
+  },
+  {
+    name: "Engr. Emeka Obi",
+    role: "Director, Urban Planning",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Dr. Chika Nwankwo",
+    role: "Investment Promotion Lead",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Ms. Ify Okoye",
+    role: "ICT Consultant",
+    image: "/images/lady.jpg",
+  },
+  {
+    name: "Barr. John Eze",
+    role: "Legal Advisor",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Mr. Ken Uba",
+    role: "Infrastructure Head",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Mrs. Rose Ibe",
+    role: "Head of Admin",
+    image: "/images/lady.jpg",
+  },
 ];
 
 export default function OverviewSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const scrollAmount = container.offsetWidth;
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Chunk council members into groups of 6 (3 rows × 2 cols)
+  const chunkedMembers = [];
+  for (let i = 0; i < councilMembers.length; i += 6) {
+    chunkedMembers.push(councilMembers.slice(i, i + 6));
+  }
+
+  const sections = [
+    {
+      title: "Introduction",
+      content: [
+        "The Ease of Doing Business project was launched in 2002, it looks at domestic small and medium-size companies and measures the regulations applying to them through their life cycle.",
+        "It provides quantitative indicators on regulation for starting a business, dealing with construction permits, getting electricity, registering property, getting credit, protecting minority investors, paying taxes, trading across borders, enforcing contracts and resolving insolvency, also measures features of employing workers.",
+      ],
+    },
+    {
+      title: "Objectives",
+      list: [
+        "To act as umpire on investments matters thereby eliminating business and investment barriers and bottlenecks.",
+        "To aid improvement of the business enabling environment by following up on steps towards enhancing land administration, regulatory framework for private investment in fiber optic infrastructure, PPP investment promotion framework and economic opportunity in the State.",
+        "To move Anambra from No. 7 to No. 1 in EoDB ranking in the country for all indicators",
+      ],
+    },
+    {
+      title: "Council Mandate",
+      list: [
+        "Set reform targets and oversee the implementation of the reforms",
+        "Resolve bottlenecks arising from the operations of government agencies",
+        "Communicate the reform agenda to all stakeholders within government and in the business community",
+        "Conduct monthly meetings to provide oversight on the activities of MDAs involved in the EoDB drive",
+      ],
+    },
+    {
+      title: "Front Line MDAs",
+      list: [
+        "Ministry of Land",
+        "Anambra Physical Planning Agency",
+        "Anambra state Signage and Advertisement Agency",
+        "Anambra State Investment Promotion and Protection Agency",
+        "Ministry of Power & Water Resources",
+      ],
+    },
+  ];
+
   return (
     <section
       id="Overview"
-      className="mt-20 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8"
+      className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8"
     >
-      <h2 className="text-[24px] italic font-playfair mb-[80px] mt-[80px] text-center">
+      <h2 className="text-[24px] italic font-playfair mt-[20px] mb-[80px] text-center">
         Overview
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Column 1: Textual content */}
-        <div className="lg:col-span-8 space-y-10">
-          <div>
-            <h3 className="text-lg font-semibold border-l-4 border-[#F67C10] pl-4 rounded">
-              Introduction
-            </h3>
-            <p className="mt-2 text-gray-700">
-              Anambra State offers a dynamic environment for businesses to
-              thrive. The introduction outlines how the state supports
-              entrepreneurs...
-            </p>
-            <p className="mt-2 text-gray-700">
-              With infrastructure and policy improvements, Anambra sets the tone
-              for economic progress.
-            </p>
-          </div>
+        {/* Column 1: Text content */}
+        <div className="lg:col-span-7 space-y-10">
+          {sections.map((section, i) => (
+            <div key={i}>
+              <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
+                {section.title}
+              </h3>
 
-          <div>
-            <h3 className="text-lg font-semibold border-l-4 border-[#F67C10] pl-4 rounded">
-              Objectives
-            </h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-1">
-              <li>Encourage local enterprise growth</li>
-              <li>Create employment opportunities</li>
-              <li>Boost state revenue through investment</li>
-            </ul>
-          </div>
+              {section.content &&
+                section.content.map((p, idx) => (
+                  <p key={idx} className="mt-2 text-gray-700">
+                    {p}
+                  </p>
+                ))}
 
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <p className="italic font-playfair text-sm text-gray-600">
-                Sub-national
-              </p>
-              <h4 className="text-xl font-bold">1st</h4>
-              <p className="italic font-playfair text-sm text-gray-600">
-                in Southern Nigeria
-              </p>
-            </div>
-            <div>
-              <p className="italic font-playfair text-sm text-gray-600">
-                Ease of doing business
-              </p>
-              <h4 className="text-xl font-bold">7th</h4>
-              <p className="italic font-playfair text-sm text-gray-600">
-                nationally
-              </p>
-            </div>
-            <div>
-              <p className="italic font-playfair text-sm text-gray-600">
-                Ranking Source
-              </p>
-              <h4 className="text-xl font-bold">PEBEC</h4>
-              <p className="italic font-playfair text-sm text-gray-600">
-                2023 Report
-              </p>
-            </div>
-          </div>
+              {section.list && (
+                <ul className="list-disc pl-6 text-gray-700 space-y-1 mt-2">
+                  {section.list.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              )}
 
-          <div>
-            <h3 className="text-lg font-semibold border-l-4 border-[#F67C10] pl-4 rounded">
-              Council Mandate
-            </h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-1">
-              <li>Drive investment policies</li>
-              <li>Facilitate stakeholder engagement</li>
-              <li>Oversee SME initiatives</li>
-              <li>Track business climate metrics</li>
-              <li>Collaborate with MDAs</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold border-l-4 border-[#F67C10] pl-4 rounded">
-              Front Line MDAs
-            </h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-1">
-              <li>Ministry of Commerce</li>
-              <li>Anambra Investment Promotion Agency</li>
-              <li>Corporate Affairs Commission</li>
-              <li>Anambra Internal Revenue Service</li>
-              <li>Ministry of Lands</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Column 2: Council members */}
-        <div className="lg:col-span-4 grid grid-cols-2 gap-6">
-          {councilMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white rounded shadow p-4 text-center"
-            >
-              <div className="w-full h-32 relative mb-3">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded"
-                />
-              </div>
-              <p className="text-base font-semibold">{member.name}</p>
-              <p className="text-sm text-gray-600 mt-1">{member.role}</p>
+              {section.title === "Objectives" && <RankingStatsSection />}
             </div>
           ))}
+        </div>
+
+        <div className="lg:col-span-1"></div>
+
+        {/* Column 2: Council Members */}
+        <div className="lg:col-span-4">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-[24px] italic font-playfair">
+              Council Members
+            </h3>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scroll("left")}
+                className="p-2 bg-white shadow rounded-full"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="p-2 bg-white shadow rounded-full"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          <div ref={scrollRef} className="overflow-x-auto scrollbar-none">
+            <div className="flex gap-4">
+              {chunkedMembers.map((group, index) => (
+                <div
+                  key={index}
+                  className="grid grid-cols-2 grid-rows-3 gap-4 min-w-[400px]"
+                >
+                  {group.map((member, idx) => (
+                    <div key={idx} className=" p-4 text-center">
+                      <div className="w-full h-32 relative mb-3">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded"
+                        />
+                      </div>
+                      <p className="text-base font-semibold">{member.name}</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {member.role}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
