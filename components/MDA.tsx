@@ -302,11 +302,7 @@ export default function MDA() {
           >
             <div className="flex items-center mb-4">
               <div className="mr-3">
-                <img
-                  src="/images/icons/ministries.svg"
-                  alt="Icon"
-                  className="w-10 h-10"
-                />
+                <img src="#" alt="Icon" className="w-10 h-10" />
               </div>
               <h4 className="text-[16px] font-semibold">{mda.name}</h4>
             </div>
