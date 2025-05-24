@@ -11,6 +11,10 @@
   font-display: swap;
 }
 
+p {
+  margin-bottom: 10px;
+}
+
 /* DM Sans Font - Optional fallback or for specific use */
 @font-face {
   font-family: "DM Sans";

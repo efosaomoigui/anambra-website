@@ -14,7 +14,7 @@ const TopTabs = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-wrap justify-center gap-8 sm:gap-10 border-b border-gray-200 mb-10 px-6 pb-4">
+    <div className="flex flex-wrap justify-center gap-8 sm:gap-10 mb-10 px-6 pb-4">
       {tabs.map((tab) => (
         <Link
           key={tab.name}
