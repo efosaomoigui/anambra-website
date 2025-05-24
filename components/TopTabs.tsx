@@ -14,16 +14,16 @@ const TopTabs = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex justify-center flex-wrap gap-x-10 gap-y-4 border-b border-gray-200 pb-6 mb-12">
+    <div className="flex flex-wrap justify-center gap-8 sm:gap-10 border-b border-gray-200 mb-10 px-6 pb-4">
       {tabs.map((tab) => (
         <Link
           key={tab.name}
           href={tab.href}
           className={clsx(
-            "text-lg font-bold transition-all tracking-wide",
+            "pb-2 text-sm sm:text-base font-bold transition",
             pathname === tab.href
-              ? "text-blue-600 border-b-2 border-blue-600 pb-1"
-              : "text-gray-700 hover:text-blue-600"
+              ? "border-b-2 border-blue-600 text-blue-600"
+              : "text-gray-800 hover:text-blue-600"
           )}
         >
           {tab.name}

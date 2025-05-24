@@ -42,10 +42,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Bottom Bar with Line and Centered Text */}
       <div className="text-center py-10 mt-10 relative">
-        <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 border-t border-gray-700" />
-        <span className="relative z-10 text-sm text-gray-300 mb-8 px-[22px]">
+        {/* Line behind the text */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full border-t border-[#B3B0AD]" />
+        </div>
+
+        {/* Centered copyright text with spacing */}
+        <span className="relative z-10 bg-[#1F2937] px-6 text-sm text-gray-300">
           &copy; Copyright {new Date().getFullYear()}, All Rights Reserved |
           Anambra State Government
         </span>

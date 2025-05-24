@@ -108,97 +108,105 @@ export default function OverviewSection() {
   ];
 
   return (
-    <section
-      id="Overview"
-      className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8"
-    >
-      <h2 className="text-[24px] italic font-playfair mt-[20px] mb-[80px] text-center">
-        Overview
-      </h2>
+    <>
+      <section id="Overview" className="w-full">
+        {/* Full-width heading */}
+        <div className="w-full py-[58px] px-4">
+          <div className="flex items-center w-full">
+            <div className="flex-1 h-px bg-[#B3B0AD]" />
+            <h2 className="text-[24px] italic font-playfair text-center mx-6 whitespace-nowrap">
+              Overview
+            </h2>
+            <div className="flex-1 h-px bg-[#B3B0AD]" />
+          </div>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Column 1: Text content */}
-        <div className="lg:col-span-7 space-y-10">
-          {sections.map((section, i) => (
-            <div key={i}>
-              <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
-                {section.title}
+      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Column 1: Text content */}
+          <div className="lg:col-span-7 space-y-10">
+            {sections.map((section, i) => (
+              <div key={i}>
+                <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
+                  {section.title}
+                </h3>
+
+                {section.content &&
+                  section.content.map((p, idx) => (
+                    <p key={idx} className="mt-2 text-gray-700">
+                      {p}
+                    </p>
+                  ))}
+
+                {section.list && (
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 mt-2">
+                    {section.list.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.title === "Objectives" && <RankingStatsSection />}
+              </div>
+            ))}
+          </div>
+
+          <div className="lg:col-span-1"></div>
+
+          {/* Column 2: Council Members */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-[24px] italic font-playfair">
+                Council Members
               </h3>
-
-              {section.content &&
-                section.content.map((p, idx) => (
-                  <p key={idx} className="mt-2 text-gray-700">
-                    {p}
-                  </p>
-                ))}
-
-              {section.list && (
-                <ul className="list-disc pl-6 text-gray-700 space-y-1 mt-2">
-                  {section.list.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              )}
-
-              {section.title === "Objectives" && <RankingStatsSection />}
-            </div>
-          ))}
-        </div>
-
-        <div className="lg:col-span-1"></div>
-
-        {/* Column 2: Council Members */}
-        <div className="lg:col-span-4">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-[24px] italic font-playfair">
-              Council Members
-            </h3>
-            <div className="flex gap-2">
-              <button
-                onClick={() => scroll("left")}
-                className="p-2 bg-white shadow rounded-full"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                onClick={() => scroll("right")}
-                className="p-2 bg-white shadow rounded-full"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-
-          <div ref={scrollRef} className="overflow-x-auto scrollbar-none">
-            <div className="flex gap-4">
-              {chunkedMembers.map((group, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-2 grid-rows-3 gap-4 min-w-[400px]"
+              <div className="flex gap-2">
+                <button
+                  onClick={() => scroll("left")}
+                  className="p-2 bg-white shadow rounded-full"
                 >
-                  {group.map((member, idx) => (
-                    <div key={idx} className=" p-4 text-center">
-                      <div className="w-full h-32 relative mb-3">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded"
-                        />
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={() => scroll("right")}
+                  className="p-2 bg-white shadow rounded-full"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+
+            <div ref={scrollRef} className="overflow-x-auto scrollbar-none">
+              <div className="flex gap-4">
+                {chunkedMembers.map((group, index) => (
+                  <div
+                    key={index}
+                    className="grid grid-cols-2 grid-rows-3 gap-4 min-w-[400px]"
+                  >
+                    {group.map((member, idx) => (
+                      <div key={idx} className=" p-4 text-center">
+                        <div className="w-full h-32 relative mb-3">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded"
+                          />
+                        </div>
+                        <p className="text-base font-semibold">{member.name}</p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          {member.role}
+                        </p>
                       </div>
-                      <p className="text-base font-semibold">{member.name}</p>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {member.role}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ))}
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

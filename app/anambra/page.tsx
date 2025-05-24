@@ -22,16 +22,20 @@ const topTabs = ["About State", "Past Governors", "Key Landmarks"];
 
 const moreParagraphs = [
   {
-    title: "Dynamic Culture",
+    title: "Administration",
     text: "The people of Anambra are known for their colorful festivals, rich traditions, and strong community spirit that is passed from one generation to another.",
   },
   {
-    title: "Sustainable Infrastructure",
+    title: "Populagtion",
     text: "From expanding road networks to power and digital connectivity, Anambra continues to invest in long-term infrastructure projects for its citizens.",
   },
   {
-    title: "Emerging Technology and Innovation",
+    title: "Culture",
     text: "The state supports tech hubs and start-ups, positioning itself as the next innovation destination in Africa.",
+  },
+  {
+    title: "Notable Figures",
+    text: "The people of Anambra State are perhaps its most outstanding assets and the reason why the State is regarded as 'The Light of the Nation, Nigeria'. The history of Africa and indeed the entire black race can never be told without the mention of outstanding sons and daughters of Anambra like: The great 'Zik of Africa', Rt. Hon. Dr. Nnamdi Azikiwe, who played a key role in the emancipation of Africa and who is one of the founders of modern Nigeria; Sir Louis Philippe Odumegwu-Ojukwu, one of Africa's earliest millionaires; Chief Mrs Margaret Ekpo (Margaret Obiasulor), Nigeria's pioneer female politician, activist and leader; Professor Chinua Achebe, novelist, poet, professor and critic, whose first novel, \"Things Fall Apart\", is considered the most widely read book in modern African Literature. The never-ending list includes the First African Secretary-General of the Commonwealth, Chief Emeka Anyaoku; fiery pre and post-independence politicians like Chief Mbazulike Amaechi and Chief Mokwugo Okoye; and the First Vice President of the Federal Republic of Nigeria, Dr Alex Ekwueme, to mention but a few.Indeed, there is at least one 'Onye Anambra' in the top ten bracket of any area of human endeavor.",
   },
 ];
 
@@ -46,7 +50,7 @@ export default function Anambra() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="mt-[50px] mb-[70px] text-3xl font-bold text-black mb-6 text-center">
+      <h2 className="mt-[50px] mb-[70px] text-[40px] font-bold text-black mb-6 text-center">
         Welcome To Anambra
       </h2>
 
@@ -87,51 +91,78 @@ export default function Anambra() {
         {/* Right Content Area */}
         <div className="md:col-span-10 space-y-12">
           {/* Section 1: Text Left / Image Right */}
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6  items-start">
             <div>
-              <h3 className="text-xl font-bold mb-2">
-                Anambra’s Strategic Position
+              <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
+                History
               </h3>
               <p className="text-gray-700">
-                Anambra State occupies a strategic position in Nigeria’s
-                Southeast region, bordering Delta to the west, Imo to the south,
-                Enugu to the east, and Kogi to the north. Its central location
-                makes it an ideal hub for commerce and industry.
+                Anambra is a state of rich history and great myths. Created on
+                August 27, 1991, by the then Military President Ibrahim
+                Babangida GCFR, the state derives its name from Anambra River,
+                which is a colonial convenient pronunciation of Omambala River.
+                The River Anambra is a tributary of the majestic River Niger.
+              </p>
+              <p className="text-gray-700">
+                The diverse perspectives to the origin of Anambra and Ndi
+                Anambra are as mythical as the great people. Ndi Anambra are
+                among the first set of God's creation on Earth, who migrated
+                from the cradle of human civilization to their present location.
+                Their history is strongly linked to the history of the entire
+                Igboland, as Ndi Anambra are perceived as the source of Igbo
+                Civilization.
+              </p>
+              <p className="text-gray-700">
+                Archaeological findings confirm their existence dates as far
+                back as 4500BC, with evidence unearthed in various locations in
+                the state, including Igbo Ukwu, Aguleri, Awka, Ezira and Nri.
               </p>
             </div>
             <Image
-              src="/images/anambra1.jpg"
-              width={500}
-              height={300}
+              src="/images/history.png"
+              width={436}
+              height={254}
               alt="Anambra"
               className="rounded-md w-full h-auto"
             />
           </div>
 
           {/* Section 2: Image Left / Text Right */}
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6  py-[40px] items-start">
             <Image
-              src="/images/anambra2.jpg"
-              width={500}
-              height={300}
+              src="/images/geography.png"
+              width={436}
+              height={254}
               alt="Anambra"
               className="rounded-md w-full h-auto"
             />
             <div>
-              <h3 className="text-xl font-bold mb-2">Rich Cultural Heritage</h3>
+              <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
+                Geography
+              </h3>
               <p className="text-gray-700">
-                The people of Anambra are known for their rich traditions and
-                vibrant festivals. The state is home to many cultural festivals,
-                which celebrate its history, artistry, and traditional
-                practices, drawing visitors and tourists from around the world.
+                The natural features of Hills, Lakes, Caves, Forests, and table
+                Savannah land form the beautiful landscapes of Anambra State.
+                Situated on a rolling flat savannah land, dotted by Hills,
+                Lakes, Forests, and caves on the eastern plains of the River
+                Niger, Anambra State covers an area of 4,416sq kilometers with
+                rainforest vegetation, humid climate, a temperature of about
+                87°F, and rainfall of between 152cm and 203cm.
+              </p>
+              <p className="text-gray-700">
+                Anambra State shares boundaries with Abia, Delta, Enugu, Imo,
+                and Kogi States making it one of the few states in the country
+                with many neighbors.
               </p>
             </div>
           </div>
 
           {/* Section 3: Text Left / Image Right */}
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6 py-[40px] items-start">
             <div>
-              <h3 className="text-xl font-bold mb-2">Economic Powerhouse</h3>
+              <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
+                Economy
+              </h3>
               <p className="text-gray-700">
                 With a booming commerce hub and industrial activity, Anambra
                 drives significant growth in Nigeria's economy. The state is
@@ -140,9 +171,9 @@ export default function Anambra() {
               </p>
             </div>
             <Image
-              src="/images/anambra3.jpg"
-              width={500}
-              height={300}
+              src="/images/economy.png"
+              width={436}
+              height={254}
               alt="Anambra"
               className="rounded-md w-full h-auto"
             />
@@ -171,40 +202,61 @@ export default function Anambra() {
           {/* More Paragraphs */}
           {moreParagraphs.map((para, idx) => (
             <div key={idx}>
-              <h3 className="text-lg font-semibold mb-2">{para.title}</h3>
+              <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
+                {para.title}
+              </h3>
               <p className="text-gray-700 text-sm">{para.text}</p>
             </div>
           ))}
 
           {/* Final Paragraph with Scrollable Images */}
-          <div>
-            <h3 className="text-lg font-semibold mb-2">
-              Discover Anambra’s Hidden Treasures
-            </h3>
-            <p className="text-gray-700 text-sm mb-4">
-              With landmarks and sights stretching from Onitsha to Nnewi,
-              Anambra offers a blend of tradition and modernity across its
-              unique terrain.
-            </p>
-
-            <div className="flex gap-4 overflow-x-auto pb-2">
-              {scrollableImages.map((src, idx) => (
-                <div
-                  key={idx}
-                  className="min-w-[250px] bg-white border rounded shadow-sm overflow-hidden"
-                >
-                  <Image
-                    src={src}
-                    alt={`Landmark ${idx + 1}`}
-                    width={300}
-                    height={200}
-                    className="object-cover w-full h-[150px]"
-                  />
-                  <p className="p-2 text-sm text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+            {/* Scrollable Image Cards */}
+            {scrollableImages.map((src, idx) => (
+              <div
+                key={`scroll-${idx}`}
+                className="rounded-md overflow-hidden hover:shadow-md transition"
+              >
+                <Image
+                  src={src}
+                  alt={`Landmark ${idx + 1}`}
+                  width={340}
+                  height={200}
+                  className="w-full h-52 object-cover rounded-md"
+                />
+                <div className="pt-4 pb-4 px-4">
+                  <h3 className="text-[20px] font-semibold leading-[28px] mb-2 text-gray-900">
                     Landmark {idx + 1}
+                  </h3>
+                  <p className="text-[14px] leading-[22px] text-gray-700">
+                    Description of landmark {idx + 1} goes here.
                   </p>
                 </div>
-              ))}
+              </div>
+            ))}
+
+            {/* Static 2-Column Card */}
+            <div className="rounded-md overflow-hidden hover:shadow-md transition md:col-span-2">
+              <div className="grid md:grid-cols-2 gap-6 items-start">
+                <div className="pt-4 pb-4 px-4">
+                  <h3 className="inline-block text-sm font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded mb-4">
+                    Economy
+                  </h3>
+                  <p className="text-[14px] leading-[22px] text-gray-700">
+                    With a booming commerce hub and industrial activity, Anambra
+                    drives significant growth in Nigeria's economy. The state is
+                    known for its thriving markets, industries, and
+                    manufacturing sectors.
+                  </p>
+                </div>
+                <Image
+                  src="/images/economy.png"
+                  width={436}
+                  height={254}
+                  alt="Anambra"
+                  className="rounded-md w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </div>

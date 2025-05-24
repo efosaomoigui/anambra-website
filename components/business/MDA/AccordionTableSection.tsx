@@ -4,12 +4,16 @@ import { useState } from "react";
 
 interface AccordionTableSectionProps {
   title: string;
-  tableCount?: number;
+  tablesData: {
+    title: string;
+    headers: string[];
+    rows: string[][];
+  }[];
 }
 
 export default function AccordionTableSection({
   title,
-  tableCount = 1,
+  tablesData,
 }: AccordionTableSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -17,54 +21,56 @@ export default function AccordionTableSection({
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const tables = Array.from({ length: tableCount }, (_, i) => (
-    <div
-      key={i}
-      className="border rounded max-w-[800px] mx-auto overflow-hidden"
-    >
-      <button
-        onClick={() => toggleAccordion(i)}
-        className="w-full text-left p-4 font-semibold text-[15px] border-b bg-[#E2E2E2]"
-      >
-        Table Section {i + 1}
-      </button>
-      {openIndex === i && (
-        <div className="p-4">
-          <table className="w-full text-sm border border-gray-300">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="border px-3 py-2">Column 1</th>
-                <th className="border px-3 py-2">Column 2</th>
-                <th className="border px-3 py-2">Column 3</th>
-                <th className="border px-3 py-2">Column 4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border px-3 py-2">Data A1</td>
-                <td className="border px-3 py-2">Data A2</td>
-                <td className="border px-3 py-2">Data A3</td>
-                <td className="border px-3 py-2">Data A4</td>
-              </tr>
-              <tr>
-                <td className="border px-3 py-2">Data B1</td>
-                <td className="border px-3 py-2">Data B2</td>
-                <td className="border px-3 py-2">Data B3</td>
-                <td className="border px-3 py-2">Data B4</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
-  ));
-
   return (
     <section className="space-y-6">
-      <h2 className="text-[20px] text-center mb-[24px] mt-[80px]">
-        {title}
-      </h2>
-      <div className="space-y-6">{tables}</div>
+      <h2 className="text-[20px] text-center mb-[24px] mt-[80px]">{title}</h2>
+      <div className="space-y-6">
+        {tablesData.map((table, i) => (
+          <div
+            key={i}
+            className="border border-[#B3B0AD]/40 rounded max-w-[800px] mx-auto overflow-hidden"
+          >
+            <button
+              onClick={() => toggleAccordion(i)}
+              className="w-full text-left p-4 font-semibold text-[15px] bg-[#E2E2E2]"
+            >
+              {table.title}
+            </button>
+            {openIndex === i && (
+              <div className="p-4 overflow-x-auto">
+                <table className="w-full text-sm border border-[#B3B0AD] text-left">
+                  <thead className="">
+                    <tr>
+                      {table.headers.map((header, idx) => (
+                        <th
+                          key={idx}
+                          className="border border-[#B3B0AD]/50 px-3 py-2 font-semibold text-left"
+                        >
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {table.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex}>
+                        {row.map((cell, cellIndex) => (
+                          <td
+                            key={cellIndex}
+                            className="border border-[#B3B0AD]/50 px-3 py-2 text-left"
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

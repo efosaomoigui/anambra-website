@@ -7,22 +7,40 @@ import TopTabs from "@/components/TopTabs";
 
 const landmarks = [
   {
-    name: "Anambra Culture Centre",
-    image: "/images/anambra_landmark1.jpg",
-    openTime: "Opens between 10AM - 8PM",
-    text: "This is the text that made me rich and powerful",
+    name: "Government House",
+    image: "/images/govhouse.png",
+    openTime: "OPEN 10AM - 8PM",
+    text: "To promote culture, tourism, entertainment, hospitality, and good communication and relationship between the government and its citizens resident abroad and within the states of the Federation.",
   },
   {
-    name: "Ogbunike Caves",
-    image: "/images/anambra_landmark2.jpg",
-    openTime: "Opens between 10AM - 8PM",
-    text: "This is the text that made me rich and powerful",
+    name: "Jerome Udorji Secretariat",
+    image: "/images/jerome.png",
+    openTime: "OPEN 10AM - 8PM",
+    text: "To promote culture, tourism, entertainment, hospitality, and good communication and relationship between the government and its citizens resident abroad and within the states of the Federation.",
   },
   {
-    name: "River Niger Bridge",
-    image: "/images/anambra_landmark3.jpg",
-    openTime: "Opens between 10AM - 8PM",
-    text: "This is the text that made me rich and powerful",
+    name: "Ogbunike Cave",
+    image: "/images/ogbunikecave.png",
+    openTime: "OPEN 10AM - 8PM",
+    text: "To promote culture, tourism, entertainment, hospitality, and good communication and relationship between the government and its citizens resident abroad and within the states of the Federation.",
+  },
+  {
+    name: "Agulu Lake",
+    image: "/images/agululade.png",
+    openTime: "OPEN 10AM - 8PM",
+    text: "To promote culture, tourism, entertainment, hospitality, and good communication and relationship between the government and its citizens resident abroad and within the states of the Federation.",
+  },
+  {
+    name: "Ogbunike Cave",
+    image: "/images/ogbunikecave.png",
+    openTime: "OPEN 10AM - 8PM",
+    text: "To promote culture, tourism, entertainment, hospitality, and good communication and relationship between the government and its citizens resident abroad and within the states of the Federation.",
+  },
+  {
+    name: "Government House",
+    image: "/images/govhouse.png",
+    openTime: "OPEN 10AM - 8PM",
+    text: "To promote culture, tourism, entertainment, hospitality, and good communication and relationship between the government and its citizens resident abroad and within the states of the Federation.",
   },
 ];
 
@@ -41,19 +59,19 @@ SUN: 10:00AM — 4:00PM`,
 mocet@demo.anambrastate.gov.ng`,
 };
 
-export default function KeyLandmarks() {
+const KeyLandmarks = () => {
   const [activeLandmark, setActiveLandmark] = useState<null | string>(null);
   const [activeTab, setActiveTab] = useState<keyof typeof tabContent>("About");
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10 relative">
-      <h2 className="mt-[50px] mb-[70px] text-3xl font-bold text-black mb-6 text-center">
+    <section className="max-w-7xl mx-auto px-4 py-10">
+      <h2 className="mt-[50px] mb-[70px] text-3xl font-bold text-black text-center">
         Key Landmarks
       </h2>
 
       <TopTabs />
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
         {landmarks.map((landmark, idx) => (
           <div
             key={idx}
@@ -61,25 +79,30 @@ export default function KeyLandmarks() {
               setActiveLandmark(landmark.name);
               setActiveTab("About");
             }}
-            className="cursor-pointer border rounded shadow-sm overflow-hidden hover:shadow-md transition"
+            className="cursor-pointer rounded-md  overflow-hidden hover:shadow-md transition"
           >
             <Image
               src={landmark.image}
               alt={landmark.name}
-              width={500}
+              width={340}
               height={300}
-              className="w-full h-[200px] object-cover"
+              className="w-full h-52 object-cover rounded-md"
             />
-            <div className="p-4 space-y-1">
-              <p className="text-xs text-gray-500">{landmark.openTime}</p>
-              <h3 className="text-lg font-bold">{landmark.name}</h3>
-              <p className="text-xs text-gray-500">{landmark.text}</p>
+            <div className="pt-4 pb-4">
+              <p className="text-[13px] font-medium leading-[20px] text-gray-600">
+                {landmark.openTime}
+              </p>
+              <h3 className="text-[20px] font-semibold leading-[28px] mb-4 text-gray-900">
+                {landmark.name}
+              </h3>
+              <p className="text-[14px] leading-[22px] text-gray-700">
+                {landmark.text}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal Overlay */}
       {activeLandmark && (
         <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-start p-4 md:p-6 overflow-y-auto">
           <div className="bg-white max-w-xl w-full rounded-md shadow-lg p-6 relative mt-10 max-h-[90vh] overflow-y-auto">
@@ -90,7 +113,6 @@ export default function KeyLandmarks() {
               &times;
             </button>
 
-            {/* Tab Buttons */}
             <div className="flex gap-4 border-b border-gray-200 mb-4">
               {Object.keys(tabContent).map((tab) => (
                 <button
@@ -108,7 +130,6 @@ export default function KeyLandmarks() {
               ))}
             </div>
 
-            {/* Tab Content */}
             <div>
               <h3 className="text-xl font-bold mb-2">{activeTab}</h3>
               <p className="whitespace-pre-wrap text-sm text-gray-700">
@@ -126,4 +147,6 @@ export default function KeyLandmarks() {
       )}
     </section>
   );
-}
+};
+
+export default KeyLandmarks;

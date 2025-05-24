@@ -24,14 +24,14 @@ export default function HeadingSection() {
   return (
     <div className="w-full py-12">
       {/* Heading */}
-      <div className="max-w-[1200px] mx-auto px-4 mb-[24px]  sm:px-6 lg:px-8 text-center">
+      <div className="max-w-[1200px] mx-auto px-4 mb-[24px] pt-[50px]  sm:px-6 lg:px-8 text-center">
         <h1 className="text-[40px] font-bold text-black">
           Guide to Starting Business in Anambra state
         </h1>
       </div>
 
       {/* Stretch background nav */}
-      <div className="w-full bg-[#F0F0F0] py-[4px] overflow-x-auto scrollbar-none">
+      <div className="w-full bg-[#F0F0F0] overflow-x-auto scrollbar-none">
         <div className="max-w-[1200px] mx-auto flex justify-center gap-4 px-4 sm:px-6 lg:px-8 min-w-max whitespace-nowrap">
           {sections.map((section) =>
             section === "Submit Survey" ? (

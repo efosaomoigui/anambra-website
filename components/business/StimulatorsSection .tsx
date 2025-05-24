@@ -38,10 +38,14 @@ export default function StimulatorsSection() {
   return (
     <section id="BusinessStimulators" className="w-full mt-[28px]">
       {/* Full-width heading */}
-      <div className="w-full py-[72px]">
-        <h2 className="text-[24px] italic font-playfair text-center">
-          Business Stimulators
-        </h2>
+      <div className="w-full py-[70px] px-4">
+        <div className="flex items-center w-full">
+          <div className="flex-1 h-px bg-[#B3B0AD]" />
+          <h2 className="text-[24px] italic font-playfair text-center mx-6 whitespace-nowrap">
+            Business Stimulators
+          </h2>
+          <div className="flex-1 h-px bg-[#B3B0AD]" />
+        </div>
       </div>
 
       {/* Centered accordion content */}

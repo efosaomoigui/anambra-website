@@ -31,10 +31,14 @@ export default function RequirementsSection() {
   return (
     <section id="Requirements" className="w-full mt-[20px]">
       {/* Full-width heading */}
-      <div className="w-full py-[80px]">
-        <h2 className="text-[24px] italic font-playfair text-center">
-          Requirements
-        </h2>
+      <div className="w-full py-[70px] px-4">
+        <div className="flex items-center w-full">
+          <div className="flex-1 h-px bg-[#B3B0AD]" />
+          <h2 className="text-[24px] italic font-playfair text-center mx-6 whitespace-nowrap">
+            Requirements
+          </h2>
+          <div className="flex-1 h-px bg-[#B3B0AD]" />
+        </div>
       </div>
 
       {/* Centered content container */}

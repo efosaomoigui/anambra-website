@@ -4,12 +4,15 @@ import TabbedStepsSection from "./MDA/TabbedStepsSection";
 
 export default function MdaProcessesSection() {
   return (
-    <section id="MdaProcesses" className="w-full mt-[20px]">
-      {/* Full-width Heading */}
-      <div className="w-full py-[70px]">
-        <h2 className="text-[24px] italic font-playfair text-center">
-          MDA Processes
-        </h2>
+    <section id="MDAProcesses" className="w-full mt-[20px]">
+      <div className="w-full py-[70px] px-4">
+        <div className="flex items-center w-full">
+          <div className="flex-1 h-px bg-[#B3B0AD]" />
+          <h2 className="text-[24px] italic font-playfair text-center mx-6 whitespace-nowrap">
+            MDA Processes
+          </h2>
+          <div className="flex-1 h-px bg-[#B3B0AD]" />
+        </div>
       </div>
 
       <h2 className="text-[20px]  text-center mb-4">
@@ -23,8 +26,10 @@ export default function MdaProcessesSection() {
           heading=""
           steps={["Step 1", "Step 2", "Step 3"]}
           contents={{
-            "Step 1": "This is the content for Step 1 under MDA Processes.",
-            "Step 2": "This is the content for Step 2 under MDA Processes.",
+            "Step 1":
+              "In Accordance with the provisions of State Land Law, Cap 137 revised Laws of Anambra State 1991.Obtain the application and affidavit form for Certificate of Occupancy from:Land Use Office (LUO) Ministry of Lands, AwkaAll application forms cost #2,000 only.Fill out the form completely and accurately, leave NO section empty or unanswered.The applicant is expected to proceed to the court for sworn affidavit within the jurisdiction in the State.",
+            "Step 2":
+              "In Accordance with the provisions of State Land Law, Cap 137 revised Laws of Anambra State 1991.Obtain the application and affidavit form for Certificate of Occupancy from:Land Use Office (LUO) Ministry of Lands, AwkaAll application forms cost #2,000 only.Fill out the form completely and accurately, leave NO section empty or unanswered.The applicant is expected to proceed to the court for sworn affidavit within the jurisdiction in the State.",
             "Step 3": "This is the content for Step 3 under MDA Processes.",
           }}
         />
@@ -33,11 +38,13 @@ export default function MdaProcessesSection() {
         <TabbedStepsSection
           heading="Application Process and Guidelines for Obtaining Building Permit in Anambra State"
           subheading="In pursuant of Anambra State Urban and Regional Planning Law 2018, all individuals and organizations seeking to develop their land in Anambra State can apply for a development (building) permit through the following process:"
-          steps={["Step 1", "Step 2", "Step 3"]}
+          steps={["Step 1", "Step 2", "Step 3", "Step 4"]}
           contents={{
-            "Step 1": "Step 1 details for Building Permit.",
+            "Step 1":
+              "In Accordance with the provisions of State Land Law, Cap 137 revised Laws of Anambra State 1991.Obtain the application and affidavit form for Certificate of Occupancy from:Land Use Office (LUO) Ministry of Lands, AwkaAll application forms cost #2,000 only.Fill out the form completely and accurately, leave NO section empty or unanswered.The applicant is expected to proceed to the court for sworn affidavit within the jurisdiction in the State.",
             "Step 2": "Step 2 details for Building Permit.",
             "Step 3": "Step 3 details for Building Permit.",
+            "Step 4": "Step 4 details for Building Permit.",
           }}
         />
 
@@ -100,13 +107,90 @@ Please click on the link provided to view/download the Right of Way Application 
         {/* Section 8 */}
         <AccordionTableSection
           title="State Action on Business Enabling Reforms (SABER)"
-          tableCount={2}
+          tablesData={[
+            {
+              title: "Saber Council Members",
+              headers: [
+                "S/N",
+                "NAME",
+                "DESIGNATION IN THE STATE",
+                "DESIGNATION EoDB",
+              ],
+              rows: [
+                ["1", "Mr Mark Okoye", "MD ANSIPPA", "State Council Chairman"],
+                [
+                  "2",
+                  "Mrs. Chiamaka Nnake",
+                  "Commissioner, Ministry of Budget and Economic Planning",
+                  "State Reform Champion",
+                ],
+                [
+                  "3",
+                  "Mr. ifeatu Onejeme",
+                  "Commissioner, Ministry of Finance",
+                  "Council Member",
+                ],
+              ],
+            },
+            {
+              title: "Saber Reform Leaders",
+              headers: [
+                "S/N",
+                "NAME",
+                "DESIGNATION IN THE STATE",
+                "DESIGNATION EoDB",
+              ],
+              rows: [
+                ["1", "Mr Mark Okoye", "MD ANSIPPA", "State Council Chairman"],
+                [
+                  "2",
+                  "Mrs. Chiamaka Nnake",
+                  "Commissioner, Ministry of Budget and Economic Planning",
+                  "State Reform Champion",
+                ],
+                [
+                  "3",
+                  "Mr. ifeatu Onejeme",
+                  "Commissioner, Ministry of Finance",
+                  "Council Member",
+                ],
+              ],
+            },
+          ]}
         />
 
         {/* Section 9 */}
         <AccordionTableSection
           title="Fees for Certificate of Occupancy (C of O) for State Land"
-          tableCount={3}
+          tablesData={[
+            {
+              title: "Awka and its environs",
+              headers: ["S/N", "LAYOUT/ESTATE", "RESIDENTIAL", "COMMERCIAL"],
+              rows: [
+                ["1", "Executive Business District", "10,00/M2", "10,00/M2"],
+                ["2", "Executive Business District", "10,00/M2", "10,00/M2"],
+                ["2", "Executive Business District", "10,00/M2", "10,00/M2"],
+              ],
+            },
+            {
+              title: "Onitsha and its environs",
+              headers: ["S/N", "LAYOUT/ESTATE", "RESIDENTIAL", "COMMERCIAL"],
+              rows: [
+                ["1", "Executive Business District", "10,00/M2", "10,00/M2"],
+                ["2", "Executive Business District", "10,00/M2", "10,00/M2"],
+                ["2", "Executive Business District", "10,00/M2", "10,00/M2"],
+              ],
+            },
+            {
+              title: "Nnewi and its environs",
+              headers: ["S/N", "LAYOUT/ESTATE", "RESIDENTIAL", "COMMERCIAL"],
+              rows: [
+                ["1", "Executive Business District", "10,00/M2", "10,00/M2"],
+                ["2", "Executive Business District", "10,00/M2", "10,00/M2"],
+                ["2", "Executive Business District", "10,00/M2", "10,00/M2"],
+              ],
+            },
+          ]}
         />
       </div>
     </section>
