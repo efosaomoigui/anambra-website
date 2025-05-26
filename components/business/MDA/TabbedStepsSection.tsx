@@ -49,7 +49,7 @@ export default function TabbedStepsSection({
 
   return (
     <section id={id} className="space-y-6">
-      <h2 className="text-[20px]  text-center mt-[100px] mb-4">{heading}</h2>
+      <h2 className="text-[20px]  text-center mt-[66px] mb-4">{heading}</h2>
       {subheading && (
         <p className="text-sm text-center text-gray-700 max-w-[808px] mx-auto -mt-4 mb-6">
           {subheading}

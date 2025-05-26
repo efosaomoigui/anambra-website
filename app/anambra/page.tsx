@@ -112,7 +112,7 @@ export default function Anambra() {
         {/* Main Content */}
         <div className="md:col-span-10 space-y-12">
           {/* Section: History */}
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6 items-start md:items-center">
             <div>
               <h3 className="inline-block text-sm mb-[10px] font-semibold text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
                 History
@@ -139,24 +139,29 @@ export default function Anambra() {
                 the state, including Igbo Ukwu, Aguleri, Awka, Ezira and Nri.
               </p>
             </div>
-            <Image
-              src="/images/history.png"
-              width={436}
-              height={254}
-              alt="Anambra"
-              className="rounded-md w-full h-auto"
-            />
+            <div className="flex items-center h-full">
+              <Image
+                src="/images/history.png"
+                width={436}
+                height={254}
+                alt="Anambra"
+                className="rounded-md w-full h-auto self-center"
+              />
+            </div>
           </div>
 
           {/* Section: Geography */}
-          <div className="grid md:grid-cols-2 gap-6 py-[40px] items-start">
-            <Image
-              src="/images/geography.png"
-              width={436}
-              height={254}
-              alt="Anambra"
-              className="rounded-md w-full h-auto"
-            />
+          <div className="grid md:grid-cols-2 gap-6 py-[40px] items-start md:items-center">
+            <div className="flex items-center h-full">
+              <Image
+                src="/images/geography.png"
+                width={436}
+                height={254}
+                alt="Anambra"
+                className="rounded-md w-full h-auto justify-center"
+              />
+            </div>
+
             <div>
               <h3 className="inline-block text-sm font-semibold mb-[10px] text-[#CB681C] bg-[#CB681C]/20 px-4 py-2 rounded">
                 Geography
@@ -209,13 +214,15 @@ export default function Anambra() {
                 of the nation and a fast-growing industrial centre.
               </p>
             </div>
-            <Image
-              src="/images/economy.png"
-              width={436}
-              height={254}
-              alt="Anambra"
-              className="rounded-md w-full h-auto"
-            />
+            <div className="flex items-center h-full">
+              <Image
+                src="/images/economy.png"
+                width={436}
+                height={254}
+                alt="Anambra"
+                className="rounded-md w-full h-auto"
+              />
+            </div>
           </div>
 
           {/* Quick Stats */}

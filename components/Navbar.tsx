@@ -190,6 +190,14 @@ const navLinks = [
       },
     ],
   },
+  {
+    href: "/business",
+    label: "BUSINESS",
+    subLinks: [
+      { href: "/anambra", label: "Business" },
+      { href: "/business", label: "Business in Anambra" },
+    ],
+  },
   { href: "/services", label: "SERVICES" },
   { href: "/document-library", label: "DOCUMENTS" },
   { href: "/gallery", label: "GALLERY" },

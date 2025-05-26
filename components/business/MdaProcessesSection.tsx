@@ -5,7 +5,7 @@ import TabbedStepsSection from "./MDA/TabbedStepsSection";
 export default function MdaProcessesSection() {
   return (
     <section id="MDAProcesses" className="w-full mt-[20px]">
-      <div className="w-full py-[70px] px-4">
+      <div className="w-full pt-[68px] px-4">
         <div className="flex items-center w-full">
           <div className="flex-1 h-px bg-[#B3B0AD]" />
           <h2 className="text-[24px] italic font-playfair text-center mx-6 whitespace-nowrap">
@@ -15,15 +15,11 @@ export default function MdaProcessesSection() {
         </div>
       </div>
 
-      <h2 className="text-[20px]  text-center mb-4">
-        Ministry of Lands: Land Property Registration Guidelines (Individual)
-      </h2>
-
       {/* Centered Content Container */}
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="max-w-[1200px] mx-auto  sm:px-6 lg:px-6">
         {/* Section 1 */}
         <TabbedStepsSection
-          heading=""
+          heading="Ministry of Lands: Land Property Registration Guidelines (Individual)"
           steps={["Step 1", "Step 2", "Step 3"]}
           contents={{
             "Step 1":

@@ -22,10 +22,10 @@ export default function HeadingSection() {
   };
 
   return (
-    <div className="w-full py-12">
+    <div className="w-full py-4">
       {/* Heading */}
-      <div className="max-w-[1200px] mx-auto px-4 mb-[24px] pt-[50px]  sm:px-6 lg:px-8 text-center">
-        <h1 className="text-[40px] font-bold text-black">
+      <div className="max-w-[1200px] mx-auto px-4 mb-[24px] pt-[50px] sm:px-6 lg:px-8 text-center">
+        <h1 className="text-[30px] sm:text-[40px] font-bold text-black">
           Guide to Starting Business in Anambra state
         </h1>
       </div>

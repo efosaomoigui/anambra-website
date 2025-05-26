@@ -4,7 +4,23 @@ import { useRef } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function FAQComponent() {
+type FAQTag = {
+  Name: string;
+  Slug: string;
+};
+
+type FAQ = {
+  documentId: string;
+  question: string;
+  FaqAnswer: any[];
+  tags?: FAQTag[];
+};
+
+type FAQComponentProps = {
+  faqs: FAQ[];
+};
+
+export default function FAQComponent({ faqs }: FAQComponentProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -40,19 +56,18 @@ export default function FAQComponent() {
             ref={scrollRef}
             className="flex overflow-x-auto scrollbar-none gap-6 px-4 md:px-8 py-2"
           >
-            {Array.from({ length: 5 }).map((_, idx) => (
+            {faqs.map((faq, idx) => (
               <div
-                key={idx}
+                key={faq.documentId}
                 className="min-w-[382px] bg-white border border-gray-300 p-6 rounded-[8px] flex flex-col justify-between"
                 style={{ minHeight: "152px" }}
               >
                 <p className="text-[14px] sm:text-base md:text-lg text-black mb-8">
-                  This is a short answer to FAQ {idx + 1}. It briefly addresses
-                  a common question users might have.
+                  {faq.question ?? ""}
                 </p>
 
                 <div className="flex justify-between mt-auto pt-4 text-[11px] text-blue-600 font-semibold">
-                  <span>IDENTITY MANAGEMENT</span>
+                  <span>{faq.tags?.[0]?.Name ?? "General"}</span>
                   <span>FAQ</span>
                 </div>
               </div>
@@ -68,10 +83,10 @@ export default function FAQComponent() {
           </button>
         </div>
 
-        {/* Button */}
+        {/* View All Button */}
         <div className="text-center mt-8 py-8 md:py-7 px-4">
           <Link
-            href="/news"
+            href="/faq"
             className="inline-flex items-center px-6 py-2 rounded-md bg-white border border-gray-700 text-gray-700 text-sm font-semibold leading-6 hover:bg-gray-300 transition"
           >
             View All FAQs

@@ -1,53 +1,66 @@
 import Link from "next/link";
 
-export default function LatestNews() {
+type Article = {
+  documentId: string;
+  title: string;
+  description: string;
+  slug: string;
+  Article_publish_date: string;
+  is_featured: boolean;
+  // optional category name if needed for badge
+  categoryName?: string;
+};
+
+type LatestNewsProps = {
+  articles: Article[];
+};
+
+export default function LatestNews({ articles }: LatestNewsProps) {
   return (
     <section className="px-4 md:px-20 py-16">
       <div className="max-w-[1201px] mx-auto">
-        {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-[28px] sm:text-3xl md:text-[40px] font-bold text-black">
             Latest News
           </h2>
         </div>
 
-        {/* News Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {Array.from({ length: 6 }).map((_, idx) => (
-            <article key={idx} className="space-y-3">
-              <div className="w-full h-[217px] overflow-hidden rounded-lg">
+          {articles.map((article) => (
+            <article key={article.documentId} className="space-y-3">
+              <div className="w-full h-[217px] overflow-hidden rounded-lg bg-gray-200">
+                {/* Replace with dynamic image if available */}
                 <img
-                  src={`/images/soludo${idx + 1}.png`}
-                  alt={`Thumbnail for news article ${idx + 1}`}
-                  className="w-full h-full object-cover mx-auto"
+                  src="/images/soludo1.png"
+                  alt={article.title}
+                  className="w-full h-full object-cover"
                 />
               </div>
-
-              {/* Tags */}
               <div className="flex gap-2 px-1">
-                <span className="bg-[#DADADA] text-gray-800 text-[11px] font-medium px-1 py-1 rounded-[4px]">
-                  State
-                </span>
-                <span className="bg-[#DADADA] text-gray-800 text-[11px] font-medium px-1 py-1 rounded-[4px]">
-                  Security
-                </span>
+                {article.categoryName && (
+                  <span className="bg-[#DADADA] text-gray-800 text-[11px] font-medium px-1 py-1 rounded-[4px]">
+                    {article.categoryName}
+                  </span>
+                )}
               </div>
-
-              {/* Headline */}
               <h3 className="text-[15px] sm:text-lg font-semibold text-black">
-                Soludo’s new executive order specifies number of police
-                checkpoints per sq km. {idx + 1}
+                {article.title}
               </h3>
-
-              {/* Date */}
-              <time className="text-xs text-gray-500" dateTime="2024-12-04">
-                Dec 04, 2024
+              <p className="text-sm text-gray-600">{article.description}</p>
+              <time className="text-xs text-gray-500">
+                {new Date(article.Article_publish_date).toLocaleDateString(
+                  "en-US",
+                  {
+                    month: "short",
+                    day: "2-digit",
+                    year: "numeric",
+                  }
+                )}
               </time>
             </article>
           ))}
         </div>
 
-        {/* Button */}
         <div className="text-center mt-8 py-8 md:py-7 px-4">
           <Link
             href="/news"

@@ -134,13 +134,16 @@ export default function OverviewSection() {
 
                 {section.content &&
                   section.content.map((p, idx) => (
-                    <p key={idx} className="mt-2 text-gray-700">
+                    <p
+                      key={idx}
+                      className="mt-2 text-gray-700 text-[14px] lg:text-[16px]"
+                    >
                       {p}
                     </p>
                   ))}
 
                 {section.list && (
-                  <ul className="list-disc pl-6 text-gray-700 space-y-1 mt-2">
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 mt-2 text-[14px] lg:text-[16px]">
                     {section.list.map((item, idx) => (
                       <li key={idx}>{item}</li>
                     ))}
@@ -185,7 +188,7 @@ export default function OverviewSection() {
                   >
                     {group.map((member, idx) => (
                       <div key={idx} className=" p-4 text-center">
-                        <div className="w-full h-32 relative mb-3">
+                        <div className="w-full h-32 relative mb-1">
                           <Image
                             src={member.image}
                             alt={member.name}
@@ -194,8 +197,10 @@ export default function OverviewSection() {
                             className="rounded"
                           />
                         </div>
-                        <p className="text-base font-semibold">{member.name}</p>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className="text-base font-semibold text-[12px] lg:text-[16px] mb-1">
+                          {member.name}
+                        </p>
+                        <p className="text-sm text-gray-600 text-[12px] lg:text-[12px]">
                           {member.role}
                         </p>
                       </div>
