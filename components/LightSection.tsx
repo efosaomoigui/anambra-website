@@ -1,30 +1,28 @@
+// components/LightSection.tsx
 import styles from "./LightSection.module.css";
+import { LightSectionData } from "@/lib/types/graphql/homepage.types";
 
-export default function LightSection() {
+type Props = {
+  backgroundImage: LightSectionData["backgroundImage"];
+  stats: LightSectionData["stats"];
+};
+
+export default function LightSection({ backgroundImage, stats }: Props) {
   return (
     <section
       className={styles.section}
-      style={{ backgroundImage: "url('/images/light-bg.svg')" }}
+      style={{ backgroundImage: `url('${backgroundImage.url}')` }}
     >
       <div className={styles.sectionInner}>
         <div className={styles.glassCard}>
-          {/* Title */}
           <h2 className={styles.title}>Light of the Nation</h2>
-
-          {/* Stats */}
           <div className={styles.statWrapper}>
-            <div className={styles.statBox}>
-              <h2 className={styles.statValue}>6M</h2>
-              <p className={styles.statLabel}>Beautiful People</p>
-            </div>
-            <div className={styles.statBox}>
-              <h2 className={styles.statValue}>No 1</h2>
-              <p className={styles.statLabel}>Economy in South East</p>
-            </div>
-            <div className={styles.statBox}>
-              <h2 className={styles.statValue}>₦200B+</h2>
-              <p className={styles.statLabel}>Annual Revenue</p>
-            </div>
+            {stats.map((stat) => (
+              <div key={stat.id} className={styles.statBox}>
+                <h2 className={styles.statValue}>{stat.value}</h2>
+                <p className={styles.statLabel}>{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

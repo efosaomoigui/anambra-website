@@ -1,10 +1,47 @@
-// components/NoticeBoard.tsx
+"use client";
+
+import { useEffect, useState } from "react";
+import { fetchAllNotices } from "@/lib/clients/notice.client";
+import { fetchAllEvents } from "@/lib/clients/event.client";
+
+interface Notice {
+  documentId: string;
+  title: string;
+  description: string;
+  date: string;
+}
+
+interface Event {
+  documentId: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+}
+
 export default function NoticeBoard() {
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const [noticesData, eventsData] = await Promise.all([
+        fetchAllNotices(),
+        fetchAllEvents(),
+      ]);
+
+      setNotices(noticesData?.slice(0, 5) || []);
+      setEvents(eventsData?.slice(0, 4) || []);
+    };
+
+    loadData();
+  }, []);
+
   return (
     <section className="px-4 md:px-20 mt-20 py-16 bg-[#F9F9F9]">
       <div className="max-w-[1201px] mx-auto">
         <div className="grid md:grid-cols-11 gap-8">
-          {/* Left Column: Notice Board */}
+          {/* Notice Board */}
           <div className="md:col-span-6 space-y-4 bg-gradient-to-r from-[#FFC7C3] to-[#FFDEC2] p-8 rounded-[12px]">
             <div className="flex items-center gap-2 mb-8">
               <img
@@ -17,23 +54,26 @@ export default function NoticeBoard() {
               </h3>
             </div>
 
-            {Array.from({ length: 5 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-4"
-              >
-                <h3 className="text-[15px] sm:text-lg font-semibold">
-                  Soludo’s new executive order specifies number of police
-                  checkpoints per sq km. {idx + 1}
-                </h3>
-                <p className="sm:text-sm text-gray-600 text-[13px]">
-                  Dec 04, 2024
-                </p>
-              </div>
-            ))}
+            {notices.length > 0 ? (
+              notices.map((notice) => (
+                <div
+                  key={notice.documentId}
+                  className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-4"
+                >
+                  <h3 className="text-[15px] sm:text-lg font-semibold">
+                    {notice.title}
+                  </h3>
+                  <p className="sm:text-sm text-gray-600 text-[13px]">
+                    {new Date(notice.date).toLocaleDateString()}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">No notices available.</p>
+            )}
           </div>
 
-          {/* Right Column: Upcoming Events */}
+          {/* Events */}
           <div className="md:col-span-5 space-y-4 bg-[#FFDEC2] p-8 rounded-[12px]">
             <div className="flex items-center gap-2 mb-8">
               <img
@@ -46,36 +86,26 @@ export default function NoticeBoard() {
               </h3>
             </div>
 
-            {/* Main Event */}
-            <div className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-6">
-              <h3 className="text-[15px] sm:text-lg font-semibold">
-                Anambra Developer Summit 2024
-              </h3>
-              <p className="sm:text-sm text-gray-700 text-[13px] ">
-                Feb 4, 2025  — Feb 6, 2025 - 1.00 PM
-              </p>
-              <p className="text-[13px] sm:text-sm text-gray-700">
-                Govt House, Aroma, Awka.
-              </p>
-            </div>
-
-            {/* Additional Events */}
-            {Array.from({ length: 3 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-6"
-              >
-                <h3 className="text-[15px] sm:text-lg font-semibold">
-                  1st International Agrivoltaics Conference in Nigeria {idx + 2}
-                </h3>
-                <p className="text-[13px] sm:text-sm text-gray-700">
-                  Feb 4, 2025  — Feb 6, 2025 · 10.00 AM
-                </p>
-                <p className="text-[13px] sm:text-sm text-gray-700">
-                  Govt House, Aroma, Awka. {idx + 2}
-                </p>
-              </div>
-            ))}
+            {events.length > 0 ? (
+              events.map((event, idx) => (
+                <div
+                  key={event.documentId}
+                  className="text-black border-b-[1px] border-b-[rgba(0,0,0,0.1)] pb-6"
+                >
+                  <h3 className="text-[15px] sm:text-lg font-semibold">
+                    {event.title}
+                  </h3>
+                  <p className="text-[13px] sm:text-sm text-gray-700">
+                    {new Date(event.date).toLocaleDateString()} · {event.time}
+                  </p>
+                  <p className="text-[13px] sm:text-sm text-gray-700">
+                    {event.location}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">No upcoming events.</p>
+            )}
           </div>
         </div>
       </div>

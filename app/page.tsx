@@ -18,11 +18,12 @@ export default async function Home() {
   );
 
   const { faqs } = homepage.FAQ_Section;
+  const { backgroundImage, stats } = homepage.Light_Section;
 
   return (
     <>
       <Hero />
-      <LightSection />
+      <LightSection backgroundImage={backgroundImage} stats={stats} />
       <NoticeBoard />
       <InterfaceWithGovernment />
       <LatestNews articles={allArticles} />
